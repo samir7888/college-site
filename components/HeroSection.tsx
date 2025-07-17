@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Users, Award, Play } from "lucide-react";
+import { ArrowRight, BookOpen, Users, Award, Play, Star, GraduationCap, Trophy } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center">
+    <section className="relative min-h-screen flex items-center pt-32">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -14,68 +14,149 @@ export function HeroSection() {
           src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="College Campus"
           className="w-full h-full object-cover"
+          priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 ">
-        <div className="max-w-4xl  h-full  space-y-28">
-          <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-1 bg-orange-500"></div>
-              <span className="text-orange-300 font-medium text-lg">
+      <div className="relative container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-10rem)]">
+          {/* Left Content */}
+          <div className="space-y-8">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-3 bg-orange-500/20 backdrop-blur-sm border border-orange-300/30 rounded-full px-6 py-3">
+              <Star className="h-5 w-5 text-orange-400 fill-current" />
+              <span className="text-orange-200 font-medium text-sm">
                 Excellence in Education Since 2000
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
-              Shape Your Future at
-              <span className="block text-orange-400 mt-2">
-                Western Mega College
-              </span>
-            </h1>
+            {/* Main Heading */}
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
+                Shape Your
+                <span className="block text-transparent bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text">
+                  Future
+                </span>
+                <span className="block text-3xl md:text-4xl lg:text-5xl text-blue-200 mt-2">
+                  at Western Mega College
+                </span>
+              </h1>
+            </div>
 
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl leading-relaxed">
-              Empowering students with quality education in +2 and diploma
-              programs. Join our legacy of academic excellence and innovation
-              that has been transforming lives for over two decades.
+            {/* Description */}
+            <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed">
+              Empowering students with quality education in +2 and diploma programs. 
+              Join our legacy of academic excellence and innovation that has been 
+              transforming lives for over two decades.
             </p>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8 py-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-orange-400">2000+</div>
+                <div className="text-sm text-gray-300">Students</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-400">50+</div>
+                <div className="text-sm text-gray-300">Faculty</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-400">95%</div>
+                <div className="text-sm text-gray-300">Success Rate</div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                size="lg"
+                asChild
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Link href="/apply">
+                  Apply Online
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="border-2 border-white/80 hover:bg-black text-gray-900 text-lg px-8 py-4 h-auto backdrop-blur-sm transition-all hover:text-gray-100 duration-300"
+              >
+                <Link href="/courses">
+                  Explore Courses
+                  <BookOpen className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 mb-16">
-            <Button
-              size="lg"
-              asChild
-              className="bg-[#084887] hover:bg-orange-600 text-lg px-8 py-4 h-auto"
-            >
-              <Link href="/apply">
-                Apply Online
-                <ArrowRight className="ml-2 h-6 w-6" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="border-2 border-white  hover:bg-white text-blue-900 text-lg px-8 py-4 h-auto"
-            >
-              <Link href="/courses">
-                Explore Courses
-                <BookOpen className="ml-2 h-6 w-6" />
-              </Link>
-            </Button>
+          {/* Right Content - Feature Cards */}
+          <div className="hidden lg:block space-y-6">
+            <div className="grid grid-cols-1 gap-6">
+              {/* Feature Card 1 */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-blue-500/20 p-3 rounded-xl">
+                    <GraduationCap className="h-8 w-8 text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">Quality Education</h3>
+                    <p className="text-gray-300 text-sm">
+                      Comprehensive +2 and diploma programs with modern curriculum
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature Card 2 */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-green-500/20 p-3 rounded-xl">
+                    <Users className="h-8 w-8 text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">Expert Faculty</h3>
+                    <p className="text-gray-300 text-sm">
+                      Experienced teachers dedicated to student success
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature Card 3 */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-orange-500/20 p-3 rounded-xl">
+                    <Trophy className="h-8 w-8 text-orange-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">Proven Results</h3>
+                    <p className="text-gray-300 text-sm">
+                      Outstanding academic achievements and career placements
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block">
         <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm">
             <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-1/4 right-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"></div>
+      <div className="absolute bottom-1/4 left-10 w-32 h-32 bg-orange-500/10 rounded-full blur-xl"></div>
     </section>
   );
 }

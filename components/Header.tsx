@@ -76,7 +76,7 @@ export function Header() {
   const navbg = isHome ? isScrolled ? 'bg-white shadow-lg' : 'bg-transparent' : 'bg-white shadow-lg';
   const textColor = isHome && !isScrolled ? 'text-white' : 'text-gray-800';
   return (
-    <header className={`fixed w-full h-20 top-9 z-50 transition-all duration-300   ${
+    <header className={`fixed w-full h-24 top-10 z-50 transition-all duration-300 ${
      navbg 
     }`}>
       <div className="container mx-auto px-4">

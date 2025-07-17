@@ -167,7 +167,7 @@ export default function OurTeamPage() {
   const IconComponent = currentCategory?.icon || Users;
 
   return (
-    <div className="min-h-screen mt-24 bg-gray-50">
+    <div className="min-h-screen  bg-gray-50">
       {/* Hero Section */}
       <section className="min-h-[500px] text-white py-16 flex items-center justify-center" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')", backgroundSize: "cover", backgroundPosition: "top" }}>
         <div className="container mx-auto px-4 text-center">

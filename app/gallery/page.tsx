@@ -109,7 +109,7 @@ export default function GalleryPage() {
       : galleryItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="min-h-screen mt-24 bg-gray-50">
+    <div className="min-h-screen  bg-gray-50">
       {/* Hero Section */}
       <section
         className="min-h-[500px] text-white py-16 flex items-center justify-center"

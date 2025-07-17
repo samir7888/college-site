@@ -70,7 +70,7 @@ export default function ApplyPage() {
   };
 
   return (
-    <div className="min-h-screen mt-24 bg-hero-background bg-cover bg-center font-sans text-white">
+    <div className="min-h-screen bg-hero-background bg-cover bg-center font-sans text-white">
       <div className="bg-white min-h-screen">
         {/* Hero Section */}
         <section className="py-16 text-center">

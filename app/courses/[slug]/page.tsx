@@ -228,7 +228,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
 
   if (!course) {
     return (
-      <div className="min-h-screen mt-24 flex items-center justify-center bg-hero-background bg-cover bg-center font-sans text-white">
+      <div className="min-h-screen flex items-center justify-center bg-hero-background bg-cover bg-center font-sans text-white">
         <div className="bg-black bg-opacity-70 min-h-screen w-full flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold">Course Not Found</h1>
@@ -243,7 +243,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
   }
 
   return (
-    <div className="min-h-screen mt-24 bg-hero-background bg-cover bg-center font-sans text-white">
+    <div className="min-h-screen bg-hero-background bg-cover bg-center font-sans text-white">
       <div className="bg-white  min-h-screen">
         {/* Hero Section */}
         <section className="min-h-[500px] text-white py-16 flex items-center justify-center" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${course.image}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
