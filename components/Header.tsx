@@ -76,10 +76,10 @@ export function Header() {
   const navbg = isHome ? isScrolled ? 'bg-white shadow-lg' : 'bg-transparent' : 'bg-white shadow-lg';
   const textColor = isHome && !isScrolled ? 'text-white' : 'text-gray-800';
   return (
-    <header className={`fixed w-full h-32 lg:h-24 lg:top-10 z-50 transition-all duration-300 ${
+    <header className={`fixed w-full flex items-center h-32 lg:h-24 lg:top-10 z-50 transition-all duration-300 ${
      navbg 
     }`}>
-      <div className="container mx-auto px-4">
+      <div className="relative container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
 
           <Link href="/" className="flex items-center flex-shrink-0 space-x-3">
@@ -217,16 +217,16 @@ export function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`} />
+              <X className={`h-6 w-6 ${textColor}`} />
             ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-lg'}`} />
+              <Menu className={`h-6 w-6 ${textColor}`} />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t bg-white/95 backdrop-blur-sm">
+          <div className="lg:hidden py-4 px-3 absolute inset-x-0 top-18 rounded-lg border-t bg-white/95 backdrop-blur-sm">
             <nav className="flex flex-col space-y-4">
               <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Home

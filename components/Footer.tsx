@@ -47,10 +47,10 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Affiliated By</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <span className="text-gray-400">NEB</span>
+                <span className="text-gray-400 hover:text-white">NEB</span>
               </div>
               <div className="flex items-center space-x-3">
-                <span className="text-gray-400">Tribhuvan University</span>
+                <span className="text-gray-400 hover:text-white">Tribhuvan University</span>
               </div>
             </div>
           </div>
