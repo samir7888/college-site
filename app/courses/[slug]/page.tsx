@@ -38,14 +38,11 @@ import {
   Clock,
   Users,
   Calendar,
-  BookOpen,
-  Award,
   GraduationCap,
   ArrowRight,
   CheckCircle,
   Briefcase,
   User,
-  Star,
 } from "lucide-react";
 import Link from "next/link";
 
