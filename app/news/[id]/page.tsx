@@ -1,15 +1,16 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Calendar, User, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 // Mock data - in a real app, this would come from a database or API
 const newsData = {
   1: {
     id: 1,
-    title: 'New Science Laboratory Inaugurated',
-    excerpt: 'State-of-the-art physics and chemistry labs equipped with modern instruments to enhance practical learning experience for our students.',
+    title: "New Science Laboratory Inaugurated",
+    excerpt:
+      "State-of-the-art physics and chemistry labs equipped with modern instruments to enhance practical learning experience for our students.",
     content: `
       <p>Western Mega College proudly announces the inauguration of our new science laboratory complex, marking a significant milestone in our commitment to providing world-class education facilities to our students.</p>
       
@@ -33,16 +34,18 @@ const newsData = {
       
       <p>Students from the science programs have already expressed their enthusiasm about the new facilities, with many looking forward to conducting advanced experiments that were previously not possible with the older equipment.</p>
     `,
-    date: 'March 15, 2024',
-    image: 'https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'Infrastructure',
-    author: 'Admin',
-    readTime: '5 min read'
+    date: "March 15, 2024",
+    image:
+      "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    category: "Infrastructure",
+    author: "Admin",
+    readTime: "5 min read",
   },
   2: {
     id: 2,
-    title: 'Annual Sports Day Celebration',
-    excerpt: 'Students showcase their athletic talents in various sports competitions including football, basketball, and track events.',
+    title: "Annual Sports Day Celebration",
+    excerpt:
+      "Students showcase their athletic talents in various sports competitions including football, basketball, and track events.",
     content: `
       <p>The annual sports day at Western Mega College was a spectacular celebration of athleticism, teamwork, and college spirit. The three-day event brought together students, faculty, and families for an unforgettable sporting extravaganza.</p>
       
@@ -70,16 +73,18 @@ const newsData = {
       
       <p>The event concluded with an awards ceremony where medals and trophies were distributed to winners and participants. The college also announced plans to upgrade the sports facilities further to support student athletes.</p>
     `,
-    date: 'March 10, 2024',
-    image: 'https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'Events',
-    author: 'Sports Department',
-    readTime: '4 min read'
+    date: "March 10, 2024",
+    image:
+      "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    category: "Events",
+    author: "Sports Department",
+    readTime: "4 min read",
   },
   3: {
     id: 3,
-    title: 'Scholarship Program Launched',
-    excerpt: 'Merit-based scholarships for deserving students from all backgrounds to promote inclusive education.',
+    title: "Scholarship Program Launched",
+    excerpt:
+      "Merit-based scholarships for deserving students from all backgrounds to promote inclusive education.",
     content: `
       <p>Western Mega College is proud to announce the launch of our comprehensive scholarship program, designed to make quality education accessible to talented students regardless of their financial background.</p>
       
@@ -114,22 +119,21 @@ const newsData = {
       
       <p>The selection process will be conducted by a committee of faculty members and external experts, ensuring transparency and fairness in the evaluation process.</p>
     `,
-    date: 'March 5, 2024',
-    image: 'https://images.pexels.com/photos/5905895/pexels-photo-5905895.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'Academic',
-    author: 'Academic Office',
-    readTime: '6 min read'
-  }
+    date: "March 5, 2024",
+    image:
+      "https://images.pexels.com/photos/5905895/pexels-photo-5905895.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    category: "Academic",
+    author: "Academic Office",
+    readTime: "6 min read",
+  },
 };
 
 interface NewsDetailPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
-
-export default function NewsDetailPage({ params }: NewsDetailPageProps) {
-  const newsId = parseInt(params.id);
+export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
+  const { id } = await params;
+  const newsId = parseInt(id);
   const news = newsData[newsId as keyof typeof newsData];
 
   if (!news) {
@@ -138,7 +142,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
 
   // Related news (excluding current news)
   const relatedNews = Object.values(newsData)
-    .filter(item => item.id !== newsId)
+    .filter((item) => item.id !== newsId)
     .slice(0, 3);
 
   return (
@@ -196,7 +200,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
                   </div>
 
                   {/* Article Content */}
-                  <div 
+                  <div
                     className="prose prose-lg max-w-none"
                     dangerouslySetInnerHTML={{ __html: news.content }}
                   />
@@ -204,19 +208,18 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
                   {/* Share Section */}
                   <div className="mt-8 pt-6 border-t">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-gray-900">Share this article</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        Share this article
+                      </h3>
                       <div className="flex space-x-3">
                         <Button size="sm" variant="outline">
-                          <Facebook className="h-4 w-4 mr-2" />
-                          Facebook
+                          Share on Facebook
                         </Button>
                         <Button size="sm" variant="outline">
-                          <Twitter className="h-4 w-4 mr-2" />
-                          Twitter
+                          Share on Twitter
                         </Button>
                         <Button size="sm" variant="outline">
-                          <Linkedin className="h-4 w-4 mr-2" />
-                          LinkedIn
+                          Share on LinkedIn
                         </Button>
                       </div>
                     </div>
@@ -230,7 +233,9 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
               {/* Related News */}
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-6">Related News</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-6">
+                    Related News
+                  </h3>
                   <div className="space-y-6">
                     {relatedNews.map((relatedItem) => (
                       <div key={relatedItem.id} className="group">
@@ -256,10 +261,13 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
                     ))}
                   </div>
                   <div className="mt-6">
-                    <Button variant="outline" size="sm" asChild className="w-full">
-                      <Link href="/news">
-                        View All News
-                      </Link>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="w-full"
+                    >
+                      <Link href="/news">View All News</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -268,9 +276,12 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
               {/* Newsletter Signup */}
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Stay Updated</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    Stay Updated
+                  </h3>
                   <p className="text-gray-600 text-sm mb-4">
-                    Subscribe to our newsletter to get the latest news and updates from Western Mega College.
+                    Subscribe to our newsletter to get the latest news and
+                    updates from Western Mega College.
                   </p>
                   <div className="space-y-3">
                     <input
@@ -278,9 +289,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
                       placeholder="Enter your email"
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
-                    <Button className="w-full">
-                      Subscribe
-                    </Button>
+                    <Button className="w-full">Subscribe</Button>
                   </div>
                 </CardContent>
               </Card>
