@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,7 +17,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-export default function OurTeamPage() {
+function OurTeamContent() {
   const searchParams = useSearchParams();
   const category = searchParams.get("category") || "all";
 
@@ -169,7 +170,15 @@ export default function OurTeamPage() {
   return (
     <div className="min-h-screen  bg-gray-50">
       {/* Hero Section */}
-      <section className="min-h-[500px] text-white py-16 flex items-center justify-center" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')", backgroundSize: "cover", backgroundPosition: "top" }}>
+      <section
+        className="min-h-[500px] text-white py-16 flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+        }}
+      >
         <div className="container mx-auto px-4 text-center">
           <div className="flex justify-center mb-4">
             <IconComponent className="h-16 w-16 text-blue-200" />
@@ -231,7 +240,6 @@ export default function OurTeamPage() {
                         alt={member.name}
                         className="w-24 h-24 rounded-full mx-auto object-cover"
                       />
-                     
                     </div>
 
                     <CardTitle className="text-xl">{member.name}</CardTitle>
@@ -279,5 +287,40 @@ export default function OurTeamPage() {
         </div>
       </section>
     </div>
+  );
+}
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <section
+        className="min-h-[500px] text-white py-16 flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+        }}
+      >
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex justify-center mb-4">
+            <Users className="h-16 w-16 text-blue-200 animate-pulse" />
+          </div>
+          <h1 className="text-4xl text-orange-500 md:text-5xl font-bold mb-4">
+            Our Team
+          </h1>
+          <p className="text-xl tracking-wider text-blue-100 max-w-2xl mx-auto">
+            Loading team members...
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default function OurTeamPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <OurTeamContent />
+    </Suspense>
   );
 }

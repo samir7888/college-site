@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Clock,
   Users,
-  Calendar,
   BookOpen,
   Award,
   GraduationCap,
@@ -16,7 +16,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-export default function CoursesPage() {
+function CoursesContent() {
   const searchParams = useSearchParams();
   const category = searchParams.get("category") || "all";
 
@@ -107,7 +107,6 @@ export default function CoursesPage() {
       : courses.filter((course) => course.category === category);
 
   const currentCategory = courseCategories.find((cat) => cat.id === category);
-  const IconComponent = currentCategory?.icon || BookOpen;
 
   return (
     <div className="min-h-screen ">
@@ -232,5 +231,36 @@ export default function CoursesPage() {
         </div>
       </section>
     </div>
+  );
+}
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen">
+      <section
+        className="min-h-[500px] text-white py-16 flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/3401403/pexels-photo-3401403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="container mx-auto px-4 text-center">
+          <BookOpen className="h-16 w-16 mx-auto mb-4 text-white animate-pulse" />
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Courses</h1>
+          <p className="text-2xl tracking-wide text-white max-w-2xl mx-auto">
+            Loading courses...
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default function CoursesPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <CoursesContent />
+    </Suspense>
   );
 }
