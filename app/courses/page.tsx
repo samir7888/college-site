@@ -114,7 +114,7 @@ export default function CoursesPage() {
         {/* Hero Section */}
         <section className="min-h-[500px] text-white py-16 flex items-center justify-center" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/3401403/pexels-photo-3401403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')", backgroundSize: "cover", backgroundPosition: "center" }}>
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl text-orange-500 md:text-5xl  font-bold mb-4">
+            <h1 className="text-4xl  md:text-5xl  font-bold mb-4">
               {currentCategory?.label || "Our Courses"}
             </h1>
             <p className="text-2xl tracking-wide  text-white max-w-2xl mx-auto">
@@ -179,7 +179,7 @@ export default function CoursesPage() {
                   </div>
 
                   <CardHeader>
-                    <CardTitle className="text-xl font-mono">{course.title}</CardTitle>
+                    <CardTitle className="text-xl font-Bu tler">{course.title}</CardTitle>
                     <p className="text-neutral-foreground">{course.description}</p>
                   </CardHeader>
 

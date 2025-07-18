@@ -251,7 +251,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
             <Badge className="bg-blue-600 tracking-widest font-light text-white mb-4">
               {course.category === "plus2" ? "+2 Program" : "Diploma Program"}
             </Badge>
-            <h1 className="text-4xl text-orange-500 md:text-5xl font-mono font-bold mb-4">{course.title}</h1>
+            <h1 className="text-4xl  md:text-5xl font-bold mb-4">{course.title}</h1>
             <p className="text-xl tracking-wider text-white max-w-3xl mx-auto">{course.description}</p>
           </div>
         </section>

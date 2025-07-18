@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram } from 'lucide
 
 export function TopHeader() {
   return (
-    <div className="hidden md:block fixed top-0 z-40 w-full bg-blue-900 text-white py-2 text-sm h-10">
+    <div className="hidden lg:block fixed top-0 z-40 w-full bg-blue-900 text-white py-2 text-sm h-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
           <div className="flex flex-wrap items-center space-x-6">

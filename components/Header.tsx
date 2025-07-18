@@ -76,12 +76,13 @@ export function Header() {
   const navbg = isHome ? isScrolled ? 'bg-white shadow-lg' : 'bg-transparent' : 'bg-white shadow-lg';
   const textColor = isHome && !isScrolled ? 'text-white' : 'text-gray-800';
   return (
-    <header className={`fixed w-full h-24 top-10 z-50 transition-all duration-300 ${
+    <header className={`fixed w-full h-32 lg:h-24 lg:top-10 z-50 transition-all duration-300 ${
      navbg 
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center space-x-3">
+
+          <Link href="/" className="flex items-center flex-shrink-0 space-x-3">
             <GraduationCap className={`h-10 w-10 ${textColor}`} />
             <div>
               <span className={`text-2xl font-bold ${textColor}`}>

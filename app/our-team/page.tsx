@@ -231,9 +231,7 @@ export default function OurTeamPage() {
                         alt={member.name}
                         className="w-24 h-24 rounded-full mx-auto object-cover"
                       />
-                      <div className="absolute -bottom-2 -right-2 bg-blue-600 text-white p-1 rounded-full">
-                        <Award className="h-4 w-4" />
-                      </div>
+                     
                     </div>
 
                     <CardTitle className="text-xl">{member.name}</CardTitle>
