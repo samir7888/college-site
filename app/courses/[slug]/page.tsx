@@ -343,7 +343,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
                 </Card>
 
                 <Button asChild size="lg" className="w-full bg-green-600 hover:bg-green-700">
-                  <Link href={`/apply?course=${course.slug}`}>
+                  <Link href={`/apply?course=${course.id}`}>
                     Apply Now
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>

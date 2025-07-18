@@ -195,11 +195,16 @@ export default function CoursesPage() {
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-gray-700">
+                    <div className="pt-4 border-t border-gray-700 space-y-3">
                       <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                         <Link href={`/courses/${course.slug}`}>
                           View Course
                           <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline" className="w-full border-orange-500 text-orange-600 hover:bg-orange-50">
+                        <Link href={`/apply?course=${course.id}`}>
+                          Apply Now
                         </Link>
                       </Button>
                     </div>
