@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,38 +15,64 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  FileText,
-  User,
-  Upload,
-  CheckCircle,
-} from "lucide-react";
+import { FileText, User, Upload, CheckCircle } from "lucide-react";
 
-export default function ApplyPage() {
+function ApplyForm() {
   const searchParams = useSearchParams();
   const courseParam = searchParams.get("course");
-  
+
   // Course mapping - matches the courses from the courses page
   const courses = [
-    { id: "1", slug: "plus-two-science", name: "+2 Science", category: "plus2" },
-    { id: "2", slug: "plus-two-management", name: "+2 Management", category: "plus2" },
-    { id: "3", slug: "diploma-computer-engineering", name: "Diploma in Computer Engineering", category: "diploma" },
-    { id: "4", slug: "diploma-civil-engineering", name: "Diploma in Civil Engineering", category: "diploma" },
-    { id: "5", slug: "diploma-electrical-engineering", name: "Diploma in Electrical Engineering", category: "diploma" },
-    { id: "6", slug: "diploma-mechanical-engineering", name: "Diploma in Mechanical Engineering", category: "diploma" },
+    {
+      id: "1",
+      slug: "plus-two-science",
+      name: "+2 Science",
+      category: "plus2",
+    },
+    {
+      id: "2",
+      slug: "plus-two-management",
+      name: "+2 Management",
+      category: "plus2",
+    },
+    {
+      id: "3",
+      slug: "diploma-computer-engineering",
+      name: "Diploma in Computer Engineering",
+      category: "diploma",
+    },
+    {
+      id: "4",
+      slug: "diploma-civil-engineering",
+      name: "Diploma in Civil Engineering",
+      category: "diploma",
+    },
+    {
+      id: "5",
+      slug: "diploma-electrical-engineering",
+      name: "Diploma in Electrical Engineering",
+      category: "diploma",
+    },
+    {
+      id: "6",
+      slug: "diploma-mechanical-engineering",
+      name: "Diploma in Mechanical Engineering",
+      category: "diploma",
+    },
   ];
 
   // Find course by ID or slug
   const findCourseByParam = (param: string) => {
-    return courses.find(course => 
-      course.id === param || 
-      course.slug === param ||
-      course.name.toLowerCase().replace(/\s+/g, '-') === param
+    return courses.find(
+      (course) =>
+        course.id === param ||
+        course.slug === param ||
+        course.name.toLowerCase().replace(/\s+/g, "-") === param
     );
   };
 
   const selectedCourse = courseParam ? findCourseByParam(courseParam) : null;
-  
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -70,9 +96,9 @@ export default function ApplyPage() {
     if (courseParam) {
       const course = findCourseByParam(courseParam);
       if (course) {
-        setFormData(prev => ({
+        setFormData((prev) => ({
           ...prev,
-          course: course.id
+          course: course.id,
         }));
       }
     }
@@ -108,7 +134,7 @@ export default function ApplyPage() {
               Take the first step towards your bright future. Apply now to join
               Western Mega College.
             </p>
-            
+
             {/* Show selected course if pre-populated */}
             {selectedCourse && (
               <div className="mt-6 inline-flex items-center space-x-2 bg-green-100 border border-green-300 rounded-full px-6 py-3">
@@ -432,7 +458,9 @@ export default function ApplyPage() {
                 {/* Additional Information */}
                 <Card className="bg-gray-300 bg-opacity-80 border-gray-700">
                   <CardHeader>
-                    <CardTitle className="font-mono">Additional Information</CardTitle>
+                    <CardTitle className="font-mono">
+                      Additional Information
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div>
@@ -496,5 +524,34 @@ export default function ApplyPage() {
         </section>
       </div>
     </div>
+  );
+}
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-hero-background bg-cover bg-center font-sans text-white">
+      <div className="bg-white min-h-screen">
+        <section className="py-16 text-center">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-center mb-4">
+              <FileText className="h-16 w-16 text-blue-300 animate-pulse" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-mono text-black font-bold mb-4">
+              Apply Online
+            </h1>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              Loading application form...
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+export default function ApplyPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <ApplyForm />
+    </Suspense>
   );
 }
