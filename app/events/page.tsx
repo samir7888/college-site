@@ -273,7 +273,7 @@ export default function EventsPage() {
 
                   <Button
                     variant="outline"
-                    className="w-full border-gray-600 hover:bg-gray-700"
+                    className="w-full border-gray-600 hover:bg-gray-700 hover:text-gray-100"
                   >
                     View Gallery
                   </Button>

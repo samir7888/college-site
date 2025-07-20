@@ -74,7 +74,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card>
+            <Card className="h-fit">
               <CardHeader>
                 <CardTitle className="text-2xl">Send us a Message</CardTitle>
               </CardHeader>
