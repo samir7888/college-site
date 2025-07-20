@@ -2,10 +2,11 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -15,51 +16,46 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { FileText, User, Upload, CheckCircle } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  FileText,
+  User,
+  Upload,
+  CheckCircle,
+  ArrowRight,
+  ArrowLeft,
+  GraduationCap,
+  Users,
+  FileCheck,
+} from "lucide-react";
+import {
+  stepSchemas,
+  completeApplicationSchema,
+  type CompleteApplication,
+} from "@/lib/validations/application";
+import {
+  type ApplicationFormData,
+  defaultFormValues,
+  courseOptions,
+  genderOptions,
+  guardianRelationOptions,
+} from "@/types/application";
 
 function ApplyForm() {
   const searchParams = useSearchParams();
   const courseParam = searchParams.get("course");
 
-  // Course mapping - matches the courses from the courses page
-  const courses = [
-    {
-      id: "1",
-      slug: "plus-two-science",
-      name: "+2 Science",
-      category: "plus2",
-    },
-    {
-      id: "2",
-      slug: "plus-two-management",
-      name: "+2 Management",
-      category: "plus2",
-    },
-    {
-      id: "3",
-      slug: "diploma-computer-engineering",
-      name: "Diploma in Computer Engineering",
-      category: "diploma",
-    },
-    {
-      id: "4",
-      slug: "diploma-civil-engineering",
-      name: "Diploma in Civil Engineering",
-      category: "diploma",
-    },
-    {
-      id: "5",
-      slug: "diploma-electrical-engineering",
-      name: "Diploma in Electrical Engineering",
-      category: "diploma",
-    },
-    {
-      id: "6",
-      slug: "diploma-mechanical-engineering",
-      name: "Diploma in Mechanical Engineering",
-      category: "diploma",
-    },
-  ];
+  // Use courses from types
+  const courses = courseOptions;
 
   // Find course by ID or slug
   const findCourseByParam = (param: string) => {
@@ -73,456 +69,733 @@ function ApplyForm() {
 
   const selectedCourse = courseParam ? findCourseByParam(courseParam) : null;
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    dateOfBirth: "",
-    gender: "",
-    course: selectedCourse?.id || "",
-    previousSchool: "",
-    seeGpa: "",
-    guardianName: "",
-    guardianPhone: "",
-    guardianRelation: "",
-    additionalInfo: "",
-    agreeToTerms: false,
+  // Step management
+  const [currentStep, setCurrentStep] = useState(1);
+  const totalSteps = 5;
+
+  // React Hook Form setup with Zod validation
+  const form = useForm<CompleteApplication>({
+    resolver: zodResolver(completeApplicationSchema),
+    defaultValues: {
+      ...defaultFormValues,
+      course: selectedCourse?.id || defaultFormValues.course,
+    },
+    mode: "onChange", // Validate on change for real-time feedback
   });
+
+  const {
+    watch,
+    trigger,
+    formState: { errors, isValid },
+  } = form;
+  const watchedValues = watch();
 
   // Update course when URL parameter changes
   useEffect(() => {
     if (courseParam) {
       const course = findCourseByParam(courseParam);
       if (course) {
-        setFormData((prev) => ({
-          ...prev,
-          course: course.id,
-        }));
+        form.setValue("course", course.id);
       }
     }
-  }, [courseParam]);
+  }, [courseParam, form]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+  // Validate current step
+  const validateCurrentStep = async (step: number) => {
+    let fieldsToValidate: (keyof CompleteApplication)[] = [];
+
+    switch (step) {
+      case 1:
+        fieldsToValidate = [
+          "firstName",
+          "lastName",
+          "email",
+          "phone",
+          "address",
+          "dateOfBirth",
+          "gender",
+        ];
+        break;
+      case 2:
+        fieldsToValidate = ["course", "previousSchool", "seeGpa"];
+        break;
+      case 3:
+        fieldsToValidate = [
+          "guardianName",
+          "guardianPhone",
+          "guardianRelation",
+        ];
+        break;
+      case 4:
+        fieldsToValidate = ["additionalInfo"];
+        break;
+      case 5:
+        fieldsToValidate = ["agreeToTerms"];
+        break;
+    }
+
+    const result = await trigger(fieldsToValidate);
+    return result;
+  };
+
+  // Check if current step is valid
+  const isCurrentStepValid = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          watchedValues.firstName?.trim() &&
+          watchedValues.lastName?.trim() &&
+          watchedValues.email?.trim() &&
+          watchedValues.phone?.trim() &&
+          watchedValues.address?.trim() &&
+          watchedValues.dateOfBirth &&
+          watchedValues.gender &&
+          !errors.firstName &&
+          !errors.lastName &&
+          !errors.email &&
+          !errors.phone &&
+          !errors.address &&
+          !errors.dateOfBirth &&
+          !errors.gender
+        );
+      case 2:
+        return (
+          watchedValues.course &&
+          watchedValues.previousSchool?.trim() &&
+          watchedValues.seeGpa?.trim() &&
+          !errors.course &&
+          !errors.previousSchool &&
+          !errors.seeGpa
+        );
+      case 3:
+        return (
+          watchedValues.guardianName?.trim() &&
+          watchedValues.guardianPhone?.trim() &&
+          watchedValues.guardianRelation &&
+          !errors.guardianName &&
+          !errors.guardianPhone &&
+          !errors.guardianRelation
+        );
+      case 4:
+        return !errors.additionalInfo;
+      case 5:
+        return watchedValues.agreeToTerms && !errors.agreeToTerms;
+      default:
+        return false;
+    }
+  };
+
+  const nextStep = async () => {
+    const isStepValid = await validateCurrentStep(currentStep);
+    if (isStepValid && currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const onSubmit = (data: CompleteApplication) => {
+    console.log("Form submitted with validated data:", data);
     alert("Application submitted successfully! We will contact you soon.");
   };
 
-  const handleInputChange = (field: string, value: any) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+  // Step configuration
+  const steps = [
+    {
+      number: 1,
+      title: "Personal Information",
+      icon: User,
+      description: "Basic personal details",
+    },
+    {
+      number: 2,
+      title: "Academic Information",
+      icon: GraduationCap,
+      description: "Educational background",
+    },
+    {
+      number: 3,
+      title: "Guardian Information",
+      icon: Users,
+      description: "Guardian/Parent details",
+    },
+    {
+      number: 4,
+      title: "Document Upload",
+      icon: Upload,
+      description: "Required documents",
+    },
+    {
+      number: 5,
+      title: "Review & Submit",
+      icon: FileCheck,
+      description: "Final review",
+    },
+  ];
+
+  const renderStepContent = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>First Name *</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your first name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Last Name *</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your last name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email Address *</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="Enter your email"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone Number *</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="tel"
+                        placeholder="Enter your phone number"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <FormField
+              control={form.control}
+              name="address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Address *</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your address" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormField
+                control={form.control}
+                name="dateOfBirth"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Date of Birth *</FormLabel>
+                    <FormControl>
+                      <Input type="date" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="gender"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Gender *</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select gender" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {genderOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </div>
+        );
+
+      case 2:
+        return (
+          <div className="space-y-6">
+            <FormField
+              control={form.control}
+              name="course"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Course Applied For *</FormLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select course" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {courses.map((course) => (
+                        <SelectItem key={course.id} value={course.id}>
+                          {course.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormField
+                control={form.control}
+                name="previousSchool"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Previous School/College *</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Enter your previous school"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="seeGpa"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>SEE GPA *</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        max="4"
+                        placeholder="Enter your SEE GPA"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormField
+                control={form.control}
+                name="guardianName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Guardian Name *</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter guardian's name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="guardianPhone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Guardian Phone *</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="tel"
+                        placeholder="Enter guardian's phone"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <FormField
+              control={form.control}
+              name="guardianRelation"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Relation to Guardian *</FormLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select relation" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {guardianRelationOptions.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        );
+
+      case 4:
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Label htmlFor="seeMarksheet">SEE Marksheet *</Label>
+                <Input
+                  id="seeMarksheet"
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  className="mt-2"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Upload PDF, JPG, JPEG, or PNG (Max 10MB)
+                </p>
+              </div>
+              <div>
+                <Label htmlFor="citizenship">
+                  Citizenship/Birth Certificate *
+                </Label>
+                <Input
+                  id="citizenship"
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  className="mt-2"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Upload PDF, JPG, JPEG, or PNG (Max 10MB)
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Label htmlFor="passport">Passport Size Photo *</Label>
+                <Input
+                  id="passport"
+                  type="file"
+                  accept=".jpg,.jpeg,.png"
+                  className="mt-2"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Upload JPG, JPEG, or PNG (Max 5MB)
+                </p>
+              </div>
+              <div>
+                <Label htmlFor="characterCertificate">
+                  Character Certificate (Optional)
+                </Label>
+                <Input
+                  id="characterCertificate"
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  className="mt-2"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Upload PDF, JPG, JPEG, or PNG (Max 10MB)
+                </p>
+              </div>
+            </div>
+
+            <FormField
+              control={form.control}
+              name="additionalInfo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Additional Information (Optional)</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Any additional information you'd like to share..."
+                      rows={4}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    Share any relevant information that might help with your
+                    application
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        );
+
+      case 5:
+        return (
+          <div className="space-y-6">
+            {/* Review Summary */}
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4">
+                Application Summary
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <strong>Name:</strong> {watchedValues.firstName}{" "}
+                  {watchedValues.lastName}
+                </div>
+                <div>
+                  <strong>Email:</strong> {watchedValues.email}
+                </div>
+                <div>
+                  <strong>Phone:</strong> {watchedValues.phone}
+                </div>
+                <div>
+                  <strong>Course:</strong>{" "}
+                  {courses.find((c) => c.id === watchedValues.course)?.name}
+                </div>
+                <div>
+                  <strong>SEE GPA:</strong> {watchedValues.seeGpa}
+                </div>
+                <div>
+                  <strong>Guardian:</strong> {watchedValues.guardianName}
+                </div>
+              </div>
+            </div>
+
+            {/* Terms and Conditions */}
+            <FormField
+              control={form.control}
+              name="agreeToTerms"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel className="text-sm leading-relaxed">
+                      I agree to the{" "}
+                      <a
+                        href="/terms"
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                      >
+                        Terms and Conditions
+                      </a>{" "}
+                      and confirm that all information provided is accurate. I
+                      understand that providing false information may result in
+                      the rejection of my application.
+                    </FormLabel>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+          </div>
+        );
+
+      default:
+        return null;
+    }
   };
 
   return (
-    <div className="min-h-screen bg-hero-background bg-cover bg-center font-sans text-white">
-      <div className="bg-white min-h-screen">
-        {/* Hero Section */}
-        <section className="py-16 text-center">
-          <div className="container mx-auto px-4">
-            <div className="flex justify-center mb-4">
-              <FileText className="h-16 w-16 text-blue-300" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-mono text-black font-bold mb-4">
-              Apply Online
-            </h1>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-              Take the first step towards your bright future. Apply now to join
-              Western Mega College.
-            </p>
-
-            {/* Show selected course if pre-populated */}
-            {selectedCourse && (
-              <div className="mt-6 inline-flex items-center space-x-2 bg-green-100 border border-green-300 rounded-full px-6 py-3">
-                <CheckCircle className="h-5 w-5 text-green-600" />
-                <span className="text-green-800 font-medium">
-                  Applying for: {selectedCourse.name}
-                </span>
-              </div>
-            )}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Hero Section */}
+      <section className="py-12 text-center bg-white shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center mb-4">
+            <FileText className="h-12 w-12 text-blue-600" />
           </div>
-        </section>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Online Application
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Complete your application in simple steps
+          </p>
 
-        {/* Application Form */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Personal Information */}
-                <Card className="bg-gray-200 bg-opacity-80 border-gray-700">
-                  <CardHeader>
-                    <CardTitle className="flex items-center space-x-2 font-mono">
-                      <User className="h-5 w-5" />
-                      <span>Personal Information</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="firstName">First Name *</Label>
-                        <Input
-                          id="firstName"
-                          value={formData.firstName}
-                          onChange={(e) =>
-                            handleInputChange("firstName", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="lastName">Last Name *</Label>
-                        <Input
-                          id="lastName"
-                          value={formData.lastName}
-                          onChange={(e) =>
-                            handleInputChange("lastName", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                    </div>
+          {/* Show selected course if pre-populated */}
+          {selectedCourse && (
+            <div className="mt-6 inline-flex items-center space-x-2 bg-green-100 border border-green-300 rounded-full px-6 py-3">
+              <CheckCircle className="h-5 w-5 text-green-600" />
+              <span className="text-green-800 font-medium">
+                Applying for: {selectedCourse.name}
+              </span>
+            </div>
+          )}
+        </div>
+      </section>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="email">Email Address *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) =>
-                            handleInputChange("email", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="phone">Phone Number *</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            handleInputChange("phone", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                    </div>
+      {/* Progress Steps */}
+      <section className="py-8 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center justify-between">
+              {steps.map((step, index) => {
+                const Icon = step.icon;
+                const isActive = currentStep === step.number;
+                const isCompleted = currentStep > step.number;
 
-                    <div>
-                      <Label htmlFor="address">Address *</Label>
-                      <Input
-                        id="address"
-                        value={formData.address}
-                        onChange={(e) =>
-                          handleInputChange("address", e.target.value)
-                        }
-                        required
-                        className="bg-gray-200 border-gray-600"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="dateOfBirth">Date of Birth *</Label>
-                        <Input
-                          id="dateOfBirth"
-                          type="date"
-                          value={formData.dateOfBirth}
-                          onChange={(e) =>
-                            handleInputChange("dateOfBirth", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="gender">Gender *</Label>
-                        <Select
-                          value={formData.gender}
-                          onValueChange={(value) =>
-                            handleInputChange("gender", value)
-                          }
-                        >
-                          <SelectTrigger className="bg-gray-200 border-gray-600">
-                            <SelectValue placeholder="Select gender" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-gray-300 text-white">
-                            <SelectItem value="male">Male</SelectItem>
-                            <SelectItem value="female">Female</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Academic Information */}
-                <Card className="bg-gray-300 bg-opacity-80 border-gray-700">
-                  <CardHeader>
-                    <CardTitle className="flex items-center space-x-2 font-mono">
-                      <FileText className="h-5 w-5" />
-                      <span>Academic Information</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div>
-                      <Label htmlFor="course">Course Applied For *</Label>
-                      <Select
-                        value={formData.course}
-                        onValueChange={(value) =>
-                          handleInputChange("course", value)
-                        }
+                return (
+                  <div key={step.number} className="flex items-center">
+                    <div className="flex flex-col items-center">
+                      <div
+                        className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all ${
+                          isCompleted
+                            ? "bg-green-500 border-green-500 text-white"
+                            : isActive
+                            ? "bg-blue-600 border-blue-600 text-white"
+                            : "bg-gray-100 border-gray-300 text-gray-400"
+                        }`}
                       >
-                        <SelectTrigger className="bg-gray-200 border-gray-600">
-                          <SelectValue placeholder="Select course" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-gray-300 text-white">
-                          {courses.map((course) => (
-                            <SelectItem key={course.id} value={course.id}>
-                              {course.name}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="previousSchool">
-                          Previous School/College *
-                        </Label>
-                        <Input
-                          id="previousSchool"
-                          value={formData.previousSchool}
-                          onChange={(e) =>
-                            handleInputChange("previousSchool", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
+                        {isCompleted ? (
+                          <CheckCircle className="h-6 w-6" />
+                        ) : (
+                          <Icon className="h-6 w-6" />
+                        )}
                       </div>
-                      <div>
-                        <Label htmlFor="seeGpa">SEE GPA *</Label>
-                        <Input
-                          id="seeGpa"
-                          type="number"
-                          step="0.01"
-                          min="0"
-                          max="4"
-                          value={formData.seeGpa}
-                          onChange={(e) =>
-                            handleInputChange("seeGpa", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Guardian Information */}
-                <Card className="bg-gray-300 bg-opacity-80 border-gray-700">
-                  <CardHeader>
-                    <CardTitle className="flex items-center space-x-2 font-mono">
-                      <User className="h-5 w-5" />
-                      <span>Guardian Information</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="guardianName">Guardian Name *</Label>
-                        <Input
-                          id="guardianName"
-                          value={formData.guardianName}
-                          onChange={(e) =>
-                            handleInputChange("guardianName", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="guardianPhone">Guardian Phone *</Label>
-                        <Input
-                          id="guardianPhone"
-                          type="tel"
-                          value={formData.guardianPhone}
-                          onChange={(e) =>
-                            handleInputChange("guardianPhone", e.target.value)
-                          }
-                          required
-                          className="bg-gray-200 border-gray-600"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="guardianRelation">
-                        Relation to Guardian *
-                      </Label>
-                      <Select
-                        value={formData.guardianRelation}
-                        onValueChange={(value) =>
-                          handleInputChange("guardianRelation", value)
-                        }
-                      >
-                        <SelectTrigger className="bg-gray-200 border-gray-600">
-                          <SelectValue placeholder="Select relation" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-gray-300 text-white">
-                          <SelectItem value="father">Father</SelectItem>
-                          <SelectItem value="mother">Mother</SelectItem>
-                          <SelectItem value="uncle">Uncle</SelectItem>
-                          <SelectItem value="aunt">Aunt</SelectItem>
-                          <SelectItem value="brother">Brother</SelectItem>
-                          <SelectItem value="sister">Sister</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Document Upload */}
-                <Card className="bg-gray-300 bg-opacity-80 border-gray-700">
-                  <CardHeader>
-                    <CardTitle className="flex items-center space-x-2 font-mono">
-                      <Upload className="h-5 w-5" />
-                      <span>Document Upload</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="seeMarksheet">SEE Marksheet *</Label>
-                        <Input
-                          id="seeMarksheet"
-                          type="file"
-                          accept=".pdf,.jpg,.jpeg,.png"
-                          required
-                          className="bg-gray-200 border-gray-600 "
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="citizenship">
-                          Citizenship/Birth Certificate *
-                        </Label>
-                        <Input
-                          id="citizenship"
-                          type="file"
-                          accept=".pdf,.jpg,.jpeg,.png"
-                          required
-                          className="bg-gray-200 border-gray-600 "
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="passport">Passport Size Photo *</Label>
-                        <Input
-                          id="passport"
-                          type="file"
-                          accept=".jpg,.jpeg,.png"
-                          required
-                          className="bg-gray-200 border-gray-600 "
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="characterCertificate">
-                          Character Certificate
-                        </Label>
-                        <Input
-                          id="characterCertificate"
-                          type="file"
-                          accept=".pdf,.jpg,.jpeg,.png"
-                          className="bg-gray-200 border-gray-600 "
-                        />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Additional Information */}
-                <Card className="bg-gray-300 bg-opacity-80 border-gray-700">
-                  <CardHeader>
-                    <CardTitle className="font-mono">
-                      Additional Information
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div>
-                      <Label htmlFor="additionalInfo">
-                        Additional Information (Optional)
-                      </Label>
-                      <Textarea
-                        id="additionalInfo"
-                        value={formData.additionalInfo}
-                        onChange={(e) =>
-                          handleInputChange("additionalInfo", e.target.value)
-                        }
-                        placeholder="Any additional information you'd like to share..."
-                        rows={4}
-                        className="bg-gray-200 border-gray-600"
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Terms and Conditions */}
-                <Card className="bg-gray-300 bg-opacity-80 border-gray-700">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="agreeToTerms"
-                        checked={formData.agreeToTerms}
-                        onCheckedChange={(checked) =>
-                          handleInputChange("agreeToTerms", checked)
-                        }
-                        className="border-gray-600"
-                      />
-                      <Label htmlFor="agreeToTerms" className="text-sm">
-                        I agree to the{" "}
-                        <a
-                          href="/terms"
-                          className="text-blue-400 hover:underline"
+                      <div className="mt-2 text-center">
+                        <div
+                          className={`text-sm font-medium ${
+                            isActive ? "text-blue-600" : "text-gray-500"
+                          }`}
                         >
-                          Terms and Conditions
-                        </a>{" "}
-                        and confirm that all information provided is accurate.
-                      </Label>
+                          {step.title}
+                        </div>
+                        <div className="text-xs text-gray-400 hidden md:block">
+                          {step.description}
+                        </div>
+                      </div>
                     </div>
-                  </CardContent>
-                </Card>
-
-                {/* Submit Button */}
-                <div className="text-center">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="px-8 bg-blue-600 hover:bg-blue-700"
-                    disabled={!formData.agreeToTerms}
-                  >
-                    Submit Application
-                  </Button>
-                </div>
-              </form>
+                    {index < steps.length - 1 && (
+                      <div
+                        className={`flex-1 h-0.5 mx-4 ${
+                          currentStep > step.number
+                            ? "bg-green-500"
+                            : "bg-gray-200"
+                        }`}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* Form Content */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <Card className="shadow-lg">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">
+                  {steps[currentStep - 1].title}
+                </CardTitle>
+                <p className="text-gray-600">
+                  {steps[currentStep - 1].description}
+                </p>
+              </CardHeader>
+              <CardContent className="p-8">
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)}>
+                    {renderStepContent()}
+
+                    {/* Navigation Buttons */}
+                    <div className="flex justify-between mt-8 pt-6 border-t">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={prevStep}
+                        disabled={currentStep === 1}
+                        className="flex items-center space-x-2"
+                      >
+                        <ArrowLeft className="h-4 w-4" />
+                        <span>Previous</span>
+                      </Button>
+
+                      {currentStep < totalSteps ? (
+                        <Button
+                          type="button"
+                          onClick={nextStep}
+                          disabled={!isCurrentStepValid()}
+                          className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700"
+                        >
+                          <span>Next</span>
+                          <ArrowRight className="h-4 w-4" />
+                        </Button>
+                      ) : (
+                        <Button
+                          type="submit"
+                          disabled={!isCurrentStepValid()}
+                          className="flex items-center space-x-2 bg-green-600 hover:bg-green-700"
+                        >
+                          <span>Submit Application</span>
+                          <CheckCircle className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </div>
+                  </form>
+                </Form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
