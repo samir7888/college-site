@@ -5,6 +5,7 @@ import { CoursesSection } from "@/components/CoursesSection";
 import { AlumniSection } from "@/components/AlumniSection";
 import { NewsSection } from "@/components/NewsSection";
 import { StatsSection } from "@/components/StatsSection";
+import { IndustryConnectionsSection } from "@/components/IndustryConnectionsSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <StatsSection />
       <AlumniSection />
       <NewsSection />
+      <IndustryConnectionsSection />
     </div>
   );
 }
