@@ -80,8 +80,8 @@ export function CoursesSection() {
               </div>
               
               <CardHeader>
-                <CardTitle className="text-xl">{course.title}</CardTitle>
-                <CardDescription>{course.description}</CardDescription>
+                <CardTitle className="text-xl h-16">{course.title}</CardTitle>
+                <CardDescription className='h-8'>{course.description}</CardDescription>
               </CardHeader>
               
               <CardContent className="space-y-4">
