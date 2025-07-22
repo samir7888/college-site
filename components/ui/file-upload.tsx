@@ -11,8 +11,7 @@ import {
   CheckCircle,
   AlertCircle,
   Image as ImageIcon,
-  FileText,
-  FilePdf,
+  FileText
 } from "lucide-react";
 
 interface FileUploadProps {
@@ -52,9 +51,7 @@ export function FileUpload({
       ["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(extension || "")
     ) {
       return <ImageIcon className="h-8 w-8 text-blue-500" />;
-    } else if (extension === "pdf") {
-      return <FilePdf className="h-8 w-8 text-red-500" />;
-    } else {
+    }else {
       return <FileText className="h-8 w-8 text-gray-500" />;
     }
   };
