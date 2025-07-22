@@ -28,6 +28,7 @@ export function Footer() {
               <li><Link href="/courses" className="text-gray-400 hover:text-white">Courses</Link></li>
               <li><Link href="/our-team" className="text-gray-400 hover:text-white">Our Team</Link></li>
               <li><Link href="/alumni" className="text-gray-400 hover:text-white">Alumni</Link></li>
+              <li><Link target='_blank' href="https://collaboration.lincolnedu.education/welcome.aspx" className="text-gray-400 hover:text-white">MYLLS</Link></li>
               <li><Link href="/apply" className="text-gray-400 hover:text-white">Apply Online</Link></li>
             </ul>
           </div>
