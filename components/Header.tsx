@@ -52,34 +52,6 @@ export function Header() {
     };
   }, [activeDropdown, coursesRef, teamRef]);
 
-  const teamCategories = [
-    {
-      id: "bods",
-      label: "Board of Directors",
-      href: "/our-team?category=bods",
-    },
-    {
-      id: "principle",
-      label: "Principal",
-      href: "/our-team?category=principle",
-    },
-    {
-      id: "academics",
-      label: "Academic Staff",
-      href: "/our-team?category=academics",
-    },
-    {
-      id: "admins",
-      label: "Administration",
-      href: "/our-team?category=admins",
-    },
-    {
-      id: "support",
-      label: "Support Staff",
-      href: "/our-team?category=support",
-    },
-  ];
-
   const plus2Courses = [
     {
       id: "science",
@@ -199,34 +171,12 @@ export function Header() {
               </div>
             </div>
 
-            {/* Our Team Dropdown */}
-            <div className="group relative" ref={teamRef}>
-              <button
-                onClick={() => toggleDropdown("team")}
-                className={`flex items-center space-x-1 font-medium transition-colors ${textColor}`}
-              >
-                <span>OUR TEAM</span>
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${
-                    activeDropdown === "team" ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              <div className="opacity-0 scale-0  group-hover:scale-100 group-hover:opacity-100  absolute top-full left-0 w-48 bg-white rounded-md shadow-lg py-2 z-10">
-                {teamCategories.map((category) => (
-                  <Link
-                    key={category.id}
-                    href={category.href}
-                    onClick={closeDropdowns}
-                    className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-                  >
-                    {category.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
+            <Link
+              href="/our-team"
+              className={`font-medium transition-colors ${textColor}`}
+            >
+              OUR TEAMS
+            </Link>
             <Link
               href="/alumni"
               className={`font-medium transition-colors ${textColor}`}
