@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { MapPin, Calendar, Award, Search } from "lucide-react";
+import Link from "next/link";
 
 export default function AlumniPage() {
   const alumni = [
@@ -96,7 +97,15 @@ export default function AlumniPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="min-h-[500px] text-white py-16 flex items-center justify-center" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section
+        className="min-h-[500px] text-white py-16 flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Alumni</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
@@ -214,8 +223,12 @@ export default function AlumniPage() {
             Join our alumni network and stay connected with your alma mater and
             fellow graduates
           </p>
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-            Register as Alumni
+          <Button
+            size="lg"
+            className="bg-orange-500 hover:bg-orange-600"
+            asChild
+          >
+            <Link href="/alumni/register">Register as Alumni</Link>
           </Button>
         </div>
       </section>
