@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,13 +104,12 @@ export function Header() {
       <div className="relative container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center flex-shrink-0 space-x-3">
-            <GraduationCap className={`h-10 w-10 ${textColor}`} />
-            <div>
-              <span className={`text-2xl font-bold ${textColor}`}>
-                Western Mega
-              </span>
-              <p className={`text-sm ${textColor}`}>Excellence in Education</p>
-            </div>
+            <Image
+              width={200}
+              height={100}
+              src="/logo.png"
+              alt="Western Mega College"
+            />
           </Link>
 
           {/* Desktop Navigation */}

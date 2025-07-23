@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Facebook,
   Twitter,
@@ -16,8 +17,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <GraduationCap className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">Western Mega</span>
+              <Image
+                src="/logo.png"
+                width={150}
+                height={75}
+                alt="Western Mega College"
+              />
             </div>
             <p className="text-gray-400 mb-4">
               Empowering students with quality education and preparing them for
