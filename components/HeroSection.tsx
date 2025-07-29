@@ -1,5 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Users, Award, Play, Star, GraduationCap, Trophy } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Users,
+  Award,
+  Star,
+  GraduationCap,
+  Trophy,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,9 +19,9 @@ export function HeroSection() {
         <Image
           width={1920}
           height={1080}
-          src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="/college.JPG"
           alt="College Campus"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-bottom"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
@@ -27,16 +35,16 @@ export function HeroSection() {
             <div className="inline-flex items-center space-x-3 bg-orange-500/20 backdrop-blur-sm border border-orange-300/30 rounded-full px-6 py-3">
               <Star className="h-5 w-5 text-orange-400 fill-current" />
               <span className="text-orange-200 font-medium text-sm">
-                Excellence in Education Since 2000
+                Hospitality & Management Excellence Since 2013
               </span>
             </div>
 
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
-                Shape Your
+                Build Your
                 <span className="block text-transparent bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text">
-                  Future
+                  Career in BHM & MBA
                 </span>
                 <span className="block text-3xl md:text-4xl lg:text-5xl text-blue-200 mt-2">
                   at Western Mega College
@@ -46,24 +54,24 @@ export function HeroSection() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed">
-              Empowering students with quality education in +2 and diploma programs. 
-              Join our legacy of academic excellence and innovation that has been 
-              transforming lives for over two decades.
+              Join a decade-strong legacy in hospitality and management education.
+              Our BHM and MBA programs blend academic excellence with hands-on experience,
+              preparing you for global careers in business and hospitality industries.
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-8 py-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-400">2000+</div>
-                <div className="text-sm text-gray-300">Students</div>
+                <div className="text-3xl font-bold text-orange-400">1500+</div>
+                <div className="text-sm text-gray-300">BHM & MBA Graduates</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">50+</div>
-                <div className="text-sm text-gray-300">Faculty</div>
+                <div className="text-3xl font-bold text-blue-400">40+</div>
+                <div className="text-sm text-gray-300">Industry-Expert Faculty</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400">95%</div>
-                <div className="text-sm text-gray-300">Success Rate</div>
+                <div className="text-3xl font-bold text-green-400">90%</div>
+                <div className="text-sm text-gray-300">Placement Rate</div>
               </div>
             </div>
 
@@ -75,7 +83,7 @@ export function HeroSection() {
                 className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Link href="/apply">
-                  Apply Online
+                  Apply Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -85,8 +93,8 @@ export function HeroSection() {
                 asChild
                 className="border-2 border-white/80 hover:bg-black text-gray-900 text-lg px-8 py-4 h-auto backdrop-blur-sm transition-all hover:text-gray-100 duration-300"
               >
-                <Link href="/courses">
-                  Explore Courses
+                <Link href="/programs">
+                  Explore Programs
                   <BookOpen className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -103,9 +111,11 @@ export function HeroSection() {
                     <GraduationCap className="h-8 w-8 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Quality Education</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      Specialized BHM & MBA
+                    </h3>
                     <p className="text-gray-300 text-sm">
-                      Comprehensive +2 and diploma programs with modern curriculum
+                      Tailored programs that blend theory with real-world hospitality and business skills.
                     </p>
                   </div>
                 </div>
@@ -118,9 +128,9 @@ export function HeroSection() {
                     <Users className="h-8 w-8 text-green-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Expert Faculty</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">Industry Mentorship</h3>
                     <p className="text-gray-300 text-sm">
-                      Experienced teachers dedicated to student success
+                      Learn directly from hospitality leaders and business professionals.
                     </p>
                   </div>
                 </div>
@@ -133,9 +143,9 @@ export function HeroSection() {
                     <Trophy className="h-8 w-8 text-orange-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Proven Results</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">Global Career Pathways</h3>
                     <p className="text-gray-300 text-sm">
-                      Outstanding academic achievements and career placements
+                      Excellent placement support and internship opportunities in leading global companies.
                     </p>
                   </div>
                 </div>

@@ -5,14 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Clock,
-  Users,
-  BookOpen,
-  Award,
-  GraduationCap,
-  ArrowRight,
-} from "lucide-react";
+import { Clock, Users, BookOpen, ArrowRight, GraduationCap, Award } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -20,87 +13,42 @@ function CoursesContent() {
   const searchParams = useSearchParams();
   const category = searchParams.get("category") || "all";
 
+  // Updated course categories to BHM and MBA
   const courseCategories = [
-    { id: "all", label: "All Courses", icon: BookOpen },
-    { id: "plus2", label: "+2 Programs", icon: GraduationCap },
-    { id: "diploma", label: "Diploma Programs", icon: Award },
+    { id: "all", label: "All Programs", icon: BookOpen },
+    { id: "bachelor", label: "Bachelor Programs (BHM)", icon: GraduationCap },
+    { id: "masters", label: "Master Programs (MBA)", icon: Award },
   ];
 
+  // Updated courses list
   const courses = [
     {
       id: 1,
-      slug: "plus-two-science",
-      title: "+2 Science",
-      category: "plus2",
+      slug: "bachelor-of-science-in-hospitality-management",
+      title: "Bachelor of Science in Hospitality Management (BHM)",
+      category: "bachelor",
       description:
-        "Comprehensive science education covering Physics, Chemistry, Biology, and Mathematics",
-      duration: "2 Years",
-      intake: "150 Students",
+        "Comprehensive hospitality management program focusing on hotel operations, event planning, and customer service excellence.",
+      duration: "4 Years",
+      intake: "200 Students",
       image:
-        "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=500",
+        "/image3.JPG",
     },
     {
       id: 2,
-      slug: "plus-two-management",
-      title: "+2 Management",
-      category: "plus2",
+      slug: "master-of-business-administration",
+      title: "Master of Business Administration (MBA)",
+      category: "masters",
       description:
-        "Business-focused education with emphasis on management principles and practices",
+        "Advanced business administration program covering leadership, marketing, finance, and strategic management.",
       duration: "2 Years",
-      intake: "120 Students",
+      intake: "100 Students",
       image:
-        "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=500",
-    },
-    {
-      id: 3,
-      slug: "diploma-computer-engineering",
-      title: "Diploma in Computer Engineering",
-      category: "diploma",
-      description:
-        "Practical computer engineering education with hands-on programming and system design",
-      duration: "3 Years",
-      intake: "80 Students",
-      image:
-        "https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=500",
-    },
-    {
-      id: 4,
-      slug: "diploma-civil-engineering",
-      title: "Diploma in Civil Engineering",
-      category: "diploma",
-      description:
-        "Comprehensive civil engineering program covering construction, design, and project management",
-      duration: "3 Years",
-      intake: "60 Students",
-      image:
-        "https://images.pexels.com/photos/8761431/pexels-photo-8761431.jpeg?auto=compress&cs=tinysrgb&w=500",
-    },
-    {
-      id: 5,
-      slug: "diploma-electrical-engineering",
-      title: "Diploma in Electrical Engineering",
-      category: "diploma",
-      description:
-        "Electrical engineering fundamentals with focus on power systems and electronics",
-      duration: "3 Years",
-      intake: "50 Students",
-      image:
-        "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=500",
-    },
-    {
-      id: 6,
-      slug: "diploma-mechanical-engineering",
-      title: "Diploma in Mechanical Engineering",
-      category: "diploma",
-      description:
-        "Mechanical engineering program covering design, manufacturing, and maintenance",
-      duration: "3 Years",
-      intake: "45 Students",
-      image:
-        "https://images.pexels.com/photos/159751/turning-lathe-machine-tool-metal-159751.jpeg?auto=compress&cs=tinysrgb&w=500",
+        "/image2.JPG",
     },
   ];
 
+  // Filter courses by selected category
   const filteredCourses =
     category === "all"
       ? courses
@@ -111,25 +59,30 @@ function CoursesContent() {
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section
-        className="min-h-[500px] text-white py-16 flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/3401403/pexels-photo-3401403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl  md:text-5xl  font-bold mb-4">
-            {currentCategory?.label || "Our Courses"}
+      <section className="relative min-h-[500px] flex items-center justify-center text-white py-16 overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/pic2.JPG"
+          alt="Western Mega Programs"
+          fill
+          className="object-cover object-center z-0"
+          priority
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+
+        {/* Content */}
+        <div className="relative z-20 container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            {currentCategory?.label || "Our Programs"}
           </h1>
-          <p className="text-2xl tracking-wide  text-white max-w-2xl mx-auto">
-            Discover our comprehensive range of academic programs designed to
-            prepare you for success
+          <p className="text-2xl tracking-wide text-white max-w-2xl mx-auto">
+            Discover our specialized academic programs designed to prepare you for success.
           </p>
         </div>
       </section>
+
 
       {/* Category Navigation */}
       <section className="py-8 border-b border-gray-200">
@@ -178,20 +131,16 @@ function CoursesContent() {
                   />
                   <div className="absolute top-4 left-4">
                     <Badge className="bg-blue-600 text-white">
-                      {course.category === "plus2"
-                        ? "+2 Program"
-                        : "Diploma Program"}
+                      {course.category === "bachelor"
+                        ? "Bachelor Program"
+                        : "Master Program"}
                     </Badge>
                   </div>
                 </div>
 
                 <CardHeader>
-                  <CardTitle className="text-xl font-Bu tler">
-                    {course.title}
-                  </CardTitle>
-                  <p className="text-neutral-foreground">
-                    {course.description}
-                  </p>
+                  <CardTitle>{course.title}</CardTitle>
+                  <p className="text-neutral-foreground">{course.description}</p>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
@@ -207,10 +156,7 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-4 border-t border-gray-700 space-y-3">
-                    <Button
-                      asChild
-                      className="w-full bg-blue-600 hover:bg-blue-700"
-                    >
+                    <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                       <Link href={`/courses/${course.slug}`}>
                         View Course
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -233,6 +179,7 @@ function CoursesContent() {
     </div>
   );
 }
+
 function LoadingFallback() {
   return (
     <div className="min-h-screen">
@@ -247,7 +194,7 @@ function LoadingFallback() {
       >
         <div className="container mx-auto px-4 text-center">
           <BookOpen className="h-16 w-16 mx-auto mb-4 text-white animate-pulse" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Courses</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Programs</h1>
           <p className="text-2xl tracking-wide text-white max-w-2xl mx-auto">
             Loading courses...
           </p>

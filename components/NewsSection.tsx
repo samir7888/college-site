@@ -7,27 +7,27 @@ export function NewsSection() {
   const news = [
     {
       id: 1,
-      title: 'New Science Laboratory Inaugurated',
-      excerpt: 'State-of-the-art physics and chemistry labs equipped with modern instruments.',
-      date: 'March 15, 2024',
-      image: 'https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Infrastructure'
+      title: 'BHM Students Host Annual Hospitality Festival',
+      excerpt: 'Showcasing culinary arts, event management, and hospitality skills with industry guests attending.',
+      date: 'April 10, 2024',
+      image: 'image3.JPG',
+      category: 'BHM Event'
     },
     {
       id: 2,
-      title: 'Annual Sports Day Celebration',
-      excerpt: 'Students showcase their athletic talents in various sports competitions.',
-      date: 'March 10, 2024',
-      image: 'https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Events'
+      title: 'MBA Seminar on Digital Marketing Trends',
+      excerpt: 'Industry experts share insights on the latest digital marketing strategies and tools.',
+      date: 'March 28, 2024',
+      image: 'image2.JPG',
+      category: 'MBA Seminar'
     },
     {
       id: 3,
-      title: 'Scholarship Program Launched',
-      excerpt: 'Merit-based scholarships for deserving students from all backgrounds.',
-      date: 'March 5, 2024',
-      image: 'https://images.pexels.com/photos/5905895/pexels-photo-5905895.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Academic'
+      title: 'Scholarships for BHM and MBA Students Announced',
+      excerpt: 'Merit-based and need-based scholarships available for deserving candidates in BHM and MBA programs.',
+      date: 'March 15, 2024',
+      image: 'image1.JPG',
+      category: 'Scholarships'
     },
   ];
 
@@ -42,11 +42,11 @@ export function NewsSection() {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Campus Updates & Events
+            BHM & MBA Campus Updates & Events
           </h2>
           
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Stay updated with the latest news, events, and achievements from Western Mega College.
+            Stay informed about the latest news, events, and achievements specifically related to our BHM and MBA programs.
           </p>
         </div>
         

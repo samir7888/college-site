@@ -13,10 +13,9 @@ export function UniversitySection() {
                 <div className="bg-blue-100 p-3 rounded-lg w-fit mb-4">
                   <BookOpen className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Rich History</h3>
+                <h3 className="text-xl font-semibold mb-3">Established Legacy</h3>
                 <p className="text-gray-600">
-                  Founded in 1965 with a legacy of academic excellence spanning
-                  over five decades.
+                  Founded in 2002, LUC has steadily grown into one of Malaysia’s most respected higher education institutions.
                 </p>
               </div>
 
@@ -24,10 +23,9 @@ export function UniversitySection() {
                 <div className="bg-green-100 p-3 rounded-lg w-fit mb-4">
                   <GraduationCap className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Top Rankings</h3>
+                <h3 className="text-xl font-semibold mb-3">Accredited Programs</h3>
                 <p className="text-gray-600">
-                  Consistently ranked among the top 50 universities nationwide
-                  for educational quality.
+                  Offers a wide range of accredited programs from diploma to PhD levels, recognized by the Malaysian Qualifications Agency (MQA).
                 </p>
               </div>
 
@@ -35,10 +33,9 @@ export function UniversitySection() {
                 <div className="bg-purple-100 p-3 rounded-lg w-fit mb-4">
                   <Users className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Alumni Network</h3>
+                <h3 className="text-xl font-semibold mb-3">Diverse Student Body</h3>
                 <p className="text-gray-600">
-                  Over 50,000 alumni making significant contributions across
-                  various industries globally.
+                  Hosts a multicultural student population from over 60 countries, fostering a global learning environment.
                 </p>
               </div>
 
@@ -46,13 +43,13 @@ export function UniversitySection() {
                 <div className="bg-amber-100 p-3 rounded-lg w-fit mb-4">
                   <Globe className="h-6 w-6 text-amber-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Global Reach</h3>
+                <h3 className="text-xl font-semibold mb-3">Global Recognition</h3>
                 <p className="text-gray-600">
-                  International partnerships with 75+ universities across 30
-                  countries worldwide.
+                  Ranked among the top 200 universities in Asia by QS and maintains strong international collaborations worldwide.
                 </p>
               </div>
             </div>
+
           </div>
 
           <div className="order-1 lg:order-2">
@@ -68,20 +65,11 @@ export function UniversitySection() {
             </h2>
 
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Western Mega University stands as a beacon of academic excellence
-              and innovation, dedicated to fostering intellectual growth and
-              preparing students for the challenges of a rapidly evolving global
-              landscape. With a rich history spanning over five decades, we have
-              established ourselves as a premier institution for higher
-              learning.
+              Lincoln University College (LUC), located at Petaling Jaya, Malaysia was established in the year 2002 as Lincoln College (LC) and later upgraded to Lincoln University College in the year 2011. Lincoln University College is one of the premier private institutions of higher education approved by the Ministry of Higher Education and Malaysian Qualifications Agency (MQA- National Accreditation Board).
             </p>
 
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Our university offers a diverse range of undergraduate, graduate,
-              and doctoral programs across multiple disciplines, taught by
-              distinguished faculty who are leaders in their respective fields.
-              We pride ourselves on our cutting-edge research facilities,
-              comprehensive student support services, and vibrant campus life.
+              The University College is also crowned with a 5 Star ranking by the Ministry of Higher Education, Malaysia in 2017. Lincoln University College is listed among the top nine Malaysian universities according to the Times Higher Education (THE) University Impact Rankings 2019.
             </p>
 
             <Button asChild>

@@ -1,45 +1,27 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Clock, Users, Award } from 'lucide-react';
+import { BookOpen, Clock, Users } from 'lucide-react';
 import Link from 'next/link';
 
 export function CoursesSection() {
   const courses = [
     {
       id: 1,
-      category: 'plus2',
-      title: '+2 Science',
-      description: 'Physics, Chemistry, Biology, Mathematics',
-      duration: '2 Years',
-      students: '150+ Students',
-      image: 'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=500',
+      category: 'undergraduate',
+      title: 'Bachelor of Hotel Management (BHM)',
+      description: 'Comprehensive hospitality education covering hotel operations, food & beverage management, and event planning.',
+      duration: '4 Years',
+      students: '300+ Students',
+      image: '/pic4.JPG',
     },
     {
       id: 2,
-      category: 'plus2',
-      title: '+2 Management',
-      description: 'Business Studies, Economics, Accounting, English',
+      category: 'postgraduate',
+      title: 'Master of Business Administration (MBA)',
+      description: 'Advanced business studies with specialization options, including Marketing, Finance, and Human Resource Management.',
       duration: '2 Years',
-      students: '120+ Students',
-      image: 'https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=500',
-    },
-    {
-      id: 3,
-      category: 'diploma',
-      title: 'Diploma in Computer Engineering',
-      description: 'Programming, Software Development, Database Management',
-      duration: '3 Years',
-      students: '80+ Students',
-      image: 'https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=500',
-    },
-    {
-      id: 4,
-      category: 'diploma',
-      title: 'Diploma in Civil Engineering',
-      description: 'Construction, Design, Project Management',
-      duration: '3 Years',
-      students: '60+ Students',
-      image: 'https://images.pexels.com/photos/8761431/pexels-photo-8761431.jpeg?auto=compress&cs=tinysrgb&w=500',
+      students: '150+ Students',
+      image: '/pic5.JPG',
     },
   ];
 
@@ -58,12 +40,11 @@ export function CoursesSection() {
           </h2>
           
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Explore our comprehensive range of +2 and diploma programs designed to prepare 
-            you for a successful career in your chosen field.
+            Explore our specialized BHM and MBA programs designed to prepare you for leadership roles in hospitality and business sectors.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {courses.map((course) => (
             <Card key={course.id} className="group hover:shadow-lg transition-shadow duration-300">
               <div className="relative overflow-hidden rounded-t-lg">
@@ -74,7 +55,7 @@ export function CoursesSection() {
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {course.category === 'plus2' ? '+2 Program' : 'Diploma'}
+                    {course.category === 'undergraduate' ? 'Undergraduate' : 'Postgraduate'}
                   </span>
                 </div>
               </div>

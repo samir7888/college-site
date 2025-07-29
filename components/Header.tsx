@@ -53,34 +53,20 @@ export function Header() {
     };
   }, [activeDropdown, coursesRef, teamRef]);
 
-  const plus2Courses = [
+  const bachelor = [
     {
-      id: "science",
-      label: "Science",
-      href: "/courses?category=plus2&course=science",
+      id: "bachelor",
+      label: "Bachelor of Science in Hospitality Management (BHM)",
+      href: "/courses?category=bachelor&course=bachelor",
     },
-    {
-      id: "management",
-      label: "Management",
-      href: "/courses?category=plus2&course=management",
-    },
-    {
-      id: "humanities",
-      label: "Humanities",
-      href: "/courses?category=plus2&course=humanities",
-    },
-    { id: "law", label: "Law", href: "/courses?category=plus2&course=law" },
-  ];
+    ];
 
-  const diplomaCourses = [
+  const masters = [
     {
-      id: "csit",
-      label: "B.Sc. CSIT",
-      href: "/courses?category=diploma&course=csit",
+      id: "mba",
+      label: "Master of Business Administration (MBA)",
+      href: "/courses?category=masters&course=mba",
     },
-    { id: "bca", label: "BCA", href: "/courses?category=diploma&course=bca" },
-    { id: "bbs", label: "BBS", href: "/courses?category=diploma&course=bbs" },
-    { id: "bsw", label: "BSW", href: "/courses?category=diploma&course=bsw" },
   ];
 
   const toggleDropdown = (dropdown: string) => {
@@ -105,10 +91,16 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center flex-shrink-0 space-x-3">
             <Image
-              width={200}
-              height={100}
+              width={100}
+              height={50}
               src="/logo.png"
               alt="Western Mega College"
+            />
+            <Image
+              width={100}
+              height={50}
+              src="/university.png"
+              alt="University Logo"
             />
           </Link>
 
@@ -135,16 +127,15 @@ export function Header() {
               >
                 <span>COURSES</span>
                 <ChevronDown
-                  className={`h-4 w-4 transition-transform ${
-                    activeDropdown === "courses" ? "rotate-180" : ""
-                  }`}
+                  className={`h-4 w-4 transition-transform ${activeDropdown === "courses" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
               <div className="opacity-0 scale-0 group-hover:scale-100  group-hover:opacity-100  duration-400 absolute top-full left-0  w-[400px] flex justify-around bg-white rounded-md shadow-lg py-2 z-10">
                 <div className="px-4 py-2">
-                  <h3 className="font-bold text-gray-700">+2 Programs</h3>
-                  {plus2Courses.map((course) => (
+                  <h3 className="font-bold text-gray-700">Bachelor</h3>
+                  {bachelor.map((course) => (
                     <Link
                       key={course.id}
                       href={course.href}
@@ -156,8 +147,8 @@ export function Header() {
                   ))}
                 </div>
                 <div className="px-4 py-2">
-                  <h3 className="font-bold text-gray-700">Diploma Programs</h3>
-                  {diplomaCourses.map((course) => (
+                  <h3 className="font-bold text-gray-700">Masters</h3>
+                  {masters.map((course) => (
                     <Link
                       key={course.id}
                       href={course.href}
