@@ -105,7 +105,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             <Link
               href="/"
               className={`font-medium transition-colors ${textColor}`}
@@ -185,6 +185,12 @@ export function Header() {
               className={`font-medium transition-colors ${textColor}`}
             >
               EVENTS
+            </Link>
+            <Link
+              href="/admission"
+              className={`font-medium transition-colors ${textColor}`}
+            >
+              ADMISSION
             </Link>
             <Link
               href="/contact"

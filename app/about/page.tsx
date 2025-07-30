@@ -177,78 +177,52 @@ export default function AboutPage() {
                 <Card className="shadow-lg">
                   <CardContent className="p-8">
                     <div className="prose prose-lg max-w-none text-gray-700">
-                      <p className="text-lg leading-relaxed mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-blue-600 first-letter:float-left first-letter:mr-2 first-letter:mt-1">
-                        Welcome to Western Mega College, where we believe that
-                        education is not just about acquiring knowledge, but
-                        about transforming lives and building character. As the
-                        Principal of this esteemed institution, I am honored to
-                        lead a community of dedicated educators, ambitious
-                        students, and supportive families who share our vision
-                        of excellence.
+                      <p className="text-lg leading-relaxed mb-6 ">
+                        Welcome to Western Mega College (WMC)—a place where your dreams meet incredible opportunities.
+                      </p>
+
+                      <p className="mb-6 leading-relaxed ">
+                        As the Principal, I’m truly proud to lead this lively community filled with passionate educators, driven students, and supportive families, all working together towards a common goal of excellence. It brings me great joy to welcome you to WMC, a college dedicated to not just raising the bar in education, but also in launching successful careers.
+                        For more than a decade, Western Mega College has been a shining example of quality education, grounded in holistic development. We believe that real learning goes beyond just textbooks; it’s about nurturing critical thinking, encouraging deep understanding, and instilling ethical values that shape character. Our mission is to empower you with a degree that truly reflects your capabilities, giving you and your parents confidence that your trust in us is well-placed.
+                        Our faculty members are more than just teachers; they are a mix of respected academics and experienced industry professionals who bring valuable insights and connections right into the classroom. They are your mentors, committed to helping you succeed.
                       </p>
 
                       <p className="mb-6 leading-relaxed">
-                        With a clear vision and objectives to provide the quality education, WMC has also assured the students and parents for their right selection of an academic institution. We strongly believe that our teaching methods assure the students to fill the gap among to know, to understand, and to be honor a bachelor’s degree. Therefore we are about to connect a new version of hospitality education through SCHOTEL which is updated version of BHM study.
+                        At WMC, we offer two distinct pathways to leadership:
                       </p>
-
-                      {/* <p className="mb-6 leading-relaxed">
-                        Our approach to education is{" "}
-                        <em>student-centered and future-focused</em>. We
-                        understand that today's students will be tomorrow's
-                        leaders, innovators, and change-makers. Therefore, we
-                        have designed our curriculum and teaching methodologies
-                        to:
-                      </p> */}
 
                       <ul className="mb-6 space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                           <span>
-                            Provide hands-on training and real-world exposure in hospitality and management
+                            <b>For Future Hospitality Leaders:</b> We are revolutionizing hospitality education with SCHOTEL, our industry-aligned BHM program. This dynamic model ensures you gain the practical expertise needed to thrive in a global hospitality environment.
                           </span>
                         </li>
                         <li className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                           <span>
-                            Cultivate strategic thinking and leadership skills essential for global business
-                          </span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>
-                            Encourage entrepreneurship and innovation in hospitality and corporate sectors
-                          </span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>
-                            Equip students with ethical business practices and effective communication skills
+                            <b>For Aspiring Business Executives:</b> Our Master of Business Administration (MBA) program is engineered to equip you with the strategic insights and leadership skills required to succeed in the complex world of modern business.
                           </span>
                         </li>
                       </ul>
 
                       <blockquote className="border-l-4 border-blue-600 pl-6 py-4 mb-6 bg-blue-50 rounded-r-lg">
                         <p className="text-lg italic text-blue-800 mb-2">
-                          "We take immense pride in announcing that Western Mega College, which is committed and determined to project itself as a new brand name in Practical education"
+                          "At Western Mega College, we are committed to delivering practical, career-focused education through our MBA and BHM programs—shaping future leaders in business and hospitality."
                         </p>
                       </blockquote>
 
-                      {/* <p className="mb-6 leading-relaxed">
-                        Our faculty members are not just teachers; they are{" "}
-                        <strong>mentors, guides, and inspirers</strong> who go
-                        above and beyond to ensure that every student reaches
-                        their full potential. With state-of-the-art facilities,
-                        modern teaching methodologies, and a supportive learning
-                        environment, we provide our students with the best
-                        possible foundation for their future endeavors.
-                      </p> */}
 
                       <p className="mb-6 leading-relaxed">
-                        To meet the aspirations of the students and the parents, we, at WMC, follow a dynamic education system with modern teaching and learning methods. Our thrust is to make the future of every student’s golden life through quality education.  We believe that our combined efforts will assist WMC graduates to be competent enough to compete in national and international levels.
+                        Your experience here goes well beyond the classroom. We cultivate a vibrant campus life filled with in-class activities, cultural festivals, CSR activities and leadership opportunities, creating a space where you can forge lifelong friendships and grow as an individual. The success of this approach is evident in our impressive placement record and a dynamic alumni network of leaders who are making a difference.
                       </p>
 
-                      <p className="text-lg font-medium text-gray-800">
-                        I look forward for your kind support to go ahead into this wonderful lifelong academic journey.
+                      <p className="mb-6 leading-relaxed">
+                        Having spent my career leading educational institutions and understanding the dynamics between the academic and business worlds, I know what it takes to build a bridge to success. It is this experience that fuels my passion for creating an education that is both intellectually rigorous and intensely practical. Nothing gives me more pride than seeing our graduates leave not just with a degree, but with the confidence and character to achieve their dreams.
+                      </p>
+
+                      <p className="text-base font-medium text-gray-800 ">
+                        My door is always open! I warmly invite you to come visit our campus, meet our amazing faculty, and discover for yourself what makes the Western Mega College family so unique. I can’t wait to personally welcome you as you embark on your academic adventure!
                       </p>
 
                       <div className="mt-8 pt-6 border-t border-gray-200">
