@@ -86,6 +86,11 @@ export function Header() {
       href: "/our-team?category=bods",
     },
     {
+      id: "faculty",
+      label: "Faculty Members",
+      href: "/our-team?category=faculty",
+    },
+    {
       id: "staff",
       label: "Staff",
       href: "/our-team?category=staff",

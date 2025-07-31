@@ -105,17 +105,18 @@ function OurTeamContent() {
         instagram: "https://instagram.com/sarahjohnson",
       },
     },
-    // Staff (Academic, Administration, Support)
+    // Faculty Members
     {
       id: 6,
       name: "Prof. Michael Chen",
       position: "Head of Science Department",
-      department: "Science",
-      category: "staff",
+      department: "Science Faculty",
+      category: "faculty",
       email: "physics@westernmega.edu",
       image:
         "https://images.pexels.com/photos/8129903/pexels-photo-8129903.jpeg?auto=compress&cs=tinysrgb&w=300",
       specialization: "Quantum Physics & Advanced Materials",
+      courses: ["B.Sc. CSIT", "+2 Science"],
       socialLinks: {
         facebook: "https://facebook.com/michaelchen",
         twitter: "https://twitter.com/michaelchen",
@@ -127,12 +128,13 @@ function OurTeamContent() {
       id: 7,
       name: "Dr. Emily Rodriguez",
       position: "Mathematics Professor",
-      department: "Mathematics",
-      category: "staff",
+      department: "Mathematics Faculty",
+      category: "faculty",
       email: "math@westernmega.edu",
       image:
         "https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=300",
       specialization: "Applied Mathematics & Statistics",
+      courses: ["B.Sc. CSIT", "BCA", "+2 Science"],
       socialLinks: {
         facebook: "https://facebook.com/emilyrodriguez",
         twitter: "https://twitter.com/emilyrodriguez",
@@ -144,12 +146,13 @@ function OurTeamContent() {
       id: 8,
       name: "Mr. David Kumar",
       position: "Computer Science Faculty",
-      department: "Technology",
-      category: "staff",
+      department: "Technology Faculty",
+      category: "faculty",
       email: "cs@westernmega.edu",
       image:
         "https://images.pexels.com/photos/6147366/pexels-photo-6147366.jpeg?auto=compress&cs=tinysrgb&w=300",
       specialization: "Software Engineering & AI",
+      courses: ["B.Sc. CSIT", "BCA"],
       socialLinks: {
         facebook: "https://facebook.com/davidkumar",
         twitter: "https://twitter.com/davidkumar",
@@ -161,12 +164,13 @@ function OurTeamContent() {
       id: 9,
       name: "Dr. Sophia Williams",
       position: "English Professor",
-      department: "Humanities",
-      category: "staff",
+      department: "Humanities Faculty",
+      category: "faculty",
       email: "english@westernmega.edu",
       image:
         "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=300",
       specialization: "Modern Literature & Creative Writing",
+      courses: ["+2 Humanities", "BBS"],
       socialLinks: {
         facebook: "https://facebook.com/sophiawilliams",
         twitter: "https://twitter.com/sophiawilliams",
@@ -176,6 +180,79 @@ function OurTeamContent() {
     },
     {
       id: 10,
+      name: "Prof. Rajesh Thapa",
+      position: "BHM Program Coordinator",
+      department: "Hospitality Faculty",
+      category: "faculty",
+      email: "bhm@westernmega.edu",
+      image:
+        "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=300",
+      specialization: "Hospitality Management & Tourism",
+      courses: ["BHM"],
+      socialLinks: {
+        facebook: "https://facebook.com/rajeshthapa",
+        twitter: "https://twitter.com/rajeshthapa",
+        linkedin: "https://linkedin.com/in/rajeshthapa",
+        instagram: "https://instagram.com/rajeshthapa",
+      },
+    },
+    {
+      id: 11,
+      name: "Dr. Priya Sharma",
+      position: "Management Faculty",
+      department: "Business Faculty",
+      category: "faculty",
+      email: "management@westernmega.edu",
+      image:
+        "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=300",
+      specialization: "Business Administration & Finance",
+      courses: ["BBS", "+2 Management"],
+      socialLinks: {
+        facebook: "https://facebook.com/priyasharma",
+        twitter: "https://twitter.com/priyasharma",
+        linkedin: "https://linkedin.com/in/priyasharma",
+        instagram: "https://instagram.com/priyasharma",
+      },
+    },
+    {
+      id: 12,
+      name: "Mr. Arjun Poudel",
+      position: "Social Work Faculty",
+      department: "Social Work Faculty",
+      category: "faculty",
+      email: "socialwork@westernmega.edu",
+      image:
+        "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=300",
+      specialization: "Community Development & Social Policy",
+      courses: ["BSW"],
+      socialLinks: {
+        facebook: "https://facebook.com/arjunpoudel",
+        twitter: "https://twitter.com/arjunpoudel",
+        linkedin: "https://linkedin.com/in/arjunpoudel",
+        instagram: "https://instagram.com/arjunpoudel",
+      },
+    },
+    {
+      id: 13,
+      name: "Dr. Kamala Devi",
+      position: "Law Faculty",
+      department: "Law Faculty",
+      category: "faculty",
+      email: "law@westernmega.edu",
+      image:
+        "https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=300",
+      specialization: "Constitutional Law & Human Rights",
+      courses: ["+2 Law"],
+      socialLinks: {
+        facebook: "https://facebook.com/kamaladevi",
+        twitter: "https://twitter.com/kamaladevi",
+        linkedin: "https://linkedin.com/in/kamaladevi",
+        instagram: "https://instagram.com/kamaladevi",
+      },
+    },
+    // Staff (Administration, Support)
+    {
+      id: 14,
       name: "Ms. Lisa Anderson",
       position: "Registrar",
       department: "Administration",
@@ -191,7 +268,7 @@ function OurTeamContent() {
       },
     },
     {
-      id: 11,
+      id: 15,
       name: "Mr. Robert Wilson",
       position: "Accountant",
       department: "Finance",
@@ -207,7 +284,7 @@ function OurTeamContent() {
       },
     },
     {
-      id: 12,
+      id: 16,
       name: "Ms. Jennifer Lopez",
       position: "HR Manager",
       department: "Human Resources",
@@ -223,7 +300,7 @@ function OurTeamContent() {
       },
     },
     {
-      id: 13,
+      id: 17,
       name: "Ms. Maria Garcia",
       position: "Librarian",
       department: "Library",
@@ -239,7 +316,7 @@ function OurTeamContent() {
       },
     },
     {
-      id: 14,
+      id: 18,
       name: "Mr. James Thompson",
       position: "IT Support",
       department: "Technical",
@@ -255,7 +332,7 @@ function OurTeamContent() {
       },
     },
     {
-      id: 15,
+      id: 19,
       name: "Mr. Raj Patel",
       position: "Facilities Manager",
       department: "Maintenance",
@@ -284,6 +361,9 @@ function OurTeamContent() {
   const principal = filteredMembers.filter(
     (member) => member.category === "principal"
   );
+  const faculty = filteredMembers.filter(
+    (member) => member.category === "faculty"
+  );
   const staff = filteredMembers.filter((member) => member.category === "staff");
 
   // Get page title based on category
@@ -293,6 +373,8 @@ function OurTeamContent() {
         return "Principal";
       case "bods":
         return "Board of Directors";
+      case "faculty":
+        return "Faculty Members";
       case "staff":
         return "Staff Members";
       default:
@@ -306,8 +388,10 @@ function OurTeamContent() {
         return "Meet Our Principal";
       case "bods":
         return "Board of Directors";
+      case "faculty":
+        return "Our Dedicated Faculty";
       case "staff":
-        return "Our Dedicated Staff";
+        return "Our Support Staff";
       default:
         return "Meet Our Team";
     }
@@ -317,12 +401,13 @@ function OurTeamContent() {
   const isFaculty = (member: any) => {
     return (
       member.specialization &&
-      (member.department === "Science" ||
-        member.department === "Mathematics" ||
-        member.department === "Technology" ||
-        member.department === "Humanities" ||
-        member.category === "principal")
+      (member.category === "faculty" || member.category === "principal")
     );
+  };
+
+  // Helper function to check if member has courses
+  const hasCourses = (member: any) => {
+    return member.courses && member.courses.length > 0;
   };
 
   // Component for rendering team member cards
@@ -364,9 +449,28 @@ function OurTeamContent() {
           >
             {member.position}
           </p>
-          {/* <div className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-            {member.department}
-          </div> */}
+
+          {/* Courses for faculty members */}
+          {hasCourses(member) && (
+            <div
+              className={`flex items-center justify-center space-x-3 ${
+                isLarge ? "text-base" : "text-sm"
+              } text-gray-600`}
+            >
+              <div>
+                <div className="flex flex-wrap gap-1 mt-1">
+                  {member.courses.map((course: string, index: number) => (
+                    <span
+                      key={index}
+                      className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium"
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </CardHeader>
 
@@ -510,6 +614,15 @@ function OurTeamContent() {
             </div>
           )}
 
+          {/* Faculty Section - Grid layout */}
+          {category === "faculty" && faculty.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {faculty.map((member) => (
+                <TeamMemberCard key={member.id} member={member} />
+              ))}
+            </div>
+          )}
+
           {/* Staff Section - Grid layout */}
           {category === "staff" && staff.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -550,11 +663,25 @@ function OurTeamContent() {
                 </div>
               )}
 
+              {/* Faculty */}
+              {faculty.length > 0 && (
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+                    Faculty Members
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {faculty.map((member) => (
+                      <TeamMemberCard key={member.id} member={member} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Staff */}
               {staff.length > 0 && (
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-                    Staff Members
+                    Support Staff
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {staff.map((member) => (
