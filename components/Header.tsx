@@ -2,16 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  GraduationCap,
-  Users,
-  BookOpen,
-  Phone,
-  Calendar,
-} from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -81,6 +72,24 @@ export function Header() {
     { id: "bca", label: "BCA", href: "/courses?category=diploma&course=bca" },
     { id: "bbs", label: "BBS", href: "/courses?category=diploma&course=bbs" },
     { id: "bsw", label: "BSW", href: "/courses?category=diploma&course=bsw" },
+  ];
+
+  const teamCategories = [
+    {
+      id: "principal",
+      label: "Principal",
+      href: "/our-team?category=principal",
+    },
+    {
+      id: "bods",
+      label: "Board of Directors",
+      href: "/our-team?category=bods",
+    },
+    {
+      id: "staff",
+      label: "Staff",
+      href: "/our-team?category=staff",
+    },
   ];
 
   const toggleDropdown = (dropdown: string) => {
@@ -171,12 +180,33 @@ export function Header() {
               </div>
             </div>
 
-            <Link
-              href="/our-team"
-              className={`font-medium transition-colors ${textColor}`}
-            >
-              OUR TEAMS
-            </Link>
+            {/* Our Team Dropdown */}
+            <div className="group relative" ref={teamRef}>
+              <button
+                onClick={() => toggleDropdown("team")}
+                className={`flex items-center space-x-1 font-medium transition-colors ${textColor}`}
+              >
+                <span>OUR TEAMS</span>
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${
+                    activeDropdown === "team" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              <div className="opacity-0 scale-0 group-hover:scale-100 group-hover:opacity-100 duration-400 absolute top-full left-0 w-48 bg-white rounded-md shadow-lg py-2 z-10">
+                {teamCategories.map((category) => (
+                  <Link
+                    key={category.id}
+                    href={category.href}
+                    onClick={closeDropdowns}
+                    className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    {category.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <Link
               href="/alumni"
               className={`font-medium transition-colors ${textColor}`}
@@ -244,12 +274,22 @@ export function Header() {
               >
                 Courses
               </Link>
-              <Link
-                href="/our-team"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Our Team
-              </Link>
+
+              {/* Mobile Team Dropdown */}
+              <div className="space-y-2">
+                <div className="text-gray-700 font-medium">Our Team</div>
+                <div className="pl-4 space-y-2">
+                  {teamCategories.map((category) => (
+                    <Link
+                      key={category.id}
+                      href={category.href}
+                      className="block text-gray-600 hover:text-blue-600 transition-colors"
+                    >
+                      {category.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Link
                 href="/alumni"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
