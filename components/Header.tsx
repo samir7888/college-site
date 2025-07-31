@@ -208,12 +208,6 @@ export function Header() {
               </div>
             </div>
             <Link
-              href="/alumni"
-              className={`font-medium transition-colors ${textColor}`}
-            >
-              ALUMINI
-            </Link>
-            <Link
               href="/gallery"
               className={`font-medium transition-colors ${textColor}`}
             >
@@ -224,6 +218,12 @@ export function Header() {
               className={`font-medium transition-colors ${textColor}`}
             >
               EVENTS
+            </Link>
+            <Link
+              href="/blogs"
+              className={`font-medium transition-colors ${textColor}`}
+            >
+              BLOGS
             </Link>
             <Link
               href="/contact"
@@ -291,12 +291,6 @@ export function Header() {
                 </div>
               </div>
               <Link
-                href="/alumni"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Alumni
-              </Link>
-              <Link
                 href="/gallery"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
@@ -307,6 +301,12 @@ export function Header() {
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Events
+              </Link>
+              <Link
+                href="/blogs"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Blogs
               </Link>
               <Link
                 href="/contact"
