@@ -7,37 +7,39 @@ export function NewsSection() {
   const news = [
     {
       id: 1,
-      title: "Trek to Kenjing Gumba: An 8-Day Cultural & Educational Journey",
+      title:
+        "Trek to Kenjing Gumba: Cultural & Educational Expedition (Dec 2021)",
       excerpt:
-        "Students embarked on a multi-day trek to Kenjing Gumba, immersing in nature, culture and learning in Chitlang.",
+        "An 8‑day trek undertaken by 50 BHM students, exploring Himalayan routes and cultural landscapes from Butwal to Kenjing Gumba.",
       date: "December 6, 2021",
       image:
-        "https://westernmegacollege.edu.np/wp-content/uploads/2022/01/265953756_2738125833000588_4772341212623859313_n-1024x768.jpg",
+        "https://westernmegacollege.edu.np/wp-content/uploads/2022/01/265953756_2738125833000588_4772341212623859313_n-1536x1152.jpg",
       category: "Adventure",
-      slug: "trek-to-kenjing-gumba",
+      slug: "trek-to-kenjing-gumba-2021",
     },
     {
       id: 2,
       title:
-        "Academic Industrial Visit: Wine Processing, Goat Cheese & Homestay in Chitlang",
+        "Academic Visit to Chitlang: Wine, Cheese & Community Homestay (Dec 2021)",
       excerpt:
-        "A 4th‑semester industrial visit gave in-depth insights into wine, cheese processing, and local homestay operations in Chitlang.",
+        "A structured industrial visit for fourth‑semester students to Chitlang's goat‑cheese and wine production units and local homestays.",
       date: "December 7, 2021",
       image:
         "https://westernmegacollege.edu.np/wp-content/uploads/2021/02/261393449_1353180225119447_3178589903578193490_n-1536x1152.jpg",
       category: "Academic",
-      slug: "academic-visit-chitlang-wine-cheese-homestay",
+      slug: "academic-visit-chitlang-2021",
     },
     {
       id: 3,
-      title: "Industrial Visit to Unnati Cultural Village, Chitwan",
+      title:
+        "Industrial Visit – CG Unnati Cultural Village, Chitwan (Dec 2021)",
       excerpt:
-        "Students visited Unnati Cultural Village in Chitwan for hospitality industry orientation and cultural exposure.",
+        "A full‑day visit to Unnati Cultural Village for second‑semester BHM students to explore hospitality, culture, art & organic farming.",
       date: "December 12, 2021",
       image:
         "https://westernmegacollege.edu.np/wp-content/uploads/2021/12/267593289_1077396386412802_3633348452218638298_n.jpg",
       category: "Academic",
-      slug: "industrial-visit-unnati-cultural-village-chitwan",
+      slug: "industrial-visit-unnati-village-2021",
     },
   ];
 
