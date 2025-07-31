@@ -337,7 +337,7 @@ export default function ContactPage() {
               </Card>
 
               {/* Quick Links */}
-              <Card>
+              {/* <Card>
                 <CardHeader>
                   <CardTitle className="text-2xl">Quick Links</CardTitle>
                 </CardHeader>
@@ -385,7 +385,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
         </div>

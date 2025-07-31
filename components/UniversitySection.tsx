@@ -33,9 +33,11 @@ export function UniversitySection() {
                 <div className="bg-purple-100 p-3 rounded-lg w-fit mb-4">
                   <Users className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Diverse Student Body</h3>
+                <h3 className="text-xl font-semibold mb-3">Top Rankings</h3>
                 <p className="text-gray-600">
-                  Hosts a multicultural student population from over 60 countries, fostering a global learning environment.
+                 QS World University Ranking (2025/20), LVC ranked<br/>
+                 638 in World UNU, 165 in Asia <br/>
+                 87th Quality Education 2025
                 </p>
               </div>
 
@@ -45,7 +47,7 @@ export function UniversitySection() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Global Recognition</h3>
                 <p className="text-gray-600">
-                  Ranked among the top 200 universities in Asia by QS and maintains strong international collaborations worldwide.
+                 11+ Affilicated Colleges in Nepal and 180+ Globally
                 </p>
               </div>
             </div>
@@ -73,7 +75,7 @@ export function UniversitySection() {
             </p>
 
             <Button asChild>
-              <Link href="/about">Discover Our University</Link>
+            <Link href="https://www.lincoln.edu.my/">Discover Our University</Link>
             </Button>
           </div>
         </div>

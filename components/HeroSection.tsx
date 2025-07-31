@@ -62,7 +62,7 @@ export function HeroSection() {
             {/* Stats */}
             <div className="flex flex-wrap gap-8 py-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-400">1500+</div>
+                <div className="text-3xl font-bold text-orange-400">1200+</div>
                 <div className="text-sm text-gray-300">BHM & MBA Graduates</div>
               </div>
               <div className="text-center">

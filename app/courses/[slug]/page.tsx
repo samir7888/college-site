@@ -35,13 +35,13 @@ const courses = [
   {
     id: 1,
     slug: "bachelor-of-science-in-hospitality-management",
-    title: "Bachelor of Science in Hospitality Management (BHM)",
+    title: "Bachelor of Science (Hons) in Hospitality Management (BHM)",
     category: "bachelor",
     description:
       "Comprehensive hospitality management program focusing on hotel operations, event planning, and customer service excellence.",
     duration: "4 Years",
-    intake: "200 Students",
-    fee: "NPR 200,000/year",
+    intake: "May/Nov",
+    // fee: "NPR 200,000/year",
     subjects: [
       "Hotel Operations",
       "Event Planning",
@@ -52,7 +52,7 @@ const courses = [
     image:
       "/image3.JPG",
     eligibility:
-      "SEE or equivalent passed, with minimum 50% marks in aggregate.",
+      "10+2, PCL or Equivalent in any discipline or as per minimum criteria for a Bachelor from the ministry of Higher education, Nepal.",
     careerPaths: [
       "Hotel Manager",
       "Event Coordinator",
@@ -61,13 +61,13 @@ const courses = [
     ],
     faculty: [
       {
-        name: "Prof. Anil Shrestha",
-        subject: "Hospitality Management",
+        name: "Chef Bikash Khatri Thapa",
+        subject: "Practical Incharge",
         qualification: "Ph.D. in Hospitality",
       },
       {
-        name: "Dr. Sushma Karki",
-        subject: "Business Communication",
+        name: "Kabi Raj Giri",
+        subject: "Practical Instructure",
         qualification: "Ph.D. in Business",
       },
     ],
@@ -80,8 +80,8 @@ const courses = [
     description:
       "Advanced business administration program covering leadership, marketing, finance, and strategic management.",
     duration: "2 Years",
-    intake: "100 Students",
-    fee: "NPR 300,000/year",
+    intake: "May/Nov",
+    // fee: "NPR 300,000/year",
     subjects: [
       "Leadership and Management",
       "Financial Accounting",
@@ -92,7 +92,7 @@ const courses = [
     image:
       "/image2.JPG",
     eligibility:
-      "Bachelor’s degree from a recognized university with minimum 50% marks.",
+      "Minimum score of second division marks in Bachelors Degree, or as per the guidelines of Ministry of Education, Nepal.",
     careerPaths: [
       "Business Manager",
       "Marketing Executive",
@@ -101,13 +101,13 @@ const courses = [
     ],
     faculty: [
       {
-        name: "Dr. Rajesh Thapa",
-        subject: "Marketing",
+        name: "Dr. Bhagwati Prasad Chaudhary",
+        subject: "Business and Management Studies",
         qualification: "Ph.D. in Marketing",
       },
       {
-        name: "Prof. Manisha Gurung",
-        subject: "Finance",
+        name: "Lalitman Shrestha",
+        subject: "Banking and Accountancy",
         qualification: "Ph.D. in Finance",
       },
     ],
@@ -156,9 +156,9 @@ export default async function CourseDetailPage({
           }}
         >
           <div className="container mx-auto px-4 text-center">
-            <Badge className="bg-blue-600 tracking-widest font-light text-white mb-4">
+            {/* <Badge className="bg-blue-600 tracking-widest font-light text-white mb-4">
               {course.category === "plus2" ? "+2 Program" : "Diploma Program"}
-            </Badge>
+            </Badge> */}
             <h1 className="text-4xl  md:text-5xl font-bold mb-4">
               {course.title}
             </h1>
@@ -183,7 +183,7 @@ export default async function CourseDetailPage({
                     <p className="text-gray-700 leading-relaxed">
                       {course.description}
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center  w-2/3 mx-auto">
                       <div className="p-4   rounded-lg">
                         <Clock className="h-8 w-8 mx-auto mb-2 text-blue-400" />
                         <h4 className="font-bold">Duration</h4>
@@ -194,11 +194,7 @@ export default async function CourseDetailPage({
                         <h4 className="font-bold">Intake</h4>
                         <p>{course.intake}</p>
                       </div>
-                      <div className="p-4 bg-white rounded-lg">
-                        <Calendar className="h-8 w-8 mx-auto mb-2 text-orange-400" />
-                        <h4 className="font-bold">Fee</h4>
-                        <p>{course.fee}</p>
-                      </div>
+                      
                     </div>
 
                     <div>
@@ -247,8 +243,8 @@ export default async function CourseDetailPage({
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex items-start space-x-3">
-                      <GraduationCap className="h-6 w-6 mt-1 text-blue-400" />
+                    <div className="flex items-start space-x-6">
+                      {/* <GraduationCap className="h-16 w-16 text-blue-400" /> */}
                       <p>{course.eligibility}</p>
                     </div>
                   </CardContent>
@@ -270,7 +266,7 @@ export default async function CourseDetailPage({
                         <div>
                           <h4 className="font-bold">{faculty.name}</h4>
                           <p className="text-sm text-gray-400">
-                            {faculty.subject} - {faculty.qualification}
+                            {faculty.subject} 
                           </p>
                         </div>
                       </div>

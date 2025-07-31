@@ -11,7 +11,6 @@ export function CoursesSection() {
       title: 'Bachelor of Hotel Management (BHM)',
       description: 'Comprehensive hospitality education covering hotel operations, food & beverage management, and event planning.',
       duration: '4 Years',
-      students: '300+ Students',
       image: '/pic4.JPG',
     },
     {
@@ -20,7 +19,6 @@ export function CoursesSection() {
       title: 'Master of Business Administration (MBA)',
       description: 'Advanced business studies with specialization options, including Marketing, Finance, and Human Resource Management.',
       duration: '2 Years',
-      students: '150+ Students',
       image: '/pic5.JPG',
     },
   ];
@@ -71,10 +69,10 @@ export function CoursesSection() {
                     <Clock className="h-4 w-4" />
                     <span>{course.duration}</span>
                   </div>
-                  <div className="flex items-center space-x-1">
+                  {/* <div className="flex items-center space-x-1">
                     <Users className="h-4 w-4" />
                     <span>{course.students}</span>
-                  </div>
+                  </div> */}
                 </div>
                 
                 <Button asChild className="w-full">

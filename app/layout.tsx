@@ -26,7 +26,7 @@ export default function RootLayout({
         <Header />
         <main className="pt-32 md:pt-32">{children}</main>
         <Footer />
-        <WhatsAppButton phoneNumber="+9779812345678" />
+        <WhatsAppButton phoneNumber="9857071252" />
       </body>
     </html>
   );

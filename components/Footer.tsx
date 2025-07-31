@@ -52,16 +52,17 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/our-team"
-                  className="text-gray-400 hover:text-white"
-                >
-                  Our Team
+                <Link href="/alumni" className="text-gray-400 hover:text-white">
+                  Alumni
                 </Link>
               </li>
               <li>
-                <Link href="/alumni" className="text-gray-400 hover:text-white">
-                  Alumni
+              <Link
+                  target="_blank"
+                  href="https://collaboration.lincolnedu.education/welcome.aspx"
+                  className="text-gray-400 hover:text-white"
+                >
+                  MY LLS
                 </Link>
               </li>
               <li>
@@ -69,15 +70,7 @@ export function Footer() {
                   Forms
                 </Link>
               </li>
-              <li>
-                <Link
-                  target="_blank"
-                  href="https://collaboration.lincolnedu.education/welcome.aspx"
-                  className="text-gray-400 hover:text-white"
-                >
-                  MYLLS
-                </Link>
-              </li>
+             
               <li>
                 <Link href="/apply" className="text-gray-400 hover:text-white">
                   Apply Online
@@ -127,17 +120,55 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Affiliated By</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <span className="text-gray-400 hover:text-white">NEB</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-gray-400 hover:text-white">
+            <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
+            <ul className="space-y-2">
+            <li>
+              <Link
+                  target="_blank"
+                  href="/"
+                  className="text-gray-400 hover:text-white"
+                >
+                  Arambha Resort
+                </Link>
+              </li>
+            <li>
+            <Link
+                  target="_blank"
+                  href="https://www.lincoln.edu.my/"
+                  className="text-gray-400 hover:text-white"
+                >
+                  Lincoln University College
+                </Link>
+            </li>
+              <li>
+              <Link
+                  target="_blank"
+                  href="https://tu.edu.np/"
+                  className="text-gray-400 hover:text-white"
+                >
                   Tribhuvan University
-                </span>
-              </div>
-            </div>
+                </Link>
+              </li>
+              <li>
+              <Link
+                  target="_blank"
+                  href="https://moest.gov.np/"
+                  className="text-gray-400 hover:text-white"
+                >
+                  Ministry of Education
+                </Link>
+              </li>
+              <li>
+              <Link
+                  target="_blank"
+                  href="/"
+                  className="text-gray-400 hover:text-white"
+                >
+                  LUCAN
+                </Link>
+              </li>
+              
+            </ul>
           </div>
         </div>
 

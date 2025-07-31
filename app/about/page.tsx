@@ -344,7 +344,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -358,7 +358,6 @@ export default function AboutPage() {
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              {/* Timeline line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
 
               {milestones.map((milestone, index) => (
@@ -378,14 +377,13 @@ export default function AboutPage() {
                     </Card>
                   </div>
                   <div className="w-1/2"></div>
-                  {/* Timeline dot */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

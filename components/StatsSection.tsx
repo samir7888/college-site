@@ -1,9 +1,9 @@
 export function StatsSection() {
   const stats = [
-    { number: '2000+', label: 'Students Graduated', color: 'bg-blue-600' },
-    { number: '50+', label: 'Expert Faculty', color: 'bg-green-600' },
-    { number: '20+', label: 'Years of Excellence', color: 'bg-orange-600' },
-    { number: '95%', label: 'Placement Rate', color: 'bg-purple-600' },
+    { number: '1200+', label: 'Students Graduated', color: 'bg-blue-600' },
+    { number: '40+', label: 'Expert Faculty', color: 'bg-green-600' },
+    { number: '10+', label: 'Years of Excellence', color: 'bg-orange-600' },
+    { number: '90%', label: 'Placement Rate', color: 'bg-purple-600' },
   ];
 
   return (

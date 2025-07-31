@@ -25,7 +25,7 @@ function CoursesContent() {
     {
       id: 1,
       slug: "bachelor-of-science-in-hospitality-management",
-      title: "Bachelor of Science in Hospitality Management (BHM)",
+      title: "Bachelor of Science (Hons) in Hospitality Management (BHM)",
       category: "bachelor",
       description:
         "Comprehensive hospitality management program focusing on hotel operations, event planning, and customer service excellence.",
@@ -149,10 +149,10 @@ function CoursesContent() {
                       <Clock className="h-4 w-4" />
                       <span>{course.duration}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-muted-foreground">
+                    {/* <div className="flex items-center space-x-2 text-muted-foreground">
                       <Users className="h-4 w-4" />
                       <span>{course.intake}</span>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="pt-4 border-t border-gray-700 space-y-3">

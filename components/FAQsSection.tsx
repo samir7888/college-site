@@ -42,7 +42,7 @@ export function FAQsSection() {
       id: "faq-6",
       question: "What is the faculty-to-student ratio?",
       answer:
-        "We maintain a low faculty-to-student ratio to ensure personalized attention and quality education. Our typical class sizes range from 20-30 students, allowing for interactive learning and individual guidance from our experienced faculty members.",
+        "We maintain a low faculty-to-student ratio to ensure personalized attention and quality education. Our typical class sizes range from 30-40 students, allowing for interactive learning and individual guidance from our experienced faculty members.",
     },
   ];
 
