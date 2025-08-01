@@ -156,7 +156,7 @@ export default async function CourseDetailPage({
           style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${course.image}')`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "0px -200px",
           }}
         >
           <div className="container mx-auto px-4 text-center">
