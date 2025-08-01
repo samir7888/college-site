@@ -26,7 +26,7 @@ import { Calendar, Mail, Phone, School, Send } from "lucide-react";
 import { AdmissionForm, admissionFormSchema } from "@/types/admission";
 import Image from "next/image";
 
-export const defaultAdmissionValues: AdmissionForm = {
+const defaultAdmissionValues: AdmissionForm = {
   // Personal Information
   firstName: "",
   middleName: "",
