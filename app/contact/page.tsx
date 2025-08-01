@@ -33,6 +33,7 @@ import {
 } from "lucide-react";
 import { contactFormSchema, type ContactForm } from "@/lib/validations/contact";
 import { defaultContactValues, inquiryTypeOptions } from "@/types/contact";
+import Image from "next/image";
 
 export default function ContactPage() {
   // React Hook Form setup with Zod validation
@@ -51,20 +52,23 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen  bg-gray-50">
       {/* Hero Section */}
-      <section
-        className="min-h-[500px] text-white py-16 flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[500px] py-16 flex items-center justify-center text-white overflow-hidden">
+        {/* Background Image */}
+        <Image
+        src="/gallery8.JPG"
+        alt="Contact Background"
+        fill
+        className="object-cover object-center z-0"
+        priority
+      />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+
+        {/* Content */}
+        <div className="relative z-20 container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Get in touch with us for admissions, inquiries, or any questions
-            about Western Mega College
+            Get in touch with us for admissions, inquiries, or any questions about Western Mega College
           </p>
         </div>
       </section>
@@ -246,9 +250,9 @@ export default function ContactPage() {
                       <p className="text-gray-600">
                         Western Mega College
                         <br />
-                        Kathmandu, Nepal
+                        Butwal
                         <br />
-                        P.O. Box 12345
+                        {/* P.O. Box 12345 */}
                       </p>
                     </div>
                   </div>
@@ -260,11 +264,11 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-lg mb-2">Phone</h3>
                       <p className="text-gray-600">
-                        Main: +977-1-4567890
+                      071422131, 071422132, 071422134
+                        {/* <br />
+                        071422132
                         <br />
-                        Admissions: +977-1-4567891
-                        <br />
-                        Fax: +977-1-4567892
+                        071422134 */}
                       </p>
                     </div>
                   </div>
@@ -276,11 +280,11 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-lg mb-2">Email</h3>
                       <p className="text-gray-600">
-                        General: info@westernmega.edu
+                      info@westernmegacollege.edu.np
                         <br />
-                        Admissions: admissions@westernmega.edu
-                        <br />
-                        Support: support@westernmega.edu
+                        {/* Admissions: admissions@westernmega.edu */}
+                        {/* <br /> */}
+                        {/* Support: support@westernmega.edu */}
                       </p>
                     </div>
                   </div>
@@ -294,11 +298,9 @@ export default function ContactPage() {
                         Office Hours
                       </h3>
                       <p className="text-gray-600">
-                        Monday - Friday: 8:00 AM - 5:00 PM
+                        Sunday - Friday: 8:00 AM - 5:00 PM
                         <br />
-                        Saturday: 9:00 AM - 3:00 PM
-                        <br />
-                        Sunday: Closed
+                        Saturday: Closed
                       </p>
                     </div>
                   </div>
@@ -335,7 +337,7 @@ export default function ContactPage() {
               </Card>
 
               {/* Quick Links */}
-              <Card>
+              {/* <Card>
                 <CardHeader>
                   <CardTitle className="text-2xl">Quick Links</CardTitle>
                 </CardHeader>
@@ -383,7 +385,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
         </div>
@@ -399,19 +401,20 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">
-                Interactive map will be displayed here
-              </p>
-              <p className="text-sm text-gray-500">
-                Western Mega College, Kathmandu, Nepal
-              </p>
-            </div>
+          <div className="bg-gray-200 rounded-lg overflow-hidden h-96">
+            <iframe
+              title="Western Mega College Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1652293940627!2d83.40737801506267!3d27.679945231634814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39968969c3c728f3%3A0x3673877f0ae619d6!2sWESTERN%20MEGA%20COLLEGE!5e0!3m2!1sen!2snp!4v1691507215879!5m2!1sen!2snp"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

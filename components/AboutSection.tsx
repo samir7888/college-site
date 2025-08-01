@@ -7,52 +7,59 @@ export function AboutSection() {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-1 bg-blue-600"></div>
-              <span className="text-blue-600 font-medium">About Western Mega</span>
-            </div>
-            
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Building Tomorrow's Leaders Today
-            </h2>
-            
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Western Mega College has been a beacon of educational excellence for over two decades, 
-              nurturing young minds and preparing them for successful careers. Our commitment to 
-              quality education and holistic development has made us a trusted institution.
-            </p>
-            
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Modern Infrastructure</h4>
-                  <p className="text-gray-600">State-of-the-art facilities and learning environments</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Industry Partnerships</h4>
-                  <p className="text-gray-600">Strong connections with leading companies for placements</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Holistic Development</h4>
-                  <p className="text-gray-600">Focus on both academic and personal growth</p>
-                </div>
-              </div>
-            </div>
-            
-            <Button asChild>
-              <Link href="/about">Learn More About Us</Link>
-            </Button>
-          </div>
+        <div>
+  <div className="flex items-center space-x-2 mb-4">
+    <div className="w-8 h-1 bg-blue-600"></div>
+    <span className="text-blue-600 font-medium">About Western Mega</span>
+  </div>
+
+  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+    Excellence in BHM & MBA Education
+  </h2>
+
+  <p className="text-gray-600 mb-6 leading-relaxed">
+    Western Mega College stands at the forefront of higher education, offering industry-relevant programs like 
+    <strong> Bachelor of Hotel Management (BHM)</strong> and <strong>Master of Business Administration (MBA)</strong>. 
+    Our institution is dedicated to shaping future hospitality leaders and business professionals through innovative teaching, real-world exposure, and a focus on holistic growth.
+  </p>
+
+  <div className="space-y-4 mb-8">
+    <div className="flex items-start space-x-3">
+      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+      <div>
+        <h4 className="font-semibold text-gray-900">Industry-Focused BHM Program</h4>
+        <p className="text-gray-600">
+          Hands-on learning with professional kitchen labs, hotel simulations, and internships at top hospitality brands.
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start space-x-3">
+      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+      <div>
+        <h4 className="font-semibold text-gray-900">Globally Relevant MBA Curriculum</h4>
+        <p className="text-gray-600">
+          Designed for aspiring business leaders with case studies, live projects, and corporate mentorships.
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start space-x-3">
+      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+      <div>
+        <h4 className="font-semibold text-gray-900">Career-Ready Graduates</h4>
+        <p className="text-gray-600">
+          Personalized career support, placement opportunities, and leadership development programs.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <Button asChild>
+    <Link href="/about">Learn More About Us</Link>
+  </Button>
+</div>
+
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -61,7 +68,7 @@ export function AboutSection() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
               <p className="text-gray-600">
-                To provide quality education that empowers students to achieve their full potential and contribute meaningfully to society.
+              We a quality provide education that creates highly productive professionals who are ethical, entrepreneurial and prepared to succeed in the global economy. The college achieves this though excellence in teaching research and service engagement with the business community other stakeholders.
               </p>
             </div>
             
@@ -71,7 +78,7 @@ export function AboutSection() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Our Vision</h3>
               <p className="text-gray-600">
-                To be a leading educational institution recognized for academic excellence and innovation in teaching and learning.
+              Our Vision is to empower students from diverse backgrounds to become productive and ethical business professionals who are among the best in the world.
               </p>
             </div>
             
@@ -80,9 +87,12 @@ export function AboutSection() {
                 <Heart className="h-6 w-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Our Values</h3>
-              <p className="text-gray-600">
-                Integrity, Excellence, Innovation, Inclusivity, and Responsibility guide everything we do as we shape the future leaders of tomorrow.
-              </p>
+              <ul className="text-gray-600 space-y-2">
+                  <li>• Innovation and Creativity</li>
+                  <li>• Inclusivity and Diversity</li>
+                  <li>• Responsibility and Service</li>
+                  <li>• Professionalism and Leadership</li>
+                </ul>
             </div>
           </div>
         </div>

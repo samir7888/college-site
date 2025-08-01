@@ -8,75 +8,75 @@ export function AlumniSection() {
   const alumni = [
     {
       id: 1,
-      name: 'Priya Sharma',
-      graduation: 'Class of 2018',
-      degree: 'Bachelor of Computer Science',
-      company: 'Google',
-      position: 'Senior Software Engineer',
-      location: 'San Francisco, USA',
-      testimonial: 'Western Mega provided me with the perfect foundation to build my career in tech. The practical approach to learning and industry connections were invaluable.',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300',
-      linkedin: 'https://linkedin.com/'
+      name: 'Sanjay Koirala',
+      graduation: 'Class of 2019',
+      degree: 'Bachelor of Hotel Management (BHM)',
+      company: 'Hotel Annapurna',
+      position: 'Front Office Manager',
+      location: 'Kathmandu, Nepal',
+      testimonial: 'Western Mega’s practical training and industry exposure helped me land my dream job in hospitality management.',
+      image: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=300',
+      linkedin: 'https://linkedin.com/in/sanjay-koirala',
     },
     {
       id: 2,
-      name: 'Raj Patel',
-      graduation: 'Class of 2015',
-      degree: 'MBA in Finance',
-      company: 'Goldman Sachs',
-      position: 'Investment Analyst',
-      location: 'New York, USA',
-      testimonial: 'The rigorous curriculum and mentorship from experienced faculty prepared me for the challenges of the financial world. I owe my success to Western Mega.',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
-      linkedin: 'https://linkedin.com/'
+      name: 'Maya Sharma',
+      graduation: 'Class of 2020',
+      degree: 'Bachelor of Hotel Management (BHM)',
+      company: 'Hyatt Regency',
+      position: 'Food & Beverage Supervisor',
+      location: 'Pokhara, Nepal',
+      testimonial: 'The experienced faculty and hands-on learning at Western Mega gave me confidence to excel in the hospitality industry.',
+      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=300',
+      linkedin: 'https://linkedin.com/in/maya-sharma',
     },
     {
       id: 3,
-      name: 'Anita Gurung',
-      graduation: 'Class of 2019',
-      degree: 'Bachelor of Architecture',
-      company: 'Foster + Partners',
-      position: 'Junior Architect',
-      location: 'London, UK',
-      testimonial: 'The creative environment and international exposure at Western Mega helped me develop a global perspective in design that sets my work apart.',
-      image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300',
-      linkedin: 'https://linkedin.com/'
+      name: 'Ramesh Thapa',
+      graduation: 'Class of 2018',
+      degree: 'Master of Business Administration (MBA)',
+      company: 'Nabil Bank',
+      position: 'Branch Manager',
+      location: 'Kathmandu, Nepal',
+      testimonial: 'The MBA program’s focus on leadership and strategic thinking prepared me well for managing teams and operations.',
+      image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300',
+      linkedin: 'https://linkedin.com/in/ramesh-thapa',
     },
     {
       id: 4,
-      name: 'David Chen',
-      graduation: 'Class of 2017',
-      degree: 'Bachelor of Medicine',
-      company: 'Mayo Clinic',
-      position: 'Resident Physician',
-      location: 'Rochester, USA',
-      testimonial: 'The hands-on clinical experience and research opportunities at Western Mega gave me a competitive edge in my medical career.',
-      image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=300',
-      linkedin: 'https://linkedin.com/'
+      name: 'Anita Khatri',
+      graduation: 'Class of 2021',
+      degree: 'Master of Business Administration (MBA)',
+      company: 'Unilever Nepal',
+      position: 'Marketing Executive',
+      location: 'Kathmandu, Nepal',
+      testimonial: 'Western Mega’s MBA program equipped me with the skills needed to succeed in the competitive marketing industry.',
+      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300',
+      linkedin: 'https://linkedin.com/in/anita-khatri',
     },
     {
       id: 5,
-      name: 'Sarah Johnson',
-      graduation: 'Class of 2016',
-      degree: 'Bachelor of Business Administration',
-      company: 'Amazon',
-      position: 'Marketing Manager',
-      location: 'Seattle, USA',
-      testimonial: 'The entrepreneurial spirit fostered at Western Mega encouraged me to think outside the box, a skill that has been crucial in my marketing career.',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300',
-      linkedin: 'https://linkedin.com/'
+      name: 'Sujan Basnet',
+      graduation: 'Class of 2017',
+      degree: 'Bachelor of Hotel Management (BHM)',
+      company: 'Crowne Plaza',
+      position: 'Event Coordinator',
+      location: 'Kathmandu, Nepal',
+      testimonial: 'The event management skills and internship opportunities at Western Mega made my transition into the industry seamless.',
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=300',
+      linkedin: 'https://linkedin.com/in/sujan-basnet',
     },
     {
       id: 6,
-      name: 'Arun Thapa',
-      graduation: 'Class of 2014',
-      degree: 'Master of Environmental Science',
-      company: 'United Nations',
-      position: 'Environmental Specialist',
-      location: 'Geneva, Switzerland',
-      testimonial: 'Western Mega focus on sustainability and global issues prepared me for my role in addressing environmental challenges on an international scale.',
-      image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300',
-      linkedin: 'https://linkedin.com/'
+      name: 'Rita Magar',
+      graduation: 'Class of 2019',
+      degree: 'Master of Business Administration (MBA)',
+      company: 'Standard Chartered Bank',
+      position: 'Financial Analyst',
+      location: 'Kathmandu, Nepal',
+      testimonial: 'The comprehensive finance courses and case studies in the MBA program helped me succeed as a financial analyst.',
+      image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300',
+      linkedin: 'https://linkedin.com/in/rita-magar',
     },
   ];
 
@@ -91,12 +91,11 @@ export function AlumniSection() {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Success Stories from Our Graduates
+            Success Stories from Our BHM & MBA Graduates
           </h2>
           
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Our alumni are making significant contributions across various industries worldwide.
-            Discover how their education at Western Mega shaped their professional journeys.
+            Our alumni are excelling in hospitality and business sectors worldwide. Discover how Western Mega College shaped their careers.
           </p>
         </div>
         
@@ -133,13 +132,13 @@ export function AlumniSection() {
                 
                 <div className="relative mb-4 pt-4 pb-2 px-2 bg-gray-50 rounded-lg">
                   <Quote className="absolute top-2 left-2 h-4 w-4 text-blue-400 opacity-50" />
-                  <p className="text-gray-700 text-sm pl-5 italic">
+                  <p className="text-gray-700 text-sm italic">
                     "{person.testimonial}"
                   </p>
                 </div>
                 
                 <div className="text-right">
-                  <Link href={person.linkedin} className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800">
+                  <Link href={person.linkedin} className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">
                     <span className="mr-1">LinkedIn</span>
                     <ExternalLink className="h-3 w-3" />
                   </Link>

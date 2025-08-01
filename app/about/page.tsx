@@ -13,64 +13,70 @@ import Image from "next/image";
 
 export default function AboutPage() {
   const milestones = [
-    { year: "2000", event: "Western Mega College Established" },
-    { year: "2005", event: "First Batch of +2 Students Graduated" },
-    { year: "2010", event: "Diploma Programs Launched" },
-    { year: "2015", event: "New Campus Building Inaugurated" },
-    { year: "2020", event: "Digital Learning Platform Introduced" },
-    { year: "2024", event: "Celebrating 24 Years of Excellence" },
+    { year: "2013", event: "Western Mega College Established with a focus on Management Education" },
+    { year: "2015", event: "Bachelor of Hotel Management (BHM) Program Launched" },
+    { year: "2018", event: "First Batch of BHM Students Graduated" },
+    { year: "2020", event: "Master of Business Administration (MBA) Program Introduced" },
+    { year: "2022", event: "Collaboration with Industry Partners for Internship and Placement" },
+    { year: "2024", event: "Celebrating 11 Years of Excellence in Hospitality and Business Education" },
   ];
+
 
   const features = [
     {
       icon: Building,
       title: "Modern Infrastructure",
       description:
-        "State-of-the-art classrooms, laboratories, and facilities equipped with the latest technology.",
+        "Fully-equipped training kitchens, mock bars, and business labs to support hands-on learning in BHM and MBA programs.",
     },
     {
       icon: Users,
       title: "Expert Faculty",
       description:
-        "Highly qualified and experienced teachers committed to student success.",
+        "Industry-experienced chefs, hospitality professionals, and business leaders guiding students toward academic and professional excellence.",
     },
     {
       icon: BookOpen,
       title: "Comprehensive Curriculum",
       description:
-        "Well-designed programs that balance theoretical knowledge with practical skills.",
+        "A perfect blend of academic theory and real-world application designed to meet the global standards of hospitality and business education.",
     },
     {
       icon: Award,
       title: "Industry Recognition",
       description:
-        "Accredited programs recognized by leading universities and employers.",
+        "Programs recognized by top hospitality and corporate sectors, with strong placement support and university affiliations.",
     },
   ];
 
   return (
     <div className="min-h-screen  bg-gray-50">
       {/* Hero Section */}
+      <section className="relative min-h-[500px] py-16 flex items-center justify-center text-white">
+        {/* Background image */}
+        <Image
+          src="/pic3.JPG"
+          alt="Campus Background"
+          fill
+          className="object-cover z-0"
+          priority
+        />
 
-      <section
-        className="min-h-[500px] text-white py-16 flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1920')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container mx-auto px-4 text-center">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
+
+        {/* Content */}
+        <div className="relative z-20 container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             About Western Mega College
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Over two decades of educational excellence, nurturing minds and
+            Over a decade of educational excellence, nurturing minds and
             shaping futures
           </p>
         </div>
       </section>
+
 
       {/* Introduction */}
       <section className="py-16 bg-white">
@@ -78,57 +84,50 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Building Tomorrow Leaders Today
+                Shaping Future Leaders in Hospitality & Business
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Western Mega College has been at the forefront of educational
-                excellence for over two decades. Founded in 2000, we have
-                consistently maintained our commitment to providing quality
-                education that prepares students for successful careers and
-                meaningful contributions to society.
+                Since its establishment in 2013, Western Mega College has been dedicated to delivering specialized education in Hotel Management and Business Administration. With a focus on practical learning and leadership development, we empower students to thrive in dynamic global industries.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Our institution has grown from a small college with a handful of
-                students to a recognized educational hub serving hundreds of
-                students across various programs. We take pride in our holistic
-                approach to education, combining academic rigor with character
-                development and practical skills training.
+                From professional kitchens to case-based MBA classes, our curriculum blends real-world training with academic excellence. We are proud to support the career paths of aspiring hoteliers and business professionals through quality education, expert mentorship, and industry collaboration.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">
-                    2000+
+                    800+
                   </div>
-                  <p className="text-gray-600">Graduates</p>
+                  <p className="text-gray-600">Successful Graduates</p>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-green-600 mb-2">
-                    50+
+                    40+
                   </div>
-                  <p className="text-gray-600">Faculty Members</p>
+                  <p className="text-gray-600">Dedicated Faculty</p>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-orange-600 mb-2">
-                    24
+                    11
                   </div>
                   <p className="text-gray-600">Years of Excellence</p>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-purple-600 mb-2">
-                    95%
+                    90%
                   </div>
-                  <p className="text-gray-600">Success Rate</p>
+                  <p className="text-gray-600">Placement Success</p>
                 </div>
               </div>
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="College Campus"
+                src="/pic1.JPG"
+                alt="Western Mega College Campus"
                 className="rounded-lg shadow-lg"
               />
             </div>
           </div>
+
         </div>
       </section>
 
@@ -150,7 +149,7 @@ export default function AboutPage() {
                   <CardContent className="p-8">
                     <div className="relative mb-6">
                       <Image
-                        src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        src="/principal.JPG"
                         alt="Dr. Sarah Johnson - Principal"
                         width={200}
                         height={200}
@@ -161,14 +160,14 @@ export default function AboutPage() {
                       </div>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      Dr. Sarah Johnson
+                      Kishu Sharma
                     </h3>
-                    <p className="text-blue-600 font-medium mb-2">
+                    {/* <p className="text-blue-600 font-medium mb-2">
                       Principal & Chief Academic Officer
                     </p>
                     <p className="text-sm text-gray-600">
                       Ph.D. in Education | 15+ Years Experience
-                    </p>
+                    </p> */}
                   </CardContent>
                 </Card>
               </div>
@@ -178,94 +177,52 @@ export default function AboutPage() {
                 <Card className="shadow-lg">
                   <CardContent className="p-8">
                     <div className="prose prose-lg max-w-none text-gray-700">
-                      <p className="text-lg leading-relaxed mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-blue-600 first-letter:float-left first-letter:mr-2 first-letter:mt-1">
-                        Welcome to Western Mega College, where we believe that
-                        education is not just about acquiring knowledge, but
-                        about transforming lives and building character. As the
-                        Principal of this esteemed institution, I am honored to
-                        lead a community of dedicated educators, ambitious
-                        students, and supportive families who share our vision
-                        of excellence.
+                      <p className="text-lg leading-relaxed mb-6 ">
+                        Welcome to Western Mega College (WMC)—a place where your dreams meet incredible opportunities.
+                      </p>
+
+                      <p className="mb-6 leading-relaxed ">
+                        As the Principal, I’m truly proud to lead this lively community filled with passionate educators, driven students, and supportive families, all working together towards a common goal of excellence. It brings me great joy to welcome you to WMC, a college dedicated to not just raising the bar in education, but also in launching successful careers.
+                        For more than a decade, Western Mega College has been a shining example of quality education, grounded in holistic development. We believe that real learning goes beyond just textbooks; it’s about nurturing critical thinking, encouraging deep understanding, and instilling ethical values that shape character. Our mission is to empower you with a degree that truly reflects your capabilities, giving you and your parents confidence that your trust in us is well-placed.
+                        Our faculty members are more than just teachers; they are a mix of respected academics and experienced industry professionals who bring valuable insights and connections right into the classroom. They are your mentors, committed to helping you succeed.
                       </p>
 
                       <p className="mb-6 leading-relaxed">
-                        Over the past two decades, Western Mega College has
-                        established itself as a beacon of quality education in
-                        our region. We have consistently maintained our
-                        commitment to providing{" "}
-                        <strong>holistic education</strong> that nurtures not
-                        only academic excellence but also personal growth,
-                        critical thinking, and ethical values.
-                      </p>
-
-                      <p className="mb-6 leading-relaxed">
-                        Our approach to education is{" "}
-                        <em>student-centered and future-focused</em>. We
-                        understand that today's students will be tomorrow's
-                        leaders, innovators, and change-makers. Therefore, we
-                        have designed our curriculum and teaching methodologies
-                        to:
+                        At WMC, we offer two distinct pathways to leadership:
                       </p>
 
                       <ul className="mb-6 space-y-2 text-gray-700">
                         <li className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                           <span>
-                            Foster creativity and innovation in every student
+                            <b>For Future Hospitality Leaders:</b> We are revolutionizing hospitality education with SCHOTEL, our industry-aligned BHM program. This dynamic model ensures you gain the practical expertise needed to thrive in a global hospitality environment.
                           </span>
                         </li>
                         <li className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                           <span>
-                            Develop strong analytical and problem-solving skills
-                          </span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Build confidence and leadership qualities</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>
-                            Instill values of integrity, respect, and social
-                            responsibility
+                            <b>For Aspiring Business Executives:</b> Our Master of Business Administration (MBA) program is engineered to equip you with the strategic insights and leadership skills required to succeed in the complex world of modern business.
                           </span>
                         </li>
                       </ul>
 
                       <blockquote className="border-l-4 border-blue-600 pl-6 py-4 mb-6 bg-blue-50 rounded-r-lg">
                         <p className="text-lg italic text-blue-800 mb-2">
-                          "Education is the most powerful weapon which you can
-                          use to change the world. At Western Mega College, we
-                          are committed to empowering our students with this
-                          weapon of knowledge, wisdom, and character."
+                          "At Western Mega College, we are committed to delivering practical, career-focused education through our MBA and BHM programs—shaping future leaders in business and hospitality."
                         </p>
                       </blockquote>
 
+
                       <p className="mb-6 leading-relaxed">
-                        Our faculty members are not just teachers; they are{" "}
-                        <strong>mentors, guides, and inspirers</strong> who go
-                        above and beyond to ensure that every student reaches
-                        their full potential. With state-of-the-art facilities,
-                        modern teaching methodologies, and a supportive learning
-                        environment, we provide our students with the best
-                        possible foundation for their future endeavors.
+                        Your experience here goes well beyond the classroom. We cultivate a vibrant campus life filled with in-class activities, cultural festivals, CSR activities and leadership opportunities, creating a space where you can forge lifelong friendships and grow as an individual. The success of this approach is evident in our impressive placement record and a dynamic alumni network of leaders who are making a difference.
                       </p>
 
                       <p className="mb-6 leading-relaxed">
-                        As we look towards the future, we remain committed to
-                        continuous improvement and innovation in education. We
-                        are constantly updating our programs, enhancing our
-                        facilities, and adopting new technologies to ensure that
-                        our students are well-prepared for the challenges and
-                        opportunities of the 21st century.
+                        Having spent my career leading educational institutions and understanding the dynamics between the academic and business worlds, I know what it takes to build a bridge to success. It is this experience that fuels my passion for creating an education that is both intellectually rigorous and intensely practical. Nothing gives me more pride than seeing our graduates leave not just with a degree, but with the confidence and character to achieve their dreams.
                       </p>
 
-                      <p className="text-lg font-medium text-gray-800">
-                        I invite you to join our Western Mega College family and
-                        embark on a journey of discovery, growth, and success.
-                        Together, we will build a brighter future for our
-                        students and our society.
+                      <p className="text-base font-medium text-gray-800 ">
+                        My door is always open! I warmly invite you to come visit our campus, meet our amazing faculty, and discover for yourself what makes the Western Mega College family so unique. I can’t wait to personally welcome you as you embark on your academic adventure!
                       </p>
 
                       <div className="mt-8 pt-6 border-t border-gray-200">
@@ -273,7 +230,7 @@ export default function AboutPage() {
                           Warm regards,
                           <br />
                           <span className="font-semibold text-gray-800">
-                            Dr. Sarah Johnson
+                            Kishu Sharma
                           </span>
                           <br />
                           <span className="text-sm">
@@ -313,10 +270,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  To provide quality education that empowers students to achieve
-                  their full potential, develop critical thinking skills, and
-                  contribute meaningfully to society through innovative teaching
-                  methods and holistic development.
+                  We a quality provide education that creates highly productive professionals who are ethical, entrepreneurial and prepared to succeed in the global economy. The college achieves this though excellence in teaching research and service engagement with the business community other stakeholders.
                 </p>
               </CardContent>
             </Card>
@@ -330,10 +284,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  To be a leading educational institution recognized for
-                  academic excellence, innovation in teaching and learning, and
-                  for producing graduates who are well-prepared for the
-                  challenges of the modern world.
+                  Our Vision is to empower students from diverse backgrounds to become productive and ethical business professionals who are among the best in the world.
                 </p>
               </CardContent>
             </Card>
@@ -347,11 +298,10 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <ul className="text-gray-600 space-y-2">
-                  <li>• Integrity and Excellence</li>
                   <li>• Innovation and Creativity</li>
                   <li>• Inclusivity and Diversity</li>
                   <li>• Responsibility and Service</li>
-                  <li>• Continuous Learning</li>
+                  <li>• Professionalism and Leadership</li>
                 </ul>
               </CardContent>
             </Card>
@@ -394,7 +344,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -408,15 +358,13 @@ export default function AboutPage() {
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              {/* Timeline line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
 
               {milestones.map((milestone, index) => (
                 <div
                   key={index}
-                  className={`flex items-center mb-8 ${
-                    index % 2 === 0 ? "flex-row-reverse" : ""
-                  }`}
+                  className={`flex items-center mb-8 ${index % 2 === 0 ? "flex-row-reverse" : ""
+                    }`}
                 >
                   <div className="w-1/2 px-4">
                     <Card className="hover:shadow-lg transition-shadow">
@@ -429,14 +377,13 @@ export default function AboutPage() {
                     </Card>
                   </div>
                   <div className="w-1/2"></div>
-                  {/* Timeline dot */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

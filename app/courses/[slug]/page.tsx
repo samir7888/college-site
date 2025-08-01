@@ -2,27 +2,11 @@ export async function generateStaticParams() {
   const courses = [
     {
       id: 1,
-      slug: "plus-two-science",
+      slug: "bachelor-of-science-in-hospitality-management",
     },
     {
       id: 2,
-      slug: "plus-two-management",
-    },
-    {
-      id: 3,
-      slug: "diploma-computer-engineering",
-    },
-    {
-      id: 4,
-      slug: "diploma-civil-engineering",
-    },
-    {
-      id: 5,
-      slug: "diploma-electrical-engineering",
-    },
-    {
-      id: 6,
-      slug: "diploma-mechanical-engineering",
+      slug: "master-of-business-administration",
     },
   ];
 
@@ -30,6 +14,7 @@ export async function generateStaticParams() {
     slug: course.slug,
   }));
 }
+
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -49,248 +34,86 @@ import Link from "next/link";
 const courses = [
   {
     id: 1,
-    slug: "plus-two-science",
-    title: "+2 Science",
-    category: "plus2",
+    slug: "bachelor-of-science-in-hospitality-management",
+    title: "Bachelor of Science (Hons) in Hospitality Management (BHM)",
+    category: "bachelor",
     description:
-      "A comprehensive science education covering Physics, Chemistry, Biology, and Mathematics, preparing students for careers in medicine, engineering, and technology.",
-    duration: "2 Years",
-    intake: "150 Students",
-    fee: "NPR 120,000/year",
+      "Comprehensive hospitality management program focusing on hotel operations, event planning, and customer service excellence.",
+    duration: "4 Years",
+    intake: "May/Nov",
+    // fee: "NPR 200,000/year",
     subjects: [
-      "Physics",
-      "Chemistry",
-      "Biology",
-      "Mathematics",
-      "English",
-      "Nepali",
+      "Hotel Operations",
+      "Event Planning",
+      "Food & Beverage Management",
+      "Customer Service",
+      "Business Communication",
     ],
     image:
-      "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "/image3.JPG",
     eligibility:
-      "SEE passed with a minimum of 60% marks, with compulsory Mathematics and Science.",
+      "10+2, PCL or Equivalent in any discipline or as per minimum criteria for a Bachelor from the ministry of Higher education, Nepal.",
     careerPaths: [
-      "Medicine",
-      "Engineering",
-      "Biotechnology",
-      "Pharmacy",
-      "Research",
+      "Hotel Manager",
+      "Event Coordinator",
+      "Food and Beverage Manager",
+      "Tourism Consultant",
     ],
     faculty: [
       {
-        name: "Dr. Ram Sharma",
-        subject: "Physics",
-        qualification: "Ph.D. in Physics",
+        name: "Chef Bikash Khatri Thapa",
+        subject: "Practical Incharge",
+        qualification: "Ph.D. in Hospitality",
       },
       {
-        name: "Dr. Sita Devi",
-        subject: "Chemistry",
-        qualification: "Ph.D. in Chemistry",
+        name: "Kabi Raj Giri",
+        subject: "Practical Instructure",
+        qualification: "Ph.D. in Business",
       },
     ],
   },
   {
     id: 2,
-    slug: "plus-two-management",
-    title: "+2 Management",
-    category: "plus2",
+    slug: "master-of-business-administration",
+    title: "Master of Business Administration (MBA)",
+    category: "masters",
     description:
-      "A business-focused education with an emphasis on management principles, financial accounting, and marketing strategies to prepare students for the corporate world.",
+      "Advanced business administration program covering leadership, marketing, finance, and strategic management.",
     duration: "2 Years",
-    intake: "120 Students",
-    fee: "NPR 100,000/year",
+    intake: "May/Nov",
+    // fee: "NPR 300,000/year",
     subjects: [
-      "Business Studies",
-      "Economics",
-      "Accounting",
-      "Marketing",
-      "English",
-      "Nepali",
+      "Leadership and Management",
+      "Financial Accounting",
+      "Marketing Strategies",
+      "Strategic Management",
+      "Business Analytics",
     ],
     image:
-      "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=500",
-    eligibility: "SEE passed with a minimum of 50% marks.",
-    careerPaths: [
-      "BBA",
-      "BBS",
-      "Hotel Management",
-      "Banking",
-      "Entrepreneurship",
-    ],
-    faculty: [
-      {
-        name: "Mr. Hari Bahadur",
-        subject: "Business Studies",
-        qualification: "MBA",
-      },
-      {
-        name: "Mrs. Gita Thapa",
-        subject: "Economics",
-        qualification: "M.A. in Economics",
-      },
-    ],
-  },
-  {
-    id: 3,
-    slug: "diploma-computer-engineering",
-    title: "Diploma in Computer Engineering",
-    category: "diploma",
-    description:
-      "A practical computer engineering education with hands-on programming, system design, and networking skills for a career in the IT industry.",
-    duration: "3 Years",
-    intake: "80 Students",
-    fee: "NPR 150,000/year",
-    subjects: [
-      "Programming",
-      "Database Management",
-      "Computer Networks",
-      "Software Engineering",
-      "Web Development",
-    ],
-    image:
-      "https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "/image2.JPG",
     eligibility:
-      "SEE passed with a minimum of 55% marks, with compulsory Mathematics and Science.",
+      "Minimum score of second division marks in Bachelors Degree, or as per the guidelines of Ministry of Education, Nepal.",
     careerPaths: [
-      "Software Developer",
-      "System Administrator",
-      "Web Developer",
-      "Database Admin",
+      "Business Manager",
+      "Marketing Executive",
+      "Financial Analyst",
+      "Operations Manager",
     ],
     faculty: [
       {
-        name: "Mr. Ramesh Kumar",
-        subject: "Programming",
-        qualification: "M.Tech in CS",
+        name: "Dr. Bhagwati Prasad Chaudhary",
+        subject: "Business and Management Studies",
+        qualification: "Ph.D. in Marketing",
       },
       {
-        name: "Ms. Sunita Rai",
-        subject: "Database Management",
-        qualification: "MCA",
-      },
-    ],
-  },
-  {
-    id: 4,
-    slug: "diploma-civil-engineering",
-    title: "Diploma in Civil Engineering",
-    category: "diploma",
-    description:
-      "A comprehensive civil engineering program covering construction, design, and project management to build the infrastructure of tomorrow.",
-    duration: "3 Years",
-    intake: "60 Students",
-    fee: "NPR 140,000/year",
-    subjects: [
-      "Construction Technology",
-      "Structural Engineering",
-      "Surveying",
-      "Building Materials",
-      "Project Management",
-    ],
-    image:
-      "https://images.pexels.com/photos/8761431/pexels-photo-8761431.jpeg?auto=compress&cs=tinysrgb&w=500",
-    eligibility:
-      "SEE passed with a minimum of 55% marks, with compulsory Mathematics and Science.",
-    careerPaths: [
-      "Construction Engineer",
-      "Project Manager",
-      "Site Supervisor",
-      "Design Engineer",
-    ],
-    faculty: [
-      {
-        name: "Mr. Bimal Shah",
-        subject: "Construction Technology",
-        qualification: "M.E. in Civil",
-      },
-      {
-        name: "Mr. Suman Lama",
-        subject: "Structural Engineering",
-        qualification: "M.E. in Structures",
-      },
-    ],
-  },
-  {
-    id: 5,
-    slug: "diploma-electrical-engineering",
-    title: "Diploma in Electrical Engineering",
-    category: "diploma",
-    description:
-      "A program focused on electrical engineering fundamentals, including power systems, electronics, and control systems for a career in the power and automation industry.",
-    duration: "3 Years",
-    intake: "50 Students",
-    fee: "NPR 145,000/year",
-    subjects: [
-      "Circuit Analysis",
-      "Power Systems",
-      "Electronics",
-      "Control Systems",
-      "Instrumentation",
-    ],
-    image:
-      "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=500",
-    eligibility:
-      "SEE passed with a minimum of 55% marks, with compulsory Mathematics and Science.",
-    careerPaths: [
-      "Electrical Engineer",
-      "Power Plant Technician",
-      "Maintenance Engineer",
-      "Design Engineer",
-    ],
-    faculty: [
-      {
-        name: "Mr. Rajesh Gupta",
-        subject: "Power Systems",
-        qualification: "M.E. in Electrical",
-      },
-      {
-        name: "Mrs. Anita KC",
-        subject: "Electronics",
-        qualification: "M.Tech in Electronics",
-      },
-    ],
-  },
-  {
-    id: 6,
-    slug: "diploma-mechanical-engineering",
-    title: "Diploma in Mechanical Engineering",
-    category: "diploma",
-    description:
-      "A mechanical engineering program covering design, manufacturing, and maintenance of mechanical systems for a career in the manufacturing and automotive industry.",
-    duration: "3 Years",
-    intake: "45 Students",
-    fee: "NPR 140,000/year",
-    subjects: [
-      "Mechanics",
-      "Thermodynamics",
-      "Machine Design",
-      "Manufacturing Processes",
-      "CAD/CAM",
-    ],
-    image:
-      "https://images.pexels.com/photos/159751/turning-lathe-machine-tool-metal-159751.jpeg?auto=compress&cs=tinysrgb&w=500",
-    eligibility:
-      "SEE passed with a minimum of 55% marks, with compulsory Mathematics and Science.",
-    careerPaths: [
-      "Mechanical Engineer",
-      "Production Engineer",
-      "Quality Control",
-      "Maintenance Engineer",
-    ],
-    faculty: [
-      {
-        name: "Mr. Pradeep Yadav",
-        subject: "Mechanics",
-        qualification: "M.E. in Mechanical",
-      },
-      {
-        name: "Mr. Bikash Shrestha",
-        subject: "Thermodynamics",
-        qualification: "M.Tech in Thermal",
+        name: "Lalitman Shrestha",
+        subject: "Banking and Accountancy",
+        qualification: "Ph.D. in Finance",
       },
     ],
   },
 ];
+
 
 interface CourseDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -333,9 +156,9 @@ export default async function CourseDetailPage({
           }}
         >
           <div className="container mx-auto px-4 text-center">
-            <Badge className="bg-blue-600 tracking-widest font-light text-white mb-4">
+            {/* <Badge className="bg-blue-600 tracking-widest font-light text-white mb-4">
               {course.category === "plus2" ? "+2 Program" : "Diploma Program"}
-            </Badge>
+            </Badge> */}
             <h1 className="text-4xl  md:text-5xl font-bold mb-4">
               {course.title}
             </h1>
@@ -360,7 +183,7 @@ export default async function CourseDetailPage({
                     <p className="text-gray-700 leading-relaxed">
                       {course.description}
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center  w-2/3 mx-auto">
                       <div className="p-4   rounded-lg">
                         <Clock className="h-8 w-8 mx-auto mb-2 text-blue-400" />
                         <h4 className="font-bold">Duration</h4>
@@ -371,11 +194,7 @@ export default async function CourseDetailPage({
                         <h4 className="font-bold">Intake</h4>
                         <p>{course.intake}</p>
                       </div>
-                      <div className="p-4 bg-white rounded-lg">
-                        <Calendar className="h-8 w-8 mx-auto mb-2 text-orange-400" />
-                        <h4 className="font-bold">Fee</h4>
-                        <p>{course.fee}</p>
-                      </div>
+                      
                     </div>
 
                     <div>
@@ -424,8 +243,8 @@ export default async function CourseDetailPage({
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex items-start space-x-3">
-                      <GraduationCap className="h-6 w-6 mt-1 text-blue-400" />
+                    <div className="flex items-start space-x-6">
+                      {/* <GraduationCap className="h-16 w-16 text-blue-400" /> */}
                       <p>{course.eligibility}</p>
                     </div>
                   </CardContent>
@@ -447,7 +266,7 @@ export default async function CourseDetailPage({
                         <div>
                           <h4 className="font-bold">{faculty.name}</h4>
                           <p className="text-sm text-gray-400">
-                            {faculty.subject} - {faculty.qualification}
+                            {faculty.subject} 
                           </p>
                         </div>
                       </div>
