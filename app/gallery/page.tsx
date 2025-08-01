@@ -108,7 +108,7 @@ export default function GalleryPage() {
           src="/pic4.JPG"
           alt="Gallery Background"
           fill
-          className="object-cover object-center z-0"
+          className="object-cover object-top z-0"
           priority
         />
 

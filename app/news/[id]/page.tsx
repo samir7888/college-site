@@ -57,9 +57,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <Card className="mb-8">
                 <CardContent className="p-8">
                   {/* Article Meta */}
@@ -76,7 +76,17 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
                   {/* Article Content */}
                   <div
-                    className="prose prose-lg max-w-none"
+                    className="prose prose-lg max-w-none 
+                               prose-headings:text-gray-900 prose-headings:font-bold
+                               prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
+                               prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
+                               prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
+                               prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600
+                               prose-ul:space-y-2 prose-ol:space-y-2
+                               prose-li:text-gray-700
+                               prose-strong:text-gray-900 prose-strong:font-semibold
+                               prose-em:text-gray-600 prose-em:italic
+                               prose-a:text-blue-600 prose-a:hover:text-blue-800"
                     dangerouslySetInnerHTML={{ __html: news.content }}
                   />
 
@@ -144,27 +154,6 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
                     >
                       <Link href="/news">View All News</Link>
                     </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Newsletter Signup */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Stay Updated
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Subscribe to our newsletter to get the latest news and
-                    updates from Western Mega College.
-                  </p>
-                  <div className="space-y-3">
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    <Button className="w-full">Subscribe</Button>
                   </div>
                 </CardContent>
               </Card>

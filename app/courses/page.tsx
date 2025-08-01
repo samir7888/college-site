@@ -5,7 +5,14 @@ import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, BookOpen, ArrowRight, GraduationCap, Award } from "lucide-react";
+import {
+  Clock,
+  Users,
+  BookOpen,
+  ArrowRight,
+  GraduationCap,
+  Award,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -31,8 +38,7 @@ function CoursesContent() {
         "Comprehensive hospitality management program focusing on hotel operations, event planning, and customer service excellence.",
       duration: "4 Years",
       intake: "200 Students",
-      image:
-        "/image3.JPG",
+      image: "/image3.JPG",
     },
     {
       id: 2,
@@ -43,8 +49,7 @@ function CoursesContent() {
         "Advanced business administration program covering leadership, marketing, finance, and strategic management.",
       duration: "2 Years",
       intake: "100 Students",
-      image:
-        "/image2.JPG",
+      image: "/image2.JPG",
     },
   ];
 
@@ -65,7 +70,7 @@ function CoursesContent() {
           src="/pic2.JPG"
           alt="Western Mega Programs"
           fill
-          className="object-cover object-center z-0"
+          className="object-cover object-top z-0"
           priority
         />
 
@@ -78,11 +83,11 @@ function CoursesContent() {
             {currentCategory?.label || "Our Programs"}
           </h1>
           <p className="text-2xl tracking-wide text-white max-w-2xl mx-auto">
-            Discover our specialized academic programs designed to prepare you for success.
+            Discover our specialized academic programs designed to prepare you
+            for success.
           </p>
         </div>
       </section>
-
 
       {/* Category Navigation */}
       <section className="py-8 border-b border-gray-200">
@@ -115,7 +120,10 @@ function CoursesContent() {
       {/* Courses Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            className="grid
+          grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {filteredCourses.map((course) => (
               <Card
                 key={course.id}
@@ -140,7 +148,9 @@ function CoursesContent() {
 
                 <CardHeader>
                   <CardTitle>{course.title}</CardTitle>
-                  <p className="text-neutral-foreground">{course.description}</p>
+                  <p className="text-neutral-foreground">
+                    {course.description}
+                  </p>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
@@ -156,7 +166,10 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-4 border-t border-gray-700 space-y-3">
-                    <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Button
+                      asChild
+                      className="w-full bg-blue-600 hover:bg-blue-700"
+                    >
                       <Link href={`/courses/${course.slug}`}>
                         View Course
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -189,7 +202,7 @@ function LoadingFallback() {
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/3401403/pexels-photo-3401403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "top",
         }}
       >
         <div className="container mx-auto px-4 text-center">

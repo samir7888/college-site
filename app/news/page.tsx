@@ -14,17 +14,23 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Latest News & Updates
-            </h1>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Stay informed about the latest happenings, achievements, and
-              events at Western Mega College
-            </p>
-          </div>
+      <section
+        className="min-h-[500px] text-white py-16 flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+        }}
+      >
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl text-orange-500 md:text-5xl font-bold mb-4">
+            Latest News & Updates
+          </h1>
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+            Stay informed about the latest happenings, achievements, and events
+            at Western Mega College
+          </p>
         </div>
       </section>
 

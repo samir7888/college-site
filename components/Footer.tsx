@@ -125,7 +125,7 @@ export function Footer() {
             <li>
               <Link
                   target="_blank"
-                  href="/"
+                  href="https://www.facebook.com/arambharesort/"
                   className="text-gray-400 hover:text-white"
                 >
                   Arambha Resort
@@ -152,7 +152,7 @@ export function Footer() {
               <li>
               <Link
                   target="_blank"
-                  href="https://moest.gov.np/"
+                  href="https://edusanjal.com/blog/list-foreign-university-affiliated-courses-nepal/"
                   className="text-gray-400 hover:text-white"
                 >
                   Ministry of Education
