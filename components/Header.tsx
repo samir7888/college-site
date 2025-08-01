@@ -57,15 +57,39 @@ export function Header() {
     {
       id: "bachelor",
       label: "Bachelor of Science in Hospitality Management (BHM)",
-      href: "/courses?category=bachelor&course=bachelor",
+      href: "/courses/bachelor-of-science-in-hospitality-management",
     },
-    ];
+  ];
 
   const masters = [
     {
       id: "mba",
       label: "Master of Business Administration (MBA)",
-      href: "/courses?category=masters&course=mba",
+      href: "/courses/master-of-business-administration",
+    },
+  ];
+
+  const teamCategories = [
+    {
+      id: "principal",
+      label: "Our Principal",
+      href: "/our-team?category=principal",
+    },
+    {
+      id: "bods",
+      label: "Board of Directors",
+      href: "/our-team?category=bods",
+    },
+
+    {
+      id: "faculty",
+      label: "Faculty Members",
+      href: "/our-team?category=faculty",
+    },
+    {
+      id: "staff",
+      label: "Staff Members",
+      href: "/our-team?category=staff",
     },
   ];
 
@@ -127,8 +151,9 @@ export function Header() {
               >
                 <span>COURSES</span>
                 <ChevronDown
-                  className={`h-4 w-4 transition-transform ${activeDropdown === "courses" ? "rotate-180" : ""
-                    }`}
+                  className={`h-4 w-4 transition-transform ${
+                    activeDropdown === "courses" ? "rotate-180" : ""
+                  }`}
                 />
               </button>
 
@@ -162,18 +187,35 @@ export function Header() {
               </div>
             </div>
 
-            <Link
-              href="/our-team"
-              className={`font-medium transition-colors ${textColor}`}
-            >
-              OUR TEAMS
-            </Link>
-            <Link
-              href="/alumni"
-              className={`font-medium transition-colors ${textColor}`}
-            >
-              ALUMINI
-            </Link>
+            {/* Our Teams Dropdown */}
+            <div className="group relative" ref={teamRef}>
+              <button
+                onClick={() => toggleDropdown("teams")}
+                className={` flex items-center space-x-1 font-medium transition-colors ${textColor}`}
+              >
+                <span>OUR TEAMS</span>
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${
+                    activeDropdown === "teams" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              <div className="opacity-0 scale-0 group-hover:scale-100  group-hover:opacity-100  duration-400 absolute top-full left-0  w-[250px] bg-white rounded-md shadow-lg py-2 z-10">
+                <div className="px-4 py-2">
+                  {teamCategories.map((category) => (
+                    <Link
+                      key={category.id}
+                      href={category.href}
+                      onClick={closeDropdowns}
+                      className="block py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      {category.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
             <Link
               href="/gallery"
               className={`font-medium transition-colors ${textColor}`}
@@ -181,7 +223,13 @@ export function Header() {
               GALLERY
             </Link>
             <Link
-              href="/events"
+              href="/blogs"
+              className={`font-medium transition-colors ${textColor}`}
+            >
+              BLOGS
+            </Link>
+            <Link
+              href="/news"
               className={`font-medium transition-colors ${textColor}`}
             >
               EVENTS
@@ -241,23 +289,36 @@ export function Header() {
               >
                 Courses
               </Link>
-              <Link
-                href="/our-team"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Our Team
-              </Link>
-              <Link
-                href="/alumni"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Alumni
-              </Link>
+              <div className="space-y-2">
+                <Link
+                  href="/our-team"
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                >
+                  Our Team
+                </Link>
+                <div className="pl-4 space-y-1">
+                  {teamCategories.map((category) => (
+                    <Link
+                      key={category.id}
+                      href={category.href}
+                      className="block text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                    >
+                      {category.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Link
                 href="/gallery"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Gallery
+              </Link>
+              <Link
+                href="/blogs"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Blogs
               </Link>
               <Link
                 href="/events"

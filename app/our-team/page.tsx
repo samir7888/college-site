@@ -12,365 +12,36 @@ import {
   Linkedin,
   Instagram,
   BookOpen,
+  Phone,
 } from "lucide-react";
 import Image from "next/image";
+import {
+  teamData,
+  getTeamByCategory,
+  getBoardOfDirectors,
+  getPrincipal,
+  getFaculty,
+  getStaff,
+} from "@/lib/teamData";
 
 function OurTeamContent() {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
 
-  // Team members organized by category
-  const teamMembers = [
-    // Chairman
-    {
-      id: 1,
-      name: "Mr. John Smith",
-      position: "Chairman",
-      department: "Board of Directors",
-      category: "bods",
-      email: "chairman@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3771120/pexels-photo-3771120.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/johnsmith",
-        twitter: "https://twitter.com/johnsmith",
-        linkedin: "https://linkedin.com/in/johnsmith",
-        instagram: "https://instagram.com/johnsmith",
-      },
-    },
-    // Board of Directors
-    {
-      id: 2,
-      name: "Ms. Patricia Lee",
-      position: "Vice Chairman",
-      department: "Board of Directors",
-      category: "bods",
-      email: "vicechairman@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/patricialee",
-        twitter: "https://twitter.com/patricialee",
-        linkedin: "https://linkedin.com/in/patricialee",
-        instagram: "https://instagram.com/patricialee",
-      },
-    },
-    {
-      id: 3,
-      name: "Mr. Richard Brown",
-      position: "Board Member",
-      department: "Board of Directors",
-      category: "bods",
-      email: "rbrown@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/richardbrown",
-        twitter: "https://twitter.com/richardbrown",
-        linkedin: "https://linkedin.com/in/richardbrown",
-        instagram: "https://instagram.com/richardbrown",
-      },
-    },
-    {
-      id: 4,
-      name: "Dr. Anita Sharma",
-      position: "Board Member",
-      department: "Board of Directors",
-      category: "bods",
-      email: "asharma@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/anitasharma",
-        twitter: "https://twitter.com/anitasharma",
-        linkedin: "https://linkedin.com/in/anitasharma",
-        instagram: "https://instagram.com/anitasharma",
-      },
-    },
-    // Principal
-    {
-      id: 5,
-      name: "Dr. Sarah Johnson",
-      position: "Principal",
-      department: "Administration",
-      category: "principal",
-      email: "principal@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Educational Administration & Leadership",
-      socialLinks: {
-        facebook: "https://facebook.com/sarahjohnson",
-        twitter: "https://twitter.com/sarahjohnson",
-        linkedin: "https://linkedin.com/in/sarahjohnson",
-        instagram: "https://instagram.com/sarahjohnson",
-      },
-    },
-    // Faculty Members
-    {
-      id: 6,
-      name: "Prof. Michael Chen",
-      position: "Head of Science Department",
-      department: "Science Faculty",
-      category: "faculty",
-      email: "physics@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/8129903/pexels-photo-8129903.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Quantum Physics & Advanced Materials",
-      courses: ["B.Sc. CSIT", "+2 Science"],
-      socialLinks: {
-        facebook: "https://facebook.com/michaelchen",
-        twitter: "https://twitter.com/michaelchen",
-        linkedin: "https://linkedin.com/in/michaelchen",
-        instagram: "https://instagram.com/michaelchen",
-      },
-    },
-    {
-      id: 7,
-      name: "Dr. Emily Rodriguez",
-      position: "Mathematics Professor",
-      department: "Mathematics Faculty",
-      category: "faculty",
-      email: "math@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Applied Mathematics & Statistics",
-      courses: ["B.Sc. CSIT", "BCA", "+2 Science"],
-      socialLinks: {
-        facebook: "https://facebook.com/emilyrodriguez",
-        twitter: "https://twitter.com/emilyrodriguez",
-        linkedin: "https://linkedin.com/in/emilyrodriguez",
-        instagram: "https://instagram.com/emilyrodriguez",
-      },
-    },
-    {
-      id: 8,
-      name: "Mr. David Kumar",
-      position: "Computer Science Faculty",
-      department: "Technology Faculty",
-      category: "faculty",
-      email: "cs@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/6147366/pexels-photo-6147366.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Software Engineering & AI",
-      courses: ["B.Sc. CSIT", "BCA"],
-      socialLinks: {
-        facebook: "https://facebook.com/davidkumar",
-        twitter: "https://twitter.com/davidkumar",
-        linkedin: "https://linkedin.com/in/davidkumar",
-        instagram: "https://instagram.com/davidkumar",
-      },
-    },
-    {
-      id: 9,
-      name: "Dr. Sophia Williams",
-      position: "English Professor",
-      department: "Humanities Faculty",
-      category: "faculty",
-      email: "english@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Modern Literature & Creative Writing",
-      courses: ["+2 Humanities", "BBS"],
-      socialLinks: {
-        facebook: "https://facebook.com/sophiawilliams",
-        twitter: "https://twitter.com/sophiawilliams",
-        linkedin: "https://linkedin.com/in/sophiawilliams",
-        instagram: "https://instagram.com/sophiawilliams",
-      },
-    },
-    {
-      id: 10,
-      name: "Prof. Rajesh Thapa",
-      position: "BHM Program Coordinator",
-      department: "Hospitality Faculty",
-      category: "faculty",
-      email: "bhm@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Hospitality Management & Tourism",
-      courses: ["BHM"],
-      socialLinks: {
-        facebook: "https://facebook.com/rajeshthapa",
-        twitter: "https://twitter.com/rajeshthapa",
-        linkedin: "https://linkedin.com/in/rajeshthapa",
-        instagram: "https://instagram.com/rajeshthapa",
-      },
-    },
-    {
-      id: 11,
-      name: "Dr. Priya Sharma",
-      position: "Management Faculty",
-      department: "Business Faculty",
-      category: "faculty",
-      email: "management@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Business Administration & Finance",
-      courses: ["BBS", "+2 Management"],
-      socialLinks: {
-        facebook: "https://facebook.com/priyasharma",
-        twitter: "https://twitter.com/priyasharma",
-        linkedin: "https://linkedin.com/in/priyasharma",
-        instagram: "https://instagram.com/priyasharma",
-      },
-    },
-    {
-      id: 12,
-      name: "Mr. Arjun Poudel",
-      position: "Social Work Faculty",
-      department: "Social Work Faculty",
-      category: "faculty",
-      email: "socialwork@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Community Development & Social Policy",
-      courses: ["BSW"],
-      socialLinks: {
-        facebook: "https://facebook.com/arjunpoudel",
-        twitter: "https://twitter.com/arjunpoudel",
-        linkedin: "https://linkedin.com/in/arjunpoudel",
-        instagram: "https://instagram.com/arjunpoudel",
-      },
-    },
-    {
-      id: 13,
-      name: "Dr. Kamala Devi",
-      position: "Law Faculty",
-      department: "Law Faculty",
-      category: "faculty",
-      email: "law@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=300",
-      specialization: "Constitutional Law & Human Rights",
-      courses: ["+2 Law"],
-      socialLinks: {
-        facebook: "https://facebook.com/kamaladevi",
-        twitter: "https://twitter.com/kamaladevi",
-        linkedin: "https://linkedin.com/in/kamaladevi",
-        instagram: "https://instagram.com/kamaladevi",
-      },
-    },
-    // Staff (Administration, Support)
-    {
-      id: 14,
-      name: "Ms. Lisa Anderson",
-      position: "Registrar",
-      department: "Administration",
-      category: "staff",
-      email: "registrar@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/lisaanderson",
-        twitter: "https://twitter.com/lisaanderson",
-        linkedin: "https://linkedin.com/in/lisaanderson",
-        instagram: "https://instagram.com/lisaanderson",
-      },
-    },
-    {
-      id: 15,
-      name: "Mr. Robert Wilson",
-      position: "Accountant",
-      department: "Finance",
-      category: "staff",
-      email: "accounts@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3775540/pexels-photo-3775540.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/robertwilson",
-        twitter: "https://twitter.com/robertwilson",
-        linkedin: "https://linkedin.com/in/robertwilson",
-        instagram: "https://instagram.com/robertwilson",
-      },
-    },
-    {
-      id: 16,
-      name: "Ms. Jennifer Lopez",
-      position: "HR Manager",
-      department: "Human Resources",
-      category: "staff",
-      email: "hr@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/jenniferlopez",
-        twitter: "https://twitter.com/jenniferlopez",
-        linkedin: "https://linkedin.com/in/jenniferlopez",
-        instagram: "https://instagram.com/jenniferlopez",
-      },
-    },
-    {
-      id: 17,
-      name: "Ms. Maria Garcia",
-      position: "Librarian",
-      department: "Library",
-      category: "staff",
-      email: "library@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/mariagarcia",
-        twitter: "https://twitter.com/mariagarcia",
-        linkedin: "https://linkedin.com/in/mariagarcia",
-        instagram: "https://instagram.com/mariagarcia",
-      },
-    },
-    {
-      id: 18,
-      name: "Mr. James Thompson",
-      position: "IT Support",
-      department: "Technical",
-      category: "staff",
-      email: "it@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/jamesthompson",
-        twitter: "https://twitter.com/jamesthompson",
-        linkedin: "https://linkedin.com/in/jamesthompson",
-        instagram: "https://instagram.com/jamesthompson",
-      },
-    },
-    {
-      id: 19,
-      name: "Mr. Raj Patel",
-      position: "Facilities Manager",
-      department: "Maintenance",
-      category: "staff",
-      email: "facilities@westernmega.edu",
-      image:
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300",
-      socialLinks: {
-        facebook: "https://facebook.com/rajpatel",
-        twitter: "https://twitter.com/rajpatel",
-        linkedin: "https://linkedin.com/in/rajpatel",
-        instagram: "https://instagram.com/rajpatel",
-      },
-    },
-  ];
-
   // Filter members based on URL parameter
-  const filteredMembers = category
-    ? teamMembers.filter((member) => member.category === category)
-    : teamMembers;
+  const filteredMembers = category ? getTeamByCategory(category) : teamData;
 
   // Group members by category for ordered display
-  const boardOfDirectors = filteredMembers.filter(
-    (member) => member.category === "bods"
-  );
-  const principal = filteredMembers.filter(
-    (member) => member.category === "principal"
-  );
-  const faculty = filteredMembers.filter(
-    (member) => member.category === "faculty"
-  );
-  const staff = filteredMembers.filter((member) => member.category === "staff");
+  const boardOfDirectors = getBoardOfDirectors();
+  const principal = getPrincipal();
+  const faculty = getFaculty();
+  const staff = getStaff();
 
   // Get page title based on category
   const getPageTitle = () => {
     switch (category) {
       case "principal":
-        return "Principal";
+        return "Our Principal";
       case "bods":
         return "Board of Directors";
       case "faculty":
@@ -432,8 +103,8 @@ function OurTeamContent() {
               src={member.image}
               alt={member.name}
               className={`${
-                isLarge ? "w-40 h-40" : "w-24 h-24"
-              } rounded-full mx-auto object-cover border-4 border-gray-100`}
+                isLarge ? "w-40 h-40 object-cover" : "w-28 h-28 object-top"
+              } rounded-full mx-auto  border-4 border-gray-100`}
             />
           </div>
 
@@ -481,18 +152,36 @@ function OurTeamContent() {
       >
         <div className="space-y-3">
           {/* Email */}
-          <div
-            className={`flex items-start space-x-3 ${
-              isLarge ? "text-base" : "text-sm"
-            } text-gray-600`}
-          >
-            <Mail
-              className={`${
-                isLarge ? "h-5 w-5" : "h-4 w-4"
-              } mt-0.5 flex-shrink-0`}
-            />
-            <span className="break-all">{member.email}</span>
-          </div>
+          {member.email && (
+            <div
+              className={`flex items-start space-x-3 ${
+                isLarge ? "text-base" : "text-sm"
+              } text-gray-600`}
+            >
+              <Mail
+                className={`${
+                  isLarge ? "h-5 w-5" : "h-4 w-4"
+                } mt-0.5 flex-shrink-0`}
+              />
+              <span className="break-all">{member.email}</span>
+            </div>
+          )}
+
+          {/* Phone */}
+          {member.phone && (
+            <div
+              className={`flex items-start space-x-3 ${
+                isLarge ? "text-base" : "text-sm"
+              } text-gray-600`}
+            >
+              <Phone
+                className={`${
+                  isLarge ? "h-5 w-5" : "h-4 w-4"
+                } mt-0.5 flex-shrink-0`}
+              />
+              <span className="break-all">{member.phone}</span>
+            </div>
+          )}
 
           {/* Specialization for faculty members */}
           {isFaculty(member) && (
@@ -518,42 +207,54 @@ function OurTeamContent() {
 
         {/* Social Links */}
         <div className="flex justify-center space-x-4 pt-4 border-t border-gray-100">
-          <a
-            href={member.socialLinks.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 hover:text-blue-800 transition-all duration-200"
-            title="Facebook"
-          >
-            <Facebook className="h-4 w-4" />
-          </a>
-          <a
-            href={member.socialLinks.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-sky-50 text-sky-500 hover:bg-sky-100 hover:text-sky-700 transition-all duration-200"
-            title="Twitter"
-          >
-            <Twitter className="h-4 w-4" />
-          </a>
-          <a
-            href={member.socialLinks.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 transition-all duration-200"
-            title="LinkedIn"
-          >
-            <Linkedin className="h-4 w-4" />
-          </a>
-          <a
-            href={member.socialLinks.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-pink-50 text-pink-600 hover:bg-pink-100 hover:text-pink-800 transition-all duration-200"
-            title="Instagram"
-          >
-            <Instagram className="h-4 w-4" />
-          </a>
+          {member.socialLinks?.facebook &&
+            member.socialLinks.facebook !== "#" && (
+              <a
+                href={member.socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 hover:text-blue-800 transition-all duration-200"
+                title="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            )}
+          {member.socialLinks?.twitter &&
+            member.socialLinks.twitter !== "#" && (
+              <a
+                href={member.socialLinks.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-sky-50 text-sky-500 hover:bg-sky-100 hover:text-sky-700 transition-all duration-200"
+                title="Twitter"
+              >
+                <Twitter className="h-4 w-4" />
+              </a>
+            )}
+          {member.socialLinks?.linkedin &&
+            member.socialLinks.linkedin !== "#" && (
+              <a
+                href={member.socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 transition-all duration-200"
+                title="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            )}
+          {member.socialLinks?.instagram &&
+            member.socialLinks.instagram !== "#" && (
+              <a
+                href={member.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-pink-50 text-pink-600 hover:bg-pink-100 hover:text-pink-800 transition-all duration-200"
+                title="Instagram"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+            )}
         </div>
       </CardContent>
     </Card>
@@ -706,6 +407,7 @@ function OurTeamContent() {
     </div>
   );
 }
+
 function LoadingFallback() {
   return (
     <div className="min-h-screen bg-gray-50">

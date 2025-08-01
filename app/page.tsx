@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { CoursesSection } from "@/components/CoursesSection";
 import { AlumniSection } from "@/components/AlumniSection";
 import { NewsSection } from "@/components/NewsSection";
+import { BlogSection } from "@/components/BlogSection";
 import { StatsSection } from "@/components/StatsSection";
 import { IndustryConnectionsSection } from "@/components/IndustryConnectionsSection";
 import { FAQsSection } from "@/components/FAQsSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <StatsSection />
       <AlumniSection />
       <NewsSection />
+      <BlogSection />
       <IndustryConnectionsSection />
       <FAQsSection />
     </div>

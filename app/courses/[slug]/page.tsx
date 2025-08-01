@@ -15,7 +15,6 @@ export async function generateStaticParams() {
   }));
 }
 
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -49,15 +48,18 @@ const courses = [
       "Customer Service",
       "Business Communication",
     ],
-    image:
-      "/image3.JPG",
+    image: "/image3.JPG",
     eligibility:
       "10+2, PCL or Equivalent in any discipline or as per minimum criteria for a Bachelor from the ministry of Higher education, Nepal.",
     careerPaths: [
-      "Hotel Manager",
-      "Event Coordinator",
-      "Food and Beverage Manager",
-      "Tourism Consultant",
+      "Hotels & Resorts",
+      "Food & Beverage Services",
+      "Event Management",
+      "Travel & Tourism",
+      "Cruise Line",
+      "Airline Hospitality",
+      "Casino Management",
+      "Consultant & Administrative Assistant",
     ],
     faculty: [
       {
@@ -89,15 +91,18 @@ const courses = [
       "Strategic Management",
       "Business Analytics",
     ],
-    image:
-      "/image2.JPG",
+    image: "/image2.JPG",
     eligibility:
       "Minimum score of second division marks in Bachelors Degree, or as per the guidelines of Ministry of Education, Nepal.",
     careerPaths: [
-      "Business Manager",
-      "Marketing Executive",
-      "Financial Analyst",
-      "Operations Manager",
+      "Management Consultant",
+      "Finance & Investment Analyst",
+      "Product & Operation Manager",
+      "Marketing & Sales Manager",
+      "Start-up & Business Development",
+      "Human Resources Manager",
+      "Program Manager",
+      "Organizational Development",
     ],
     faculty: [
       {
@@ -113,7 +118,6 @@ const courses = [
     ],
   },
 ];
-
 
 interface CourseDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -194,10 +198,9 @@ export default async function CourseDetailPage({
                         <h4 className="font-bold">Intake</h4>
                         <p>{course.intake}</p>
                       </div>
-                      
                     </div>
 
-                    <div>
+                    {/* <div>
                       <h3 className="text-xl font-mono font-bold mb-4">
                         Subjects
                       </h3>
@@ -212,7 +215,7 @@ export default async function CourseDetailPage({
                           </div>
                         ))}
                       </div>
-                    </div>
+                    </div> */}
 
                     <div>
                       <h3 className="text-xl font-mono font-bold mb-4">
@@ -266,7 +269,7 @@ export default async function CourseDetailPage({
                         <div>
                           <h4 className="font-bold">{faculty.name}</h4>
                           <p className="text-sm text-gray-400">
-                            {faculty.subject} 
+                            {faculty.subject}
                           </p>
                         </div>
                       </div>

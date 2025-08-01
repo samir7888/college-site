@@ -8,83 +8,12 @@ import { Calendar, Clock, User, Eye, ArrowRight, BookOpen } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-function BlogsContent() {
-  // Static blog posts based on college activities
-  const blogPosts = [
-    {
-      id: 1,
-      title:
-        "Trek to Kenjing Gumba: Cultural & Educational Expedition (Dec 2021)",
-      slug: "trek-to-kenjing-gumba-2021",
-      excerpt:
-        "An 8‑day trek undertaken by 50 BHM students, exploring Himalayan routes and cultural landscapes from Butwal to Kenjing Gumba.",
-      content: `**Introduction & Itinerary:**  Started on December 6, 2021, students and faculty traveled overnight from Butwal to Galchi, then trekked through Syafru Besi, Lama Hotel, Langtang Valley and finally reached Kenjing Gumba, camping along the way. Some students even summit Kenjing Ri and Tsergo Ri. **Experience & Insights:**  This trek combined physical challenge and cultural immersion—passing through Terai plains, mid‑hills, and high valleys, encountering rivers, birdsong, and Himalayan views. It fostered team bonding, leadership and deeper appreciation for Nepal's geography. **Participants:**  50 students and faculty including the Principal and Vice‑Principal took part in the journey.`,
-      images: [
-        "https://westernmegacollege.edu.np/wp-content/uploads/2022/01/265953756_2738125833000588_4772341212623859313_n-1536x1152.jpg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2022/01/265583684_2738123649667473_3400031873036968517_n-1152x1536.jpg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2022/01/265611869_2738126333000538_7376264117299643935_n-1-1536x1152.jpg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2022/01/265805298_2738123423000829_2134421471523741109_n-1536x1152.jpg",
-      ],
-      author: "Students of Western Mega College",
-      date: "2021-12-06",
-      readTime: "8 min read",
-      views: 820,
-      category: "Adventure",
-      tags: ["Trek", "Kenjing Gumba", "Himalayas", "Education"],
-      featured: true,
-    },
-    {
-      id: 2,
-      title:
-        "Academic Visit to Chitlang: Wine, Cheese & Community Homestay (Dec 2021)",
-      slug: "academic-visit-chitlang-2021",
-      excerpt:
-        "A structured industrial visit for fourth‑semester students to Chitlang's goat‑cheese and wine production units and local homestays.",
-      content: `Fourth‑semester BHM students (≈70 participants) traveled from Butwal to Chitlang to explore the operations of a local goat cheese farm, winery, and homestay environment. The visit included seminar sessions and cultural interactions with the host community. **Learning Outcomes:**  Students gained first‑hand understanding of machinery, safety practices, raw‑material handling, and hospitality management in rural settings. The visit bridged classroom theory with real-world industry practices.`,
-      images: [
-        "https://westernmegacollege.edu.np/wp-content/uploads/2021/02/261393449_1353180225119447_3178589903578193490_n-1536x1152.jpg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-23-at-10.29.20-AM-1.jpeg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-23-at-10.29.18-AM-1.jpeg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-23-at-10.29.17-AM.jpeg",
-      ],
-      author: "Academic Department – Western Mega College",
-      date: "2021-12-07",
-      readTime: "6 min read",
-      views: 690,
-      category: "Academic",
-      tags: ["Chitlang", "Industrial Visit", "Wine Processing", "Homestay"],
-      featured: false,
-    },
-    {
-      id: 3,
-      title:
-        "Industrial Visit – CG Unnati Cultural Village, Chitwan (Dec 2021)",
-      slug: "industrial-visit-unnati-village-2021",
-      excerpt:
-        "A full‑day visit to Unnati Cultural Village for second‑semester BHM students to explore hospitality, culture, art & organic farming.",
-      content: `On December 12, 2021, 65 students and staff visited CG Unnati Cultural Village in Gaidakot, Chitwan. Over 104 km from Butwal, the team attended a seminar led by the manager and learned about Tharu culture, art & craft, heritage tourism and charity‑supported hospitality operations. **Highlights & Structure:**  The venue spans over 6 bighas and includes pottery units, organic farms, cultural performance spaces, and uniquely named guest rooms reflecting local festivals. The entire trip was conducted in a well‑organized itinerary.`,
-      images: [
-        "https://westernmegacollege.edu.np/wp-content/uploads/2021/12/267593289_1077396386412802_3633348452218638298_n.jpg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2021/12/267562766_1077348903084217_5332749850656016033_n-1536x1152.jpg",
-        "https://westernmegacollege.edu.np/wp-content/uploads/2021/12/267982769_1077349059750868_8354554835018357938_n-1536x1152.jpg",
-      ],
-      author: "Industry Relations – Western Mega College",
-      date: "2021-12-12",
-      readTime: "7 min read",
-      views: 560,
-      category: "Academic",
-      tags: [
-        "Unnati Cultural Village",
-        "Chitwan",
-        "Hospitality",
-        "Cultural Heritage",
-      ],
-      featured: true,
-    },
-  ];
+import { blogData, getFeaturedBlogs, getRecentBlogs } from "@/lib/blogData";
 
-  const featuredPosts = blogPosts.filter((post) => post.featured);
-  const recentPosts = blogPosts.slice(0, 6);
+function BlogsContent() {
+  const blogPosts = blogData;
+  const featuredPosts = getFeaturedBlogs();
+  const recentPosts = getRecentBlogs();
 
   return (
     <div className="min-h-screen bg-gray-50">

@@ -13,14 +13,31 @@ import Image from "next/image";
 
 export default function AboutPage() {
   const milestones = [
-    { year: "2013", event: "Western Mega College Established with a focus on Management Education" },
-    { year: "2015", event: "Bachelor of Hotel Management (BHM) Program Launched" },
+    {
+      year: "2013",
+      event:
+        "Western Mega College Established with a focus on Management Education",
+    },
+    {
+      year: "2015",
+      event: "Bachelor of Hotel Management (BHM) Program Launched",
+    },
     { year: "2018", event: "First Batch of BHM Students Graduated" },
-    { year: "2020", event: "Master of Business Administration (MBA) Program Introduced" },
-    { year: "2022", event: "Collaboration with Industry Partners for Internship and Placement" },
-    { year: "2024", event: "Celebrating 11 Years of Excellence in Hospitality and Business Education" },
+    {
+      year: "2020",
+      event: "Master of Business Administration (MBA) Program Introduced",
+    },
+    {
+      year: "2022",
+      event:
+        "Collaboration with Industry Partners for Internship and Placement",
+    },
+    {
+      year: "2024",
+      event:
+        "Celebrating 11 Years of Excellence in Hospitality and Business Education",
+    },
   ];
-
 
   const features = [
     {
@@ -71,12 +88,11 @@ export default function AboutPage() {
             About Western Mega College
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Over a decade of educational excellence, nurturing minds and
-            shaping futures
+            Over a decade of educational excellence, nurturing minds and shaping
+            futures
           </p>
         </div>
       </section>
-
 
       {/* Introduction */}
       <section className="py-16 bg-white">
@@ -87,10 +103,18 @@ export default function AboutPage() {
                 Shaping Future Leaders in Hospitality & Business
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Since its establishment in 2013, Western Mega College has been dedicated to delivering specialized education in Hotel Management and Business Administration. With a focus on practical learning and leadership development, we empower students to thrive in dynamic global industries.
+                Since its establishment in 2013, Western Mega College has been
+                dedicated to delivering specialized education in Hotel
+                Management and Business Administration. With a focus on
+                practical learning and leadership development, we empower
+                students to thrive in dynamic global industries.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                From professional kitchens to case-based MBA classes, our curriculum blends real-world training with academic excellence. We are proud to support the career paths of aspiring hoteliers and business professionals through quality education, expert mentorship, and industry collaboration.
+                From professional kitchens to case-based MBA classes, our
+                curriculum blends real-world training with academic excellence.
+                We are proud to support the career paths of aspiring hoteliers
+                and business professionals through quality education, expert
+                mentorship, and industry collaboration.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
@@ -127,7 +151,6 @@ export default function AboutPage() {
               />
             </div>
           </div>
-
         </div>
       </section>
 
@@ -178,13 +201,31 @@ export default function AboutPage() {
                   <CardContent className="p-8">
                     <div className="prose prose-lg max-w-none text-gray-700">
                       <p className="text-lg leading-relaxed mb-6 ">
-                        Welcome to Western Mega College (WMC)—a place where your dreams meet incredible opportunities.
+                        Welcome to Western Mega College (WMC)—a place where your
+                        dreams meet incredible opportunities.
                       </p>
 
                       <p className="mb-6 leading-relaxed ">
-                        As the Principal, I’m truly proud to lead this lively community filled with passionate educators, driven students, and supportive families, all working together towards a common goal of excellence. It brings me great joy to welcome you to WMC, a college dedicated to not just raising the bar in education, but also in launching successful careers.
-                        For more than a decade, Western Mega College has been a shining example of quality education, grounded in holistic development. We believe that real learning goes beyond just textbooks; it’s about nurturing critical thinking, encouraging deep understanding, and instilling ethical values that shape character. Our mission is to empower you with a degree that truly reflects your capabilities, giving you and your parents confidence that your trust in us is well-placed.
-                        Our faculty members are more than just teachers; they are a mix of respected academics and experienced industry professionals who bring valuable insights and connections right into the classroom. They are your mentors, committed to helping you succeed.
+                        As the Principal, I’m truly proud to lead this lively
+                        community filled with passionate educators, driven
+                        students, and supportive families, all working together
+                        towards a common goal of excellence. It brings me great
+                        joy to welcome you to WMC, a college dedicated to not
+                        just raising the bar in education, but also in launching
+                        successful careers. For more than a decade, Western Mega
+                        College has been a shining example of quality education,
+                        grounded in holistic development. We believe that real
+                        learning goes beyond just textbooks; it’s about
+                        nurturing critical thinking, encouraging deep
+                        understanding, and instilling ethical values that shape
+                        character. Our mission is to empower you with a degree
+                        that truly reflects your capabilities, giving you and
+                        your parents confidence that your trust in us is
+                        well-placed. Our faculty members are more than just
+                        teachers; they are a mix of respected academics and
+                        experienced industry professionals who bring valuable
+                        insights and connections right into the classroom. They
+                        are your mentors, committed to helping you succeed.
                       </p>
 
                       <p className="mb-6 leading-relaxed">
@@ -195,34 +236,63 @@ export default function AboutPage() {
                         <li className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                           <span>
-                            <b>For Future Hospitality Leaders:</b> We are revolutionizing hospitality education with SCHOTEL, our industry-aligned BHM program. This dynamic model ensures you gain the practical expertise needed to thrive in a global hospitality environment.
+                            <b>For Future Hospitality Leaders:</b> We are
+                            revolutionizing hospitality education with SCHOTEL,
+                            our industry-aligned BHM program. This dynamic model
+                            ensures you gain the practical expertise needed to
+                            thrive in a global hospitality environment.
                           </span>
                         </li>
                         <li className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                           <span>
-                            <b>For Aspiring Business Executives:</b> Our Master of Business Administration (MBA) program is engineered to equip you with the strategic insights and leadership skills required to succeed in the complex world of modern business.
+                            <b>For Aspiring Business Executives:</b> Our Master
+                            of Business Administration (MBA) program is
+                            engineered to equip you with the strategic insights
+                            and leadership skills required to succeed in the
+                            complex world of modern business.
                           </span>
                         </li>
                       </ul>
 
                       <blockquote className="border-l-4 border-blue-600 pl-6 py-4 mb-6 bg-blue-50 rounded-r-lg">
                         <p className="text-lg italic text-blue-800 mb-2">
-                          "At Western Mega College, we are committed to delivering practical, career-focused education through our MBA and BHM programs—shaping future leaders in business and hospitality."
+                          "At Western Mega College, we are committed to
+                          delivering practical, career-focused education through
+                          our MBA and BHM programs—shaping future leaders in
+                          business and hospitality."
                         </p>
                       </blockquote>
 
-
                       <p className="mb-6 leading-relaxed">
-                        Your experience here goes well beyond the classroom. We cultivate a vibrant campus life filled with in-class activities, cultural festivals, CSR activities and leadership opportunities, creating a space where you can forge lifelong friendships and grow as an individual. The success of this approach is evident in our impressive placement record and a dynamic alumni network of leaders who are making a difference.
+                        Your experience here goes well beyond the classroom. We
+                        cultivate a vibrant campus life filled with in-class
+                        activities, cultural festivals, CSR activities and
+                        leadership opportunities, creating a space where you can
+                        forge lifelong friendships and grow as an individual.
+                        The success of this approach is evident in our
+                        impressive placement record and a dynamic alumni network
+                        of leaders who are making a difference.
                       </p>
 
                       <p className="mb-6 leading-relaxed">
-                        Having spent my career leading educational institutions and understanding the dynamics between the academic and business worlds, I know what it takes to build a bridge to success. It is this experience that fuels my passion for creating an education that is both intellectually rigorous and intensely practical. Nothing gives me more pride than seeing our graduates leave not just with a degree, but with the confidence and character to achieve their dreams.
+                        Having spent my career leading educational institutions
+                        and understanding the dynamics between the academic and
+                        business worlds, I know what it takes to build a bridge
+                        to success. It is this experience that fuels my passion
+                        for creating an education that is both intellectually
+                        rigorous and intensely practical. Nothing gives me more
+                        pride than seeing our graduates leave not just with a
+                        degree, but with the confidence and character to achieve
+                        their dreams.
                       </p>
 
                       <p className="text-base font-medium text-gray-800 ">
-                        My door is always open! I warmly invite you to come visit our campus, meet our amazing faculty, and discover for yourself what makes the Western Mega College family so unique. I can’t wait to personally welcome you as you embark on your academic adventure!
+                        My door is always open! I warmly invite you to come
+                        visit our campus, meet our amazing faculty, and discover
+                        for yourself what makes the Western Mega College family
+                        so unique. I can’t wait to personally welcome you as you
+                        embark on your academic adventure!
                       </p>
 
                       <div className="mt-8 pt-6 border-t border-gray-200">
@@ -270,7 +340,11 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  We a quality provide education that creates highly productive professionals who are ethical, entrepreneurial and prepared to succeed in the global economy. The college achieves this though excellence in teaching research and service engagement with the business community other stakeholders.
+                  We a quality provide education that creates highly productive
+                  professionals who are ethical, entrepreneurial and prepared to
+                  succeed in the global economy. The college achieves this
+                  though excellence in teaching research and service engagement
+                  with the business community other stakeholders.
                 </p>
               </CardContent>
             </Card>
@@ -284,7 +358,9 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Our Vision is to empower students from diverse backgrounds to become productive and ethical business professionals who are among the best in the world.
+                  Our Vision is to empower students from diverse backgrounds to
+                  become productive and ethical business professionals who are
+                  among the best in the world.
                 </p>
               </CardContent>
             </Card>
