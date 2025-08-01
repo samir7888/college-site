@@ -79,7 +79,7 @@ function BlogsContent() {
         "Hospitality",
         "Cultural Heritage",
       ],
-      featured: false,
+      featured: true,
     },
   ];
 
@@ -239,7 +239,7 @@ function BlogsContent() {
                     <div className="relative h-full">
                       <Image
                         src={post.images[0]}
-                        alt={post.title}  
+                        alt={post.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
@@ -299,13 +299,6 @@ function BlogsContent() {
             ))}
           </div>
         </section>
-
-        {/* Load More Button */}
-        <div className="text-center mt-12">
-          <Button size="lg" variant="outline">
-            Load More Posts
-          </Button>
-        </div>
       </div>
     </div>
   );

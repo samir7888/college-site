@@ -289,7 +289,7 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const   post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
@@ -386,17 +386,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <h4 className="text-base sm:text-lg font-semibold mb-4 text-gray-900">
                     Photo Gallery ({post.images.length} photos)
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                     {post.images.map((image, index) => (
                       <div
                         key={index}
-                        className="relative aspect-video overflow-hidden rounded-lg group cursor-pointer"
+                        className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer bg-gray-100"
                       >
                         <Image
                           src={image}
                           alt={`${post.title} - Photo ${index + 1}`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                       </div>

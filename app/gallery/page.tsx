@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -124,7 +124,9 @@ export default function GalleryPage() {
           <div className="flex justify-center mb-4">
             <Camera className="h-16 w-16 text-blue-200" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-wide font-sans">Gallery</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-wide font-sans">
+            Gallery
+          </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
             Explore our campus life, events, and facilities through our photo
             gallery
@@ -153,19 +155,22 @@ export default function GalleryPage() {
       {/* Gallery Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div
-            className="masonry-grid w-fit
-"
-          >
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {filteredGalleryItems.map((item) => (
-              <div key={item.id} className="masonry-item">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                />
+              <div
+                key={item.id}
+                className="break-inside-avoid mb-4 group cursor-pointer"
+              >
+                <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                </div>
               </div>
             ))}
           </div>
