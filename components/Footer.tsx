@@ -14,9 +14,9 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="mb-4 flex items-center space-x-2">
               <Image
                 src="/logo.png"
                 width={150}
@@ -24,19 +24,19 @@ export function Footer() {
                 alt="Western Mega College"
               />
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="mb-4 text-gray-400">
               Empowering students with quality education and preparing them for
               successful careers.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
-              <Instagram className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
+              <Facebook className="h-5 w-5 cursor-pointer text-gray-400 hover:text-blue-400" />
+              <Twitter className="h-5 w-5 cursor-pointer text-gray-400 hover:text-blue-400" />
+              <Instagram className="h-5 w-5 cursor-pointer text-gray-400 hover:text-blue-400" />
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/about" className="text-gray-400 hover:text-white">
@@ -57,7 +57,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-              <Link
+                <Link
                   target="_blank"
                   href="https://collaboration.lincolnedu.education/welcome.aspx"
                   className="text-gray-400 hover:text-white"
@@ -70,7 +70,7 @@ export function Footer() {
                   Forms
                 </Link>
               </li>
-             
+
               <li>
                 <Link href="/apply" className="text-gray-400 hover:text-white">
                   Apply Online
@@ -80,7 +80,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Programs</h3>
+            <h3 className="mb-4 text-lg font-semibold">Programs</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -120,10 +120,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
+            <h3 className="mb-4 text-lg font-semibold">Useful Links</h3>
             <ul className="space-y-2">
-            <li>
-              <Link
+              <li>
+                <Link
                   target="_blank"
                   href="https://www.facebook.com/arambharesort/"
                   className="text-gray-400 hover:text-white"
@@ -131,17 +131,17 @@ export function Footer() {
                   Arambha Resort
                 </Link>
               </li>
-            <li>
-            <Link
+              <li>
+                <Link
                   target="_blank"
                   href="https://www.lincoln.edu.my/"
                   className="text-gray-400 hover:text-white"
                 >
                   Lincoln University College
                 </Link>
-            </li>
+              </li>
               <li>
-              <Link
+                <Link
                   target="_blank"
                   href="https://tu.edu.np/"
                   className="text-gray-400 hover:text-white"
@@ -150,7 +150,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-              <Link
+                <Link
                   target="_blank"
                   href="https://edusanjal.com/blog/list-foreign-university-affiliated-courses-nepal/"
                   className="text-gray-400 hover:text-white"
@@ -159,7 +159,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-              <Link
+                <Link
                   target="_blank"
                   href="/"
                   className="text-gray-400 hover:text-white"
@@ -167,12 +167,11 @@ export function Footer() {
                   LUCAN
                 </Link>
               </li>
-              
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+        <div className="mt-8 border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400">
             © 2024 Western Mega College. All rights reserved.
           </p>

@@ -77,21 +77,21 @@ export default function AlumniRegistrationPage() {
     return (
       <div className="min-h-screen bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <Card className="max-w-2xl mx-auto shadow-lg">
-            <CardContent className="pt-10 pb-10 text-center">
-              <div className="flex justify-center mb-6">
-                <div className="bg-green-100 p-4 rounded-full">
+          <Card className="mx-auto max-w-2xl shadow-lg">
+            <CardContent className="pb-10 pt-10 text-center">
+              <div className="mb-6 flex justify-center">
+                <div className="rounded-full bg-green-100 p-4">
                   <CheckCircle className="h-16 w-16 text-green-600" />
                 </div>
               </div>
-              <CardTitle className="text-2xl mb-4">
+              <CardTitle className="mb-4 text-2xl">
                 Registration Successful!
               </CardTitle>
-              <p className="text-gray-600 mb-6">
+              <p className="mb-6 text-gray-600">
                 Thank you for registering with our alumni network. Your
                 information has been submitted successfully.
               </p>
-              <p className="text-gray-600 mb-8">
+              <p className="mb-8 text-gray-600">
                 We'll review your details and update our alumni directory.
                 You'll receive a confirmation email shortly.
               </p>
@@ -117,7 +117,7 @@ export default function AlumniRegistrationPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section
-        className="min-h-[300px] text-white py-16 flex items-center justify-center"
+        className="flex min-h-[300px] items-center justify-center py-16 text-white"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
@@ -126,13 +126,13 @@ export default function AlumniRegistrationPage() {
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center mb-4">
+          <div className="mb-4 flex justify-center">
             <GraduationCap className="h-16 w-16 text-blue-200" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
             Alumni Registration
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl text-blue-100">
             Join our alumni network and stay connected with your alma mater
           </p>
         </div>
@@ -141,10 +141,10 @@ export default function AlumniRegistrationPage() {
       {/* Registration Form */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+          <div className="mx-auto max-w-3xl">
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl text-center">
+                <CardTitle className="text-center text-2xl">
                   Register as an Alumni
                 </CardTitle>
               </CardHeader>
@@ -156,8 +156,8 @@ export default function AlumniRegistrationPage() {
                   >
                     {/* Personal Information */}
                     <div className="space-y-6">
-                      <div className="flex items-center space-x-2 mb-4">
-                        <div className="w-8 h-1 bg-blue-600"></div>
+                      <div className="mb-4 flex items-center space-x-2">
+                        <div className="h-1 w-8 bg-blue-600"></div>
                         <h2 className="text-xl font-semibold">
                           Personal Information
                         </h2>
@@ -195,7 +195,7 @@ export default function AlumniRegistrationPage() {
                         />
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <FormField
                           control={form.control}
                           name="firstName"
@@ -230,7 +230,7 @@ export default function AlumniRegistrationPage() {
                         />
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <FormField
                           control={form.control}
                           name="email"
@@ -270,14 +270,14 @@ export default function AlumniRegistrationPage() {
 
                     {/* Academic Information */}
                     <div className="space-y-6">
-                      <div className="flex items-center space-x-2 mb-4">
-                        <div className="w-8 h-1 bg-blue-600"></div>
+                      <div className="mb-4 flex items-center space-x-2">
+                        <div className="h-1 w-8 bg-blue-600"></div>
                         <h2 className="text-xl font-semibold">
                           Academic Information
                         </h2>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <FormField
                           control={form.control}
                           name="graduationYear"
@@ -343,14 +343,14 @@ export default function AlumniRegistrationPage() {
 
                     {/* Professional Information */}
                     <div className="space-y-6">
-                      <div className="flex items-center space-x-2 mb-4">
-                        <div className="w-8 h-1 bg-blue-600"></div>
+                      <div className="mb-4 flex items-center space-x-2">
+                        <div className="h-1 w-8 bg-blue-600"></div>
                         <h2 className="text-xl font-semibold">
                           Professional Information
                         </h2>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <FormField
                           control={form.control}
                           name="currentCompany"
@@ -387,7 +387,7 @@ export default function AlumniRegistrationPage() {
                         />
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <FormField
                           control={form.control}
                           name="location"
@@ -422,8 +422,8 @@ export default function AlumniRegistrationPage() {
 
                     {/* Additional Information */}
                     <div className="space-y-6">
-                      <div className="flex items-center space-x-2 mb-4">
-                        <div className="w-8 h-1 bg-blue-600"></div>
+                      <div className="mb-4 flex items-center space-x-2">
+                        <div className="h-1 w-8 bg-blue-600"></div>
                         <h2 className="text-xl font-semibold">
                           Additional Information
                         </h2>
@@ -503,7 +503,7 @@ export default function AlumniRegistrationPage() {
                     </div>
 
                     {/* Submit Button */}
-                    <div className="pt-6 border-t">
+                    <div className="border-t pt-6">
                       <Button
                         type="submit"
                         className="w-full bg-blue-600 hover:bg-blue-700"
@@ -512,7 +512,7 @@ export default function AlumniRegistrationPage() {
                         {isSubmitting ? (
                           <span className="flex items-center">
                             <svg
-                              className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                              className="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
@@ -535,7 +535,7 @@ export default function AlumniRegistrationPage() {
                           </span>
                         ) : (
                           <span className="flex items-center justify-center">
-                            <GraduationCap className="h-5 w-5 mr-2" />
+                            <GraduationCap className="mr-2 h-5 w-5" />
                             Register as Alumni
                           </span>
                         )}
@@ -550,24 +550,24 @@ export default function AlumniRegistrationPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="bg-white py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900">
               Benefits of Joining Our Alumni Network
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-gray-600">
               Stay connected with your alma mater and fellow graduates while
               enjoying exclusive benefits
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="bg-blue-100 p-3 rounded-lg w-fit mb-4">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg bg-gray-50 p-6">
+              <div className="mb-4 w-fit rounded-lg bg-blue-100 p-3">
                 <Users className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">
+              <h3 className="mb-3 text-xl font-semibold">
                 Networking Opportunities
               </h3>
               <p className="text-gray-600">
@@ -576,22 +576,22 @@ export default function AlumniRegistrationPage() {
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="bg-green-100 p-3 rounded-lg w-fit mb-4">
+            <div className="rounded-lg bg-gray-50 p-6">
+              <div className="mb-4 w-fit rounded-lg bg-green-100 p-3">
                 <Briefcase className="h-6 w-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Career Resources</h3>
+              <h3 className="mb-3 text-xl font-semibold">Career Resources</h3>
               <p className="text-gray-600">
                 Access job postings, career counseling, and professional
                 development opportunities tailored for our alumni.
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="bg-orange-100 p-3 rounded-lg w-fit mb-4">
+            <div className="rounded-lg bg-gray-50 p-6">
+              <div className="mb-4 w-fit rounded-lg bg-orange-100 p-3">
                 <Calendar className="h-6 w-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Exclusive Events</h3>
+              <h3 className="mb-3 text-xl font-semibold">Exclusive Events</h3>
               <p className="text-gray-600">
                 Participate in alumni-only events, workshops, and webinars
                 featuring industry experts and thought leaders.

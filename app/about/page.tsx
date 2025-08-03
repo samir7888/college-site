@@ -67,27 +67,27 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen  bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] py-16 flex items-center justify-center text-white">
+      <section className="relative flex min-h-[500px] items-center justify-center py-16 text-white">
         {/* Background image */}
         <Image
           src="/pic3.JPG"
           alt="Campus Background"
           fill
-          className="object-cover z-0"
+          className="z-0 object-cover"
           priority
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/60" />
 
         {/* Content */}
-        <div className="relative z-20 container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="container relative z-20 mx-auto px-4 text-center">
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
             About Western Mega College
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl text-blue-100">
             Over a decade of educational excellence, nurturing minds and shaping
             futures
           </p>
@@ -95,21 +95,21 @@ export default function AboutPage() {
       </section>
 
       {/* Introduction */}
-      <section className="py-16 bg-white">
+      <section className="bg-white py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="mb-6 text-3xl font-bold text-gray-900">
                 Shaping Future Leaders in Hospitality & Business
               </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed text-gray-600">
                 Since its establishment in 2013, Western Mega College has been
                 dedicated to delivering specialized education in Hotel
                 Management and Business Administration. With a focus on
                 practical learning and leadership development, we empower
                 students to thrive in dynamic global industries.
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed text-gray-600">
                 From professional kitchens to case-based MBA classes, our
                 curriculum blends real-world training with academic excellence.
                 We are proud to support the career paths of aspiring hoteliers
@@ -118,25 +118,25 @@ export default function AboutPage() {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                  <div className="mb-2 text-3xl font-bold text-blue-600">
                     800+
                   </div>
                   <p className="text-gray-600">Successful Graduates</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">
+                  <div className="mb-2 text-3xl font-bold text-green-600">
                     40+
                   </div>
                   <p className="text-gray-600">Dedicated Faculty</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">
+                  <div className="mb-2 text-3xl font-bold text-orange-600">
                     11
                   </div>
                   <p className="text-gray-600">Years of Excellence</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">
+                  <div className="mb-2 text-3xl font-bold text-purple-600">
                     90%
                   </div>
                   <p className="text-gray-600">Placement Success</p>
@@ -155,17 +155,17 @@ export default function AboutPage() {
       </section>
 
       {/* Message from Principal's Desk */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900">
               Message from Principal's Desk
             </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+            <div className="mx-auto h-1 w-24 bg-blue-600"></div>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-3">
               {/* Principal's Image and Info */}
               <div className="lg:col-span-1">
                 <Card className="text-center shadow-lg">
@@ -176,13 +176,13 @@ export default function AboutPage() {
                         alt="Dr. Sarah Johnson - Principal"
                         width={200}
                         height={200}
-                        className="w-48 h-48 rounded-full mx-auto object-cover border-4 border-blue-100"
+                        className="mx-auto h-48 w-48 rounded-full border-4 border-blue-100 object-cover"
                       />
-                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 transform rounded-full bg-blue-600 px-4 py-1 text-sm font-medium text-white">
                         Principal
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="mb-2 text-xl font-bold text-gray-900">
                       Kishu Sharma
                     </h3>
                     {/* <p className="text-blue-600 font-medium mb-2">
@@ -200,12 +200,12 @@ export default function AboutPage() {
                 <Card className="shadow-lg">
                   <CardContent className="p-8">
                     <div className="prose prose-lg max-w-none text-gray-700">
-                      <p className="text-lg leading-relaxed mb-6 ">
+                      <p className="mb-6 text-lg leading-relaxed">
                         Welcome to Western Mega College (WMC)—a place where your
                         dreams meet incredible opportunities.
                       </p>
 
-                      <p className="mb-6 leading-relaxed ">
+                      <p className="mb-6 leading-relaxed">
                         As the Principal, I’m truly proud to lead this lively
                         community filled with passionate educators, driven
                         students, and supportive families, all working together
@@ -234,7 +234,7 @@ export default function AboutPage() {
 
                       <ul className="mb-6 space-y-2 text-gray-700">
                         <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="mr-2 mt-0.5 h-5 w-5 flex-shrink-0 text-green-500" />
                           <span>
                             <b>For Future Hospitality Leaders:</b> We are
                             revolutionizing hospitality education with SCHOTEL,
@@ -244,7 +244,7 @@ export default function AboutPage() {
                           </span>
                         </li>
                         <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="mr-2 mt-0.5 h-5 w-5 flex-shrink-0 text-green-500" />
                           <span>
                             <b>For Aspiring Business Executives:</b> Our Master
                             of Business Administration (MBA) program is
@@ -255,8 +255,8 @@ export default function AboutPage() {
                         </li>
                       </ul>
 
-                      <blockquote className="border-l-4 border-blue-600 pl-6 py-4 mb-6 bg-blue-50 rounded-r-lg">
-                        <p className="text-lg italic text-blue-800 mb-2">
+                      <blockquote className="mb-6 rounded-r-lg border-l-4 border-blue-600 bg-blue-50 py-4 pl-6">
+                        <p className="mb-2 text-lg italic text-blue-800">
                           "At Western Mega College, we are committed to
                           delivering practical, career-focused education through
                           our MBA and BHM programs—shaping future leaders in
@@ -287,7 +287,7 @@ export default function AboutPage() {
                         their dreams.
                       </p>
 
-                      <p className="text-base font-medium text-gray-800 ">
+                      <p className="text-base font-medium text-gray-800">
                         My door is always open! I warmly invite you to come
                         visit our campus, meet our amazing faculty, and discover
                         for yourself what makes the Western Mega College family
@@ -295,8 +295,8 @@ export default function AboutPage() {
                         embark on your academic adventure!
                       </p>
 
-                      <div className="mt-8 pt-6 border-t border-gray-200">
-                        <p className="text-gray-600 italic">
+                      <div className="mt-8 border-t border-gray-200 pt-6">
+                        <p className="italic text-gray-600">
                           Warm regards,
                           <br />
                           <span className="font-semibold text-gray-800">
@@ -318,23 +318,23 @@ export default function AboutPage() {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-16 bg-gray-50">
+      <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900">
               Our Foundation
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-gray-600">
               Our mission, vision, and values guide everything we do as we work
               to shape the future leaders of tomorrow.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card className="text-center">
               <CardHeader>
-                <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto mb-4">
-                  <Target className="h-8 w-8 text-blue-600 mx-auto" />
+                <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-blue-100 p-4">
+                  <Target className="mx-auto h-8 w-8 text-blue-600" />
                 </div>
                 <CardTitle className="text-xl">Our Mission</CardTitle>
               </CardHeader>
@@ -351,8 +351,8 @@ export default function AboutPage() {
 
             <Card className="text-center">
               <CardHeader>
-                <div className="bg-green-100 p-4 rounded-full w-16 h-16 mx-auto mb-4">
-                  <Eye className="h-8 w-8 text-green-600 mx-auto" />
+                <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-green-100 p-4">
+                  <Eye className="mx-auto h-8 w-8 text-green-600" />
                 </div>
                 <CardTitle className="text-xl">Our Vision</CardTitle>
               </CardHeader>
@@ -367,13 +367,13 @@ export default function AboutPage() {
 
             <Card className="text-center">
               <CardHeader>
-                <div className="bg-orange-100 p-4 rounded-full w-16 h-16 mx-auto mb-4">
-                  <Heart className="h-8 w-8 text-orange-600 mx-auto" />
+                <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-orange-100 p-4">
+                  <Heart className="mx-auto h-8 w-8 text-orange-600" />
                 </div>
                 <CardTitle className="text-xl">Our Values</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="text-gray-600 space-y-2">
+                <ul className="space-y-2 text-gray-600">
                   <li>• Innovation and Creativity</li>
                   <li>• Inclusivity and Diversity</li>
                   <li>• Responsibility and Service</li>
@@ -386,27 +386,27 @@ export default function AboutPage() {
       </section>
 
       {/* Features */}
-      <section className="py-16 bg-white">
+      <section className="bg-white py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900">
               Why Choose Western Mega?
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-gray-600">
               We offer a comprehensive educational experience that goes beyond
               traditional learning.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="text-center hover:shadow-lg transition-shadow"
+                className="text-center transition-shadow hover:shadow-lg"
               >
                 <CardHeader>
-                  <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto mb-4">
-                    <feature.icon className="h-8 w-8 text-blue-600 mx-auto" />
+                  <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-blue-100 p-4">
+                    <feature.icon className="mx-auto h-8 w-8 text-blue-600" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>

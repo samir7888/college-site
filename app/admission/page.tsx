@@ -116,21 +116,21 @@ export default function AdmissionPage() {
     return (
       <div className="min-h-screen bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <Card className="max-w-2xl mx-auto shadow-lg">
-            <CardContent className="pt-10 pb-10 text-center">
-              <div className="flex justify-center mb-6">
-                <div className="bg-green-100 p-4 rounded-full">
+          <Card className="mx-auto max-w-2xl shadow-lg">
+            <CardContent className="pb-10 pt-10 text-center">
+              <div className="mb-6 flex justify-center">
+                <div className="rounded-full bg-green-100 p-4">
                   <School className="h-16 w-16 text-green-600" />
                 </div>
               </div>
-              <CardTitle className="text-2xl mb-4">
+              <CardTitle className="mb-4 text-2xl">
                 Pre-Registration Successful!
               </CardTitle>
-              <p className="text-gray-600 mb-6">
+              <p className="mb-6 text-gray-600">
                 Thank you for your interest in our BHM program. Your
                 pre-registration has been received.
               </p>
-              <p className="text-gray-600 mb-8">
+              <p className="mb-8 text-gray-600">
                 Our admission team will contact you shortly with details about
                 the entrance exam and next steps.
               </p>
@@ -158,48 +158,48 @@ export default function AdmissionPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] py-16 flex items-center justify-center text-white overflow-hidden">
+      <section className="relative flex min-h-[500px] items-center justify-center overflow-hidden py-16 text-white">
         <Image
           src="/gallery8.JPG"
           alt="Contact Background"
           fill
-          className="object-cover object-center z-0"
+          className="z-0 object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="absolute inset-0 z-10 bg-black/50"></div>
 
-        <div className="relative z-20 container mx-auto px-4 text-center">
-          <div className="flex justify-center mb-4">
+        <div className="container relative z-20 mx-auto px-4 text-center">
+          <div className="mb-4 flex justify-center">
             <School className="h-16 w-16 text-yellow-200" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
             Admissions Open for BHM Program
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl text-blue-100">
             Bachelor of Hotel Management - 2024 Intake
           </p>
         </div>
       </section>
 
       {/* Admission Details */}
-      <section className="py-12 bg-white">
+      <section className="bg-white py-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             <Card className="shadow-md">
               <CardHeader>
-                <CardTitle className="text-2xl text-center text-blue-900">
+                <CardTitle className="text-center text-2xl text-blue-900">
                   Admission Information
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-6 text-gray-700">
                   <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
+                    <div className="mt-1 flex-shrink-0">
                       <School className="h-5 w-5 text-blue-600" />
                     </div>
                     <div className="ml-3">
                       <p className="font-medium">Eligibility:</p>
-                      <ul className="list-disc pl-5 mt-1 space-y-1">
+                      <ul className="mt-1 list-disc space-y-1 pl-5">
                         <li>
                           Students from Science, Commerce, Arts & Humanities
                         </li>
@@ -213,7 +213,7 @@ export default function AdmissionPage() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
+                    <div className="mt-1 flex-shrink-0">
                       <Calendar className="h-5 w-5 text-blue-600" />
                     </div>
                     <div className="ml-3">
@@ -224,7 +224,7 @@ export default function AdmissionPage() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1">
+                    <div className="mt-1 flex-shrink-0">
                       <Phone className="h-5 w-5 text-blue-600" />
                     </div>
                     <div className="ml-3">
@@ -234,7 +234,7 @@ export default function AdmissionPage() {
                     </div>
                   </div>
 
-                  <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                  <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
                     <div className="flex">
                       <div className="flex-shrink-0">
                         <svg
@@ -265,12 +265,12 @@ export default function AdmissionPage() {
       </section>
 
       {/* Registration Form */}
-      <section className="py-16 bg-gray-50">
+      <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="mx-auto max-w-6xl">
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl text-center">
+                <CardTitle className="text-center text-2xl">
                   Pre-Registration Form
                 </CardTitle>
               </CardHeader>
@@ -288,7 +288,7 @@ export default function AdmissionPage() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                           <FormField
                             control={form.control}
                             name="firstName"
@@ -339,7 +339,7 @@ export default function AdmissionPage() {
                           />
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                           <FormField
                             control={form.control}
                             name="email"
@@ -376,7 +376,7 @@ export default function AdmissionPage() {
                           />
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                           <FormField
                             control={form.control}
                             name="dateOfBirthAD"
@@ -405,7 +405,7 @@ export default function AdmissionPage() {
                           />
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                           <FormField
                             control={form.control}
                             name="religion"
@@ -445,7 +445,7 @@ export default function AdmissionPage() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormLabel>Marital Status *</FormLabel>
-                                <div className="flex flex-wrap gap-4 mt-2">
+                                <div className="mt-2 flex flex-wrap gap-4">
                                   {[
                                     { value: "single", label: "Single" },
                                     { value: "married", label: "Married" },
@@ -517,7 +517,7 @@ export default function AdmissionPage() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                           <FormField
                             control={form.control}
                             name="permanentProvince"
@@ -578,7 +578,7 @@ export default function AdmissionPage() {
                             )}
                           />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                           <FormField
                             control={form.control}
                             name="permanentVdcMunicipality"
@@ -623,7 +623,7 @@ export default function AdmissionPage() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                           <FormField
                             control={form.control}
                             name="currentProvince"
@@ -684,7 +684,7 @@ export default function AdmissionPage() {
                             )}
                           />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                           <FormField
                             control={form.control}
                             name="currentVdcMunicipality"
@@ -729,7 +729,7 @@ export default function AdmissionPage() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                           <FormField
                             control={form.control}
                             name="fatherName"
@@ -780,7 +780,7 @@ export default function AdmissionPage() {
                             )}
                           />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                           <FormField
                             control={form.control}
                             name="motherName"
@@ -892,22 +892,22 @@ export default function AdmissionPage() {
                           <table className="w-full border-collapse border border-gray-300">
                             <thead>
                               <tr className="bg-gray-50">
-                                <th className="border border-gray-300 px-4 py-3 text-left font-medium text-gray-900 w-32">
+                                <th className="w-32 border border-gray-300 px-4 py-3 text-left font-medium text-gray-900">
                                   Level
                                 </th>
-                                <th className="border border-gray-300 px-4 py-3 text-left font-medium text-gray-900 w-32">
+                                <th className="w-32 border border-gray-300 px-4 py-3 text-left font-medium text-gray-900">
                                   Board
                                 </th>
-                                <th className="border border-gray-300 px-4 py-3 text-left font-medium text-gray-900 w-24">
+                                <th className="w-24 border border-gray-300 px-4 py-3 text-left font-medium text-gray-900">
                                   Year
                                 </th>
-                                <th className="border border-gray-300 px-4 py-3 text-left font-medium text-gray-900 w-32">
+                                <th className="w-32 border border-gray-300 px-4 py-3 text-left font-medium text-gray-900">
                                   Symbol No.
                                 </th>
-                                <th className="border border-gray-300 px-4 py-3 text-left font-medium text-gray-900 w-80">
+                                <th className="w-80 border border-gray-300 px-4 py-3 text-left font-medium text-gray-900">
                                   Name of Academic Institute
                                 </th>
-                                <th className="border border-gray-300 px-4 py-3 text-left font-medium text-gray-900 w-36">
+                                <th className="w-36 border border-gray-300 px-4 py-3 text-left font-medium text-gray-900">
                                   CGPA/Percentage
                                 </th>
                               </tr>
@@ -915,7 +915,7 @@ export default function AdmissionPage() {
                             <tbody>
                               {/* Row 1 - Required */}
                               <tr>
-                                <td className="border border-gray-300 p-2 w-32">
+                                <td className="w-32 border border-gray-300 p-2">
                                   <FormField
                                     control={form.control}
                                     name="academic1Level"
@@ -950,7 +950,7 @@ export default function AdmissionPage() {
                                     )}
                                   />
                                 </td>
-                                <td className="border border-gray-300 p-2 w-32">
+                                <td className="w-32 border border-gray-300 p-2">
                                   <FormField
                                     control={form.control}
                                     name="academic1Board"
@@ -968,7 +968,7 @@ export default function AdmissionPage() {
                                     )}
                                   />
                                 </td>
-                                <td className="border border-gray-300 p-2 w-24">
+                                <td className="w-24 border border-gray-300 p-2">
                                   <FormField
                                     control={form.control}
                                     name="academic1Year"
@@ -986,7 +986,7 @@ export default function AdmissionPage() {
                                     )}
                                   />
                                 </td>
-                                <td className="border border-gray-300 p-2 w-32">
+                                <td className="w-32 border border-gray-300 p-2">
                                   <FormField
                                     control={form.control}
                                     name="academic1SymbolNo"
@@ -1004,7 +1004,7 @@ export default function AdmissionPage() {
                                     )}
                                   />
                                 </td>
-                                <td className="border border-gray-300 p-2 w-80">
+                                <td className="w-80 border border-gray-300 p-2">
                                   <FormField
                                     control={form.control}
                                     name="academic1Institute"
@@ -1022,7 +1022,7 @@ export default function AdmissionPage() {
                                     )}
                                   />
                                 </td>
-                                <td className="border border-gray-300 p-2 w-36">
+                                <td className="w-36 border border-gray-300 p-2">
                                   <FormField
                                     control={form.control}
                                     name="academic1CgpaPercentage"
@@ -1302,7 +1302,7 @@ export default function AdmissionPage() {
                             </tbody>
                           </table>
                         </div>
-                        <p className="text-sm text-gray-600 mt-4">
+                        <p className="mt-4 text-sm text-gray-600">
                           * First row is required. Additional rows are optional
                           for multiple qualifications.
                         </p>
@@ -1315,7 +1315,7 @@ export default function AdmissionPage() {
                         className="w-full"
                         disabled={form.formState.isSubmitting}
                       >
-                        <Send className="h-4 w-4 mr-2" />
+                        <Send className="mr-2 h-4 w-4" />
                         {form.formState.isSubmitting
                           ? "Submitting..."
                           : "Submit Pre-Registration"}
@@ -1330,14 +1330,14 @@ export default function AdmissionPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-12 bg-blue-800 text-white">
+      <section className="bg-blue-800 py-12 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Need Help With Admission?</h2>
-          <p className="max-w-2xl mx-auto mb-6">
+          <h2 className="mb-4 text-2xl font-bold">Need Help With Admission?</h2>
+          <p className="mx-auto mb-6 max-w-2xl">
             Our admission counselors are ready to assist you with any questions
             about the BHM program or admission process.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button variant="secondary" className="gap-2">
               <Phone className="h-4 w-4" />
               Call: 9857071252

@@ -100,30 +100,30 @@ export default function GalleryPage() {
       : galleryItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="min-h-screen  bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] text-white py-16 flex items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[500px] items-center justify-center overflow-hidden py-16 text-white">
         {/* Background Image */}
         <Image
           src="/pic4.JPG"
           alt="Gallery Background"
           fill
-          className="object-cover object-[0%_30%] z-0"
+          className="z-0 object-cover object-[0%_30%]"
           priority
         />
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
+        <div className="absolute inset-0 z-10 bg-black bg-opacity-60" />
 
         {/* Content */}
-        <div className="container mx-auto px-4 text-center relative z-20">
-          <div className="flex justify-center mb-4">
+        <div className="container relative z-20 mx-auto px-4 text-center">
+          <div className="mb-4 flex justify-center">
             <Camera className="h-16 w-16 text-blue-200" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-wide font-sans">
+          <h1 className="mb-4 font-sans text-4xl font-bold uppercase tracking-wide md:text-5xl">
             Gallery
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl text-blue-100">
             Explore our campus life, events, and facilities through our photo
             gallery
           </p>
@@ -131,9 +131,9 @@ export default function GalleryPage() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b">
+      <section className="border-b bg-white py-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (
               <Button
                 key={category}
@@ -155,14 +155,14 @@ export default function GalleryPage() {
             {filteredGalleryItems.map((item) => (
               <div
                 key={item.id}
-                className="masonry-item overflow-hidden rounded-lg shadow-sm bg-white"
+                className="masonry-item overflow-hidden rounded-lg bg-white shadow-sm"
               >
                 <Image
                   src={item.image}
                   alt={item.title}
                   width={800}
                   height={600}
-                  className="w-full h-auto object-cover rounded-lg"
+                  className="h-auto w-full rounded-lg object-cover"
                 />
               </div>
             ))}

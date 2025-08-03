@@ -62,27 +62,27 @@ function CoursesContent() {
   const currentCategory = courseCategories.find((cat) => cat.id === category);
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] flex items-center justify-center text-white py-16 overflow-hidden">
+      <section className="relative flex min-h-[500px] items-center justify-center overflow-hidden py-16 text-white">
         {/* Background Image */}
         <Image
           src="/pic2.JPG"
           alt="Western Mega Programs"
           fill
-          className="object-cover object-top z-0"
+          className="z-0 object-cover object-top"
           priority
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/50" />
 
         {/* Content */}
-        <div className="relative z-20 container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="container relative z-20 mx-auto px-4 text-center">
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
             {currentCategory?.label || "Our Programs"}
           </h1>
-          <p className="text-2xl tracking-wide text-white max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-2xl tracking-wide text-white">
             Discover our specialized academic programs designed to prepare you
             for success.
           </p>
@@ -90,16 +90,16 @@ function CoursesContent() {
       </section>
 
       {/* Category Navigation */}
-      <section className="py-8 border-b border-gray-200">
+      <section className="border-b border-gray-200 py-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex flex-wrap justify-center gap-2">
             {courseCategories.map((cat) => {
               const Icon = cat.icon;
               return (
                 <Button
                   key={cat.id}
                   variant={category === cat.id ? "default" : "outline"}
-                  className="flex items-center space-x-2 text-black bg-white border-gray-200 hover:bg-gray-300"
+                  className="flex items-center space-x-2 border-gray-200 bg-white text-black hover:bg-gray-300"
                   onClick={() => {
                     const url =
                       cat.id === "all"
@@ -120,14 +120,11 @@ function CoursesContent() {
       {/* Courses Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div
-            className="grid
-          grid-cols-1 md:grid-cols-2 gap-8"
-          >
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {filteredCourses.map((course) => (
               <Card
                 key={course.id}
-                className="group bg-white bg-opacity-80 border-gray-200 hover:shadow-lg transition-shadow duration-300"
+                className="group border-gray-200 bg-white bg-opacity-80 transition-shadow duration-300 hover:shadow-lg"
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <Image
@@ -135,9 +132,9 @@ function CoursesContent() {
                     height={300}
                     src={course.image}
                     alt={course.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute left-4 top-4">
                     <Badge className="bg-blue-600 text-white">
                       {course.category === "bachelor"
                         ? "Bachelor Program"
@@ -165,7 +162,7 @@ function CoursesContent() {
                     </div> */}
                   </div>
 
-                  <div className="pt-4 border-t border-gray-700 space-y-3">
+                  <div className="space-y-3 border-t border-gray-700 pt-4">
                     <Button
                       asChild
                       className="w-full bg-blue-600 hover:bg-blue-700"
@@ -197,7 +194,7 @@ function LoadingFallback() {
   return (
     <div className="min-h-screen">
       <section
-        className="min-h-[500px] text-white py-16 flex items-center justify-center"
+        className="flex min-h-[500px] items-center justify-center py-16 text-white"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/3401403/pexels-photo-3401403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
@@ -206,9 +203,9 @@ function LoadingFallback() {
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <BookOpen className="h-16 w-16 mx-auto mb-4 text-white animate-pulse" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Programs</h1>
-          <p className="text-2xl tracking-wide text-white max-w-2xl mx-auto">
+          <BookOpen className="mx-auto mb-4 h-16 w-16 animate-pulse text-white" />
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">Our Programs</h1>
+          <p className="mx-auto max-w-2xl text-2xl tracking-wide text-white">
             Loading courses...
           </p>
         </div>

@@ -15,7 +15,7 @@ export default function NewsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section
-        className="min-h-[500px] text-white py-16 flex items-center justify-center"
+        className="flex min-h-[500px] items-center justify-center py-16 text-white"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
@@ -24,10 +24,10 @@ export default function NewsPage() {
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl text-orange-500 md:text-5xl font-bold mb-4">
+          <h1 className="mb-4 text-4xl font-bold text-orange-500 md:text-5xl">
             Latest News & Updates
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl text-blue-100">
             Stay informed about the latest happenings, achievements, and events
             at Western Mega College
           </p>
@@ -37,12 +37,12 @@ export default function NewsPage() {
       <div className="container mx-auto px-4 py-12">
         {/* Search and Filter Section */}
         <div className="mb-12">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div className="relative max-w-md flex-1">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-400" />
               <Input placeholder="Search news..." className="pl-10" />
             </div>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <Button
                   key={category}
@@ -59,35 +59,35 @@ export default function NewsPage() {
         {/* Featured News */}
         {featuredNews.length > 0 && (
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900">
               Featured News
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
               {featuredNews.map((news) => (
                 <Card
                   key={news.id}
-                  className="group hover:shadow-xl transition-all duration-300 overflow-hidden"
+                  className="group overflow-hidden transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="relative">
                     <img
                       src={news.image}
                       alt={news.title}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute left-4 top-4">
+                      <span className="rounded-full bg-red-600 px-3 py-1 text-sm font-medium text-white">
                         Featured
                       </span>
                     </div>
-                    <div className="absolute top-4 right-4">
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute right-4 top-4">
+                      <span className="rounded-full bg-blue-600 px-3 py-1 text-sm font-medium text-white">
                         {news.category}
                       </span>
                     </div>
                   </div>
 
                   <CardHeader>
-                    <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
+                    <CardTitle className="text-xl transition-colors group-hover:text-blue-600">
                       <Link href={`/news/${news.id}`}>{news.title}</Link>
                     </CardTitle>
                   </CardHeader>
@@ -120,34 +120,34 @@ export default function NewsPage() {
 
         {/* All News */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">All News</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="mb-6 text-2xl font-bold text-gray-900">All News</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {regularNews.map((news) => (
               <Card
                 key={news.id}
-                className="group hover:shadow-lg transition-shadow duration-300"
+                className="group transition-shadow duration-300 hover:shadow-lg"
               >
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
                     src={news.image}
                     alt={news.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute left-4 top-4">
+                    <span className="rounded-full bg-blue-600 px-3 py-1 text-sm font-medium text-white">
                       {news.category}
                     </span>
                   </div>
                 </div>
 
                 <CardHeader>
-                  <CardTitle className="text-lg group-hover:text-blue-600 transition-colors">
+                  <CardTitle className="text-lg transition-colors group-hover:text-blue-600">
                     <Link href={`/news/${news.id}`}>{news.title}</Link>
                   </CardTitle>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <p className="text-gray-600 text-sm">{news.excerpt}</p>
+                  <p className="text-sm text-gray-600">{news.excerpt}</p>
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2 text-xs text-gray-500">
@@ -169,7 +169,7 @@ export default function NewsPage() {
         </section>
 
         {/* Load More Button */}
-        <div className="text-center mt-12">
+        <div className="mt-12 text-center">
           <Button variant="outline" size="lg">
             Load More News
           </Button>
